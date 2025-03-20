@@ -1,0 +1,204 @@
+{% extends 'searchengine/base.html' %}
+
+{% block title %}Search Engine Statistics{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Search Engine Statistics</h3>
+            </div>
+            <div class="card-body">
+                <div id="stats-loading" class="text-center my-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Loading statistics...</p>
+                </div>
+                
+                <div id="stats-container" class="d-none">
+                    <div class="row mb-4">
+                        <div class="col-md-6 col-lg-3 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Books
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-books">0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Indexed Words
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-words">0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-font fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Top Books</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Author</th>
+                                                    <th>Popularity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="top-books-table">
+                                                <!-- Top books will be loaded here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Recent Searches</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Search Term</th>
+                                                    <th>Type</th>
+                                                    <th>Time</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="recent-searches-table">
+                                                <!-- Recent searches will be loaded here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        // Load statistics on page load
+        loadStatistics();
+        
+        function loadStatistics() {
+            $('#stats-loading').removeClass('d-none');
+            $('#stats-container').addClass('d-none');
+            
+            $.ajax({
+                url: '/api/statistics/',
+                method: 'GET',
+                success: function(data) {
+                    $('#stats-loading').addClass('d-none');
+                    
+                    // Update statistics counts
+                    $('#total-books').text(data.total_books.toLocaleString());
+                    $('#total-words').text(data.total_indexed_words.toLocaleString());
+                    
+                    // Populate top books table
+                    $('#top-books-table').empty();
+                    if (data.top_books && data.top_books.length > 0) {
+                        data.top_books.forEach(function(book) {
+                            $('#top-books-table').append(`
+                                <tr>
+                                    <td>
+                                        <a href="/api/books/${book.id}/">${book.title}</a>
+                                    </td>
+                                    <td>${book.author}</td>
+                                    <td>
+                                        <span class="badge bg-success">${book.total_clicks} clicks</span>
+                                    </td>
+                                </tr>
+                            `);
+                        });
+                    } else {
+                        $('#top-books-table').append(`
+                            <tr>
+                                <td colspan="3" class="text-center">No data available</td>
+                            </tr>
+                        `);
+                    }
+                    
+                    // Populate recent searches table
+                    $('#recent-searches-table').empty();
+                    if (data.recent_searches && data.recent_searches.length > 0) {
+                        data.recent_searches.forEach(function(search) {
+                            const date = new Date(search.timestamp);
+                            const formattedDate = date.toLocaleString();
+                            
+                            $('#recent-searches-table').append(`
+                                <tr>
+                                    <td>
+                                        <a href="/api/search/?q=${encodeURIComponent(search.search_term)}&regex=${search.is_regex}">
+                                            ${search.search_term}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="badge ${search.is_regex ? 'bg-warning' : 'bg-info'}">
+                                            ${search.is_regex ? 'RegEx' : 'Keyword'}
+                                        </span>
+                                    </td>
+                                    <td>${formattedDate}</td>
+                                </tr>
+                            `);
+                        });
+                    } else {
+                        $('#recent-searches-table').append(`
+                            <tr>
+                                <td colspan="3" class="text-center">No searches recorded yet</td>
+                            </tr>
+                        `);
+                    }
+                    
+                    // Show statistics container
+                    $('#stats-container').removeClass('d-none');
+                },
+                error: function() {
+                    $('#stats-loading').addClass('d-none');
+                    alert('Error loading statistics. Please try again later.');
+                }
+            });
+        }
+        
+        // Refresh statistics every 30 seconds
+        setInterval(loadStatistics, 30000);
+    });
+</script>
+{% endblock %}

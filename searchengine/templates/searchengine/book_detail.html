@@ -1,0 +1,95 @@
+{% extends 'searchengine/base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0"><i class="fas fa-book me-2"></i>{{ book.title }}</h3>
+                    <a href="javascript:history.back()" class="btn btn-light btn-sm">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <h4 class="text-muted">by {{ book.author }}</h4>
+                        {% if book.publication_year %}
+                            <p><strong>Published:</strong> {{ book.publication_year }}</p>
+                        {% endif %}
+                        <p>
+                            <span class="badge bg-primary me-2">
+                                <i class="fas fa-chart-line"></i> Rank: {{ book.centrality_score|floatformat:4 }}
+                            </span>
+                            <span class="badge bg-secondary">
+                                <i class="fas fa-mouse-pointer"></i> Clicks: {{ book.total_clicks }}
+                            </span>
+                        </p>
+                        {% if book.gutenberg_id %}
+                            <p>
+                                <a href="https://www.gutenberg.org/ebooks/{{ book.gutenberg_id }}" target="_blank" class="btn btn-outline-secondary">
+                                    <i class="fas fa-external-link-alt"></i> View on Project Gutenberg
+                                </a>
+                            </p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Book Stats</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Words Count
+                                        <span class="badge bg-primary rounded-pill">{{ word_count }}</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Indexed Words
+                                        <span class="badge bg-primary rounded-pill">{{ indexed_words_count }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mb-3">Book Preview</h5>
+                <div class="book-content border rounded p-3 bg-light">
+                    <pre class="mb-0" style="white-space: pre-wrap;">{{ book_preview }}</pre>
+                </div>
+                
+                <div class="mt-4">
+                    <h5 class="mb-3">Most Common Words</h5>
+                    <div class="row">
+                        {% for word in common_words %}
+                            <div class="col-md-3 col-6 mb-2">
+                                <span class="badge bg-secondary">{{ word.word }} ({{ word.occurrences }})</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                {% if similar_books %}
+                    <div class="mt-4">
+                        <h5 class="mb-3">Similar Books</h5>
+                        <div class="list-group">
+                            {% for book in similar_books %}
+                                <a href="{% url 'book_detail' book.id %}" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">{{ book.title }}</h6>
+                                        <small>{{ book.publication_year }}</small>
+                                    </div>
+                                    <small class="text-muted">by {{ book.author }}</small>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
