@@ -1,0 +1,284 @@
+{% extends 'searchengine/base.html' %}
+
+{% block title %}Library Books{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0"><i class="fas fa-book me-2"></i>Library Collection</h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" id="filter-input" class="form-control" 
+                                   placeholder="Filter books...">
+                            <button class="btn btn-outline-secondary" type="button" id="filter-button">
+                                <i class="fas fa-filter"></i> Filter
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-md-end">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-primary sort-btn" data-sort="alpha">
+                                    <i class="fas fa-sort-alpha-down"></i> Title
+                                </button>
+                                <button type="button" class="btn btn-outline-primary sort-btn" data-sort="author">
+                                    <i class="fas fa-user"></i> Author
+                                </button>
+                                <button type="button" class="btn btn-outline-primary sort-btn active" data-sort="rank">
+                                    <i class="fas fa-chart-line"></i> Rank
+                                </button>
+                                <button type="button" class="btn btn-outline-primary sort-btn" data-sort="popularity">
+                                    <i class="fas fa-fire"></i> Popularity
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="books-loading" class="text-center my-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Loading library books...</p>
+                </div>
+                
+                <div id="books-container" class="d-none">
+                    <div class="row" id="books-list">
+                        <!-- Books will be loaded here dynamically -->
+                    </div>
+                    
+                    <nav aria-label="Book pagination" class="mt-4">
+                        <ul class="pagination justify-content-center" id="pagination">
+                            <!-- Pagination controls will be added here -->
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div id="no-books-message" class="alert alert-info d-none">
+                    <i class="fas fa-info-circle me-2"></i> No books found in the library.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        let allBooks = [];
+        let currentPage = 1;
+        const booksPerPage = 20;
+        let currentSort = 'rank'; // Default sort
+        
+        // Load books on page load
+        loadBooks();
+        
+        // Function to load books from API
+        function loadBooks() {
+            $('#books-loading').removeClass('d-none');
+            $('#books-container').addClass('d-none');
+            $('#no-books-message').addClass('d-none');
+            
+            $.ajax({
+                url: '/api/books/',
+                method: 'GET',
+                success: function(data) {
+                    $('#books-loading').addClass('d-none');
+                    
+                    if (data && data.length > 0) {
+                        allBooks = data;
+                        sortAndDisplayBooks();
+                    } else {
+                        $('#no-books-message').removeClass('d-none');
+                    }
+                },
+                error: function() {
+                    $('#books-loading').addClass('d-none');
+                    $('#no-books-message').removeClass('d-none').text('Error loading books. Please try again later.');
+                }
+            });
+        }
+        
+        // Sort books based on selected criterion
+        function sortBooks(books, sortBy) {
+            let sorted = [...books];
+            
+            switch(sortBy) {
+                case 'alpha':
+                    sorted.sort((a, b) => a.title.localeCompare(b.title));
+                    break;
+                case 'author':
+                    sorted.sort((a, b) => a.author.localeCompare(b.author));
+                    break;
+                case 'rank':
+                    sorted.sort((a, b) => b.centrality_score - a.centrality_score);
+                    break;
+                case 'popularity':
+                    sorted.sort((a, b) => b.total_clicks - a.total_clicks);
+                    break;
+                default:
+                    break;
+            }
+            
+            return sorted;
+        }
+        
+        // Filter books based on input
+        function filterBooks(books, filter) {
+            if (!filter) return books;
+            
+            filter = filter.toLowerCase();
+            return books.filter(book => 
+                book.title.toLowerCase().includes(filter) || 
+                book.author.toLowerCase().includes(filter)
+            );
+        }
+        
+        // Display a page of books
+        function displayBooks(books, page) {
+            const start = (page - 1) * booksPerPage;
+            const end = Math.min(start + booksPerPage, books.length);
+            const booksToShow = books.slice(start, end);
+            
+            $('#books-list').empty();
+            
+            booksToShow.forEach(book => {
+                const bookCard = `
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+                        <div class="card h-100 book-card">
+                            <div class="card-body">
+                                <h5 class="card-title">${book.title}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">by ${book.author}</h6>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        ${book.publication_year ? `Published: ${book.publication_year}` : ''}
+                                    </small>
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="badge bg-primary">
+                                        <i class="fas fa-chart-line"></i> Rank: ${book.centrality_score.toFixed(4)}
+                                    </span>
+                                    <span class="badge bg-secondary">
+                                        <i class="fas fa-mouse-pointer"></i> Clicks: ${book.total_clicks}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <a href="/book/${book.id}/" class="btn btn-sm btn-outline-primary stretched-link">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                $('#books-list').append(bookCard);
+            });
+            
+            // Create pagination
+            createPagination(books.length, page);
+            
+            // Show books container
+            $('#books-container').removeClass('d-none');
+        }
+        
+        // Create pagination controls
+        function createPagination(totalBooks, currentPage) {
+            const totalPages = Math.ceil(totalBooks / booksPerPage);
+            $('#pagination').empty();
+            
+            // Previous button
+            $('#pagination').append(`
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage - 1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            `);
+            
+            // Page numbers
+            const maxPages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxPages / 2));
+            let endPage = Math.min(totalPages, startPage + maxPages - 1);
+            
+            if (endPage - startPage + 1 < maxPages) {
+                startPage = Math.max(1, endPage - maxPages + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                $('#pagination').append(`
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" data-page="${i}">${i}</a>
+                    </li>
+                `);
+            }
+            
+            // Next button
+            $('#pagination').append(`
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage + 1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            `);
+        }
+        
+        // Sort and display books
+        function sortAndDisplayBooks() {
+            const filterText = $('#filter-input').val().trim();
+            const filteredBooks = filterBooks(allBooks, filterText);
+            const sortedBooks = sortBooks(filteredBooks, currentSort);
+            
+            currentPage = 1; // Reset to first page
+            displayBooks(sortedBooks, currentPage);
+        }
+        
+        // Handle pagination clicks
+        $(document).on('click', '.page-link', function(e) {
+            e.preventDefault();
+            const page = parseInt($(this).data('page'));
+            
+            if (isNaN(page)) return;
+            
+            const filterText = $('#filter-input').val().trim();
+            const filteredBooks = filterBooks(allBooks, filterText);
+            const sortedBooks = sortBooks(filteredBooks, currentSort);
+            
+            currentPage = page;
+            displayBooks(sortedBooks, currentPage);
+            
+            // Scroll to top of books container
+            $('html, body').animate({
+                scrollTop: $('#books-container').offset().top - 20
+            }, 200);
+        });
+        
+        // Handle sort button clicks
+        $('.sort-btn').on('click', function() {
+            $('.sort-btn').removeClass('active');
+            $(this).addClass('active');
+            
+            currentSort = $(this).data('sort');
+            sortAndDisplayBooks();
+        });
+        
+        // Handle filter button
+        $('#filter-button').on('click', function() {
+            sortAndDisplayBooks();
+        });
+        
+        // Handle filter input enter key
+        $('#filter-input').on('keyup', function(e) {
+            if (e.key === 'Enter') {
+                sortAndDisplayBooks();
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,13 @@
+# ignore all django & python configs ( venv etc)
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3-journal
+__pycache__/
+.zip
+.venv/
+CLAUDE.md
+.vscode/
+.venv/
+db.sqlite3.backup

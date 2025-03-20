@@ -1,0 +1,199 @@
+{% extends 'searchengine/base.html' %}
+
+{% block title %}Search Books{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0"><i class="fas fa-search me-2"></i>Library Search Engine</h3>
+            </div>
+            <div class="card-body">
+                <form id="search-form" class="mb-4">
+                    <div class="input-group mb-3">
+                        <input type="text" id="search-input" class="form-control form-control-lg" 
+                               placeholder="Search by keyword or regex pattern..." required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="regex-checkbox">
+                        <label class="form-check-label" for="regex-checkbox">
+                            Use Regular Expression (advanced search)
+                        </label>
+                    </div>
+                </form>
+                
+                <div id="search-results-container" class="d-none">
+                    <h4 class="mb-3">Search Results</h4>
+                    <div class="mb-2">
+                        <span id="result-count" class="badge bg-secondary">0 results</span>
+                        <span id="search-query" class="badge bg-info"></span>
+                    </div>
+                    <div id="results-list" class="list-group mb-4"></div>
+                    
+                    <div id="recommendations-container" class="mt-4">
+                        <h5 class="mb-3">You might also be interested in:</h5>
+                        <div id="recommendations-list" class="list-group"></div>
+                    </div>
+                </div>
+                
+                <div id="no-results-container" class="d-none">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i> No results found for your query.
+                    </div>
+                </div>
+                
+                <div id="loading-container" class="d-none text-center my-4">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Searching the library...</p>
+                </div>
+                
+                <div id="error-container" class="d-none">
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <span id="error-message">An error occurred during the search.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        let searchId = null;
+        
+        // Handle search form submission
+        $('#search-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            const query = $('#search-input').val().trim();
+            const isRegex = $('#regex-checkbox').is(':checked');
+            
+            if (!query) {
+                return;
+            }
+            
+            // Show loading indicator
+            $('#search-results-container').addClass('d-none');
+            $('#no-results-container').addClass('d-none');
+            $('#error-container').addClass('d-none');
+            $('#loading-container').removeClass('d-none');
+            
+            // Prepare API URL
+            const apiUrl = `/api/search/?q=${encodeURIComponent(query)}&regex=${isRegex}`;
+            
+            // Call the search API
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                success: function(data) {
+                    // Hide loading indicator
+                    $('#loading-container').addClass('d-none');
+                    
+                    // Store the search ID for click tracking
+                    searchId = data.search_id;
+                    
+                    // Update search info
+                    $('#search-query').text(`Query: "${data.query}" ${data.is_regex ? '(RegEx)' : ''}`);
+                    $('#result-count').text(`${data.results_count} results`);
+                    
+                    // Clear previous results
+                    $('#results-list').empty();
+                    $('#recommendations-list').empty();
+                    
+                    if (data.results && data.results.length > 0) {
+                        // Display search results
+                        data.results.forEach(function(book) {
+                            const resultItem = `
+                                <a href="#" class="list-group-item list-group-item-action book-item" data-book-id="${book.id}">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">${book.title}</h5>
+                                        <small class="text-muted">${book.publication_year || 'Unknown year'}</small>
+                                    </div>
+                                    <p class="mb-1">by ${book.author}</p>
+                                    <small class="text-muted">
+                                        <i class="fas fa-chart-line me-1"></i> Centrality: ${book.centrality_score.toFixed(4)}
+                                        <i class="fas fa-mouse-pointer ms-3 me-1"></i> Clicks: ${book.total_clicks}
+                                    </small>
+                                </a>
+                            `;
+                            $('#results-list').append(resultItem);
+                        });
+                        
+                        // Display recommendations if available
+                        if (data.recommendations && data.recommendations.length > 0) {
+                            data.recommendations.forEach(function(book) {
+                                const recItem = `
+                                    <a href="#" class="list-group-item list-group-item-action book-item" data-book-id="${book.id}">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">${book.title}</h5>
+                                            <span class="badge bg-success">Recommended</span>
+                                        </div>
+                                        <p class="mb-1">by ${book.author}</p>
+                                    </a>
+                                `;
+                                $('#recommendations-list').append(recItem);
+                            });
+                            $('#recommendations-container').show();
+                        } else {
+                            $('#recommendations-container').hide();
+                        }
+                        
+                        // Show results container
+                        $('#search-results-container').removeClass('d-none');
+                    } else {
+                        // Show no results message
+                        $('#no-results-container').removeClass('d-none');
+                    }
+                },
+                error: function(xhr) {
+                    // Hide loading indicator
+                    $('#loading-container').addClass('d-none');
+                    
+                    // Show error message
+                    let errorMsg = 'An error occurred during the search.';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMsg = xhr.responseJSON.error;
+                    }
+                    $('#error-message').text(errorMsg);
+                    $('#error-container').removeClass('d-none');
+                }
+            });
+        });
+        
+        // Handle book click events
+        $(document).on('click', '.book-item', function(e) {
+            e.preventDefault();
+            const bookId = $(this).data('book-id');
+            
+            // Record the click if we have a search ID
+            if (searchId) {
+                $.ajax({
+                    url: `/api/books/${bookId}/click/`,
+                    method: 'POST',
+                    data: JSON.stringify({ search_id: searchId }),
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function() {
+                        console.log('Click recorded successfully');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error recording click:', error);
+                    }
+                });
+            }
+            
+            // Navigate to the book detail page
+            window.location.href = `/book/${bookId}/`;
+        });
+    });
+</script>
+{% endblock %}
