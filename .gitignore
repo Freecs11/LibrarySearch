@@ -17,3 +17,14 @@ db.sqlite3
 *.sqlite3-journal
 *.db
 db.sqlite3.backup
+
+# Fichiers locaux
+.DS_Store
+.env
+.vscode/
+CLAUDE.md
+
+# Archives
+*.zip
+*.tar.gz
+*.tgz
