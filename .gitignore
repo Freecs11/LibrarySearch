@@ -1,13 +1,29 @@
-# ignore all django & python configs ( venv etc)
-*.pyc
-*.pyo
-*.pyd
-*.db
-*.sqlite3-journal
+# Django & Python files
 __pycache__/
-.zip
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environnement virtuel
+venv/
+env/
+ENV/
 .venv/
-CLAUDE.md
-.vscode/
-.venv/
+
+# Base de données
+*.sqlite3
+*.sqlite3-journal
+*.db
 db.sqlite3.backup
+
+# Fichiers locaux
+.DS_Store
+.env
+.vscode/
+CLAUDE.md
+
+# Archives
+*.zip
+*.tar.gz
+*.tgz

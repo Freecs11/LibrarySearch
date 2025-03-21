@@ -4,6 +4,7 @@ Django management command to reindex books from the local books_data folder.
 
 import os
 import re
+import time
 import nltk
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -167,10 +168,15 @@ class Command(BaseCommand):
 
     def calculate_centrality(self, ranking_method):
         """Calculate centrality measures for all books."""
+        start_time = time.time()
         self.stdout.write("Building Jaccard similarity graph...")
         G = build_jaccard_graph()
+        graph_time = time.time() - start_time
+        self.stdout.write(f"Graph building completed in {graph_time:.2f} seconds.")
 
+        # Add timing information
         self.stdout.write(f"Calculating {ranking_method} centrality...")
+        centrality_start = time.time()
 
         if ranking_method == "pagerank":
             calculate_pagerank(G)
@@ -183,8 +189,16 @@ class Command(BaseCommand):
                 "Using occurrence-based ranking, no centrality calculation needed."
             )
 
+        centrality_time = time.time() - centrality_start
+        total_time = time.time() - start_time
+        
         self.stdout.write(
             self.style.SUCCESS(
-                f"Successfully calculated {ranking_method} centrality for all books"
+                f"Successfully calculated {ranking_method} centrality in {centrality_time:.2f} seconds."
+            )
+        )
+        self.stdout.write(
+            self.style.SUCCESS(
+                f"Total processing time: {total_time:.2f} seconds."
             )
         )

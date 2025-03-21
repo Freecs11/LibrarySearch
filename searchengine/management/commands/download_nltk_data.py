@@ -13,5 +13,7 @@ class Command(BaseCommand):
         # Download required NLTK datasets
         nltk.download('punkt')
         nltk.download('stopwords')
+        nltk.download('punkt_tab')  # Ajout de cette ligne
+
         
         self.stdout.write(self.style.SUCCESS('Successfully downloaded NLTK data'))

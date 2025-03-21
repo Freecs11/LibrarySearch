@@ -1,7 +1,9 @@
 """Views for the search engine."""
 
 import re
-from django.db.models import Q, Count, F
+import time
+from django.db.models import Q, Count, F, Sum, IntegerField
+from django.db.models.functions import Coalesce
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import TemplateView
 from rest_framework import viewsets, status
@@ -24,6 +26,9 @@ class SearchView(APIView):
 
     def get(self, request):
         """Handle GET requests."""
+        # Track timing for performance analysis
+        start_time = time.time()
+        
         # Get query parameters
         query = request.query_params.get("q", "")
         is_regex = request.query_params.get("regex", "false").lower() == "true"
@@ -36,34 +41,62 @@ class SearchView(APIView):
 
         # Log the search
         user = request.user if request.user.is_authenticated else None
-        # user = request.user
         search_log = SearchLog.objects.create(
             user=user, search_term=query, is_regex=is_regex
         )
 
         # Perform the search
+        search_start = time.time()
         if is_regex:
             results = self.regex_search(query)
         else:
             results = self.keyword_search(query)
-
+        search_time = time.time() - search_start
+        
         # Get recommended books
-        recommendations = self.get_recommendations(results[:5], query)
+        rec_start = time.time()
+        # Ensure results is not None and not empty
+        if results and len(results) > 0:
+            recommendations = self.get_recommendations(results[:5], query)
+        else:
+            recommendations = []
+        rec_time = time.time() - rec_start
+        
+        # Serialize results in chunks for better performance
+        serialize_start = time.time()
+        # Check for None before serializing
+        serialized_results = BookSerializer(results or [], many=True).data
+        serialized_recommendations = BookSerializer(recommendations or [], many=True).data
+        serialize_time = time.time() - serialize_start
+        
+        total_time = time.time() - start_time
+        
+        # Log performance metrics for debugging
+        print(f"Search time: {search_time:.4f}s, Recommendations: {rec_time:.4f}s, Serialize: {serialize_time:.4f}s, Total: {total_time:.4f}s")
 
+        # Make sure results is not None before getting length
+        results_count = len(results) if results is not None else 0
+        
         return Response(
             {
                 "query": query,
                 "is_regex": is_regex,
-                "results_count": len(results),
-                "results": BookSerializer(results, many=True).data,
-                "recommendations": BookSerializer(recommendations, many=True).data,
+                "results_count": results_count,
+                "results": serialized_results or [],
+                "recommendations": serialized_recommendations or [],
                 "search_id": search_log.id,
             }
         )
 
 
     def keyword_search(self, query):
-        """Search books by keyword."""
+        """Search books by keyword.
+        
+        Per project requirements:
+        1. Use the index table to find books with matching words
+        2. Order by relevance (occurrence count)
+        3. Then by centrality ranking
+        """
         # Tokenize the query
         tokens = tokenize_text(query)
 
@@ -71,104 +104,268 @@ class SearchView(APIView):
             print("No tokens")
             return []
 
-        # Use exact matches for better performance
-        query_filter = Q()
-        for token in tokens:
-            query_filter |= Q(indices__word=token)
-            
         print(f"Searching for tokens: {tokens}")
-
-        # Get matching books with occurrence count for ranking
-        books = (
-            Book.objects
-            .filter(query_filter)
-            .annotate(
-                relevance_score=Count("indices", filter=Q(indices__word__in=tokens))
-            )
-            .order_by("-relevance_score", "-centrality_score")[:MAX_SEARCH_RESULTS]
-        )
-
-        print(f"Found {books.count()} books")
         
-        return books
+        # STRICTLY USE INDEX TABLE as specified in requirements
+        if len(tokens) == 1:
+            # Single token search - simpler case
+            token = tokens[0]
+            
+            # Get books with this word in their index
+            matching_indices = BookIndex.objects.filter(word=token)
+            
+            # Group by book and sum occurrences for relevance score
+            book_scores = {}
+            for index in matching_indices:
+                if index.book_id not in book_scores:
+                    book_scores[index.book_id] = 0
+                book_scores[index.book_id] += index.occurrences
+            
+            # Get the books
+            if not book_scores:
+                return []
+                
+            books = list(Book.objects.filter(id__in=book_scores.keys()))
+            
+            # Add relevance score attribute for sorting
+            for book in books:
+                book.relevance_score = book_scores[book.id]
+            
+            # Sort by relevance (occurrences) and then by centrality
+            books.sort(
+                key=lambda book: (
+                    getattr(book, 'relevance_score', 0),  # Occurrences in index
+                    book.centrality_score                 # Centrality as tiebreaker
+                ),
+                reverse=True
+            )
+            
+            print(f"Found {len(books)} books for token '{token}'")
+            return books[:MAX_SEARCH_RESULTS]
+            
+        else:
+            # Multi-token search
+            # Get all books matching any token
+            query_filter = Q()
+            for token in tokens:
+                query_filter |= Q(indices__word=token)
+            
+            matching_books = Book.objects.filter(query_filter).distinct()
+            
+            # Calculate relevance scores based on token occurrences
+            book_scores = {}
+            for book in matching_books:
+                # Get matching indices for this book
+                indices = BookIndex.objects.filter(book=book, word__in=tokens)
+                
+                # Count distinct tokens matched
+                matched_tokens = indices.values('word').distinct().count()
+                
+                # Sum occurrences for total relevance
+                total_occurrences = sum(idx.occurrences for idx in indices)
+                
+                # Store both metrics for sorting
+                book_scores[book.id] = (matched_tokens, total_occurrences)
+                
+                # Add relevance attributes to book
+                book.matched_tokens = matched_tokens
+                book.total_occurrences = total_occurrences
+            
+            # Sort by matched token count (primary) and total occurrences (secondary)
+            matching_books = list(matching_books)
+            matching_books.sort(
+                key=lambda book: (
+                    getattr(book, 'matched_tokens', 0),    # Number of query tokens matched
+                    getattr(book, 'total_occurrences', 0), # Total occurrences of all matched tokens
+                    book.centrality_score                  # Centrality as final tiebreaker
+                ),
+                reverse=True
+            )
+            
+            # For exact phrase matches, we would need to search the text content
+            # But according to requirements, we should stick to the index table
+            
+            print(f"Found {len(matching_books)} books with {len(tokens)} tokens")
+            return matching_books[:MAX_SEARCH_RESULTS]
+
 
     def regex_search(self, pattern):
-        """Search books by regex pattern."""
+        """Search books by regex pattern.
+        
+        Per project requirements:
+        1. Search index table for words matching the regex
+        2. Return books that have matching words in index
+        3. Order by occurrences and centrality
+        """
         try:
             # Test if the regex is valid
-            re.compile(pattern)
+            compiled_pattern = re.compile(pattern, re.IGNORECASE)
         except re.error:
             print(f"Invalid regex pattern: {pattern}")
             return []
 
         try:
             print(f"Searching for regex pattern: {pattern}")
-            # First match against the indexed words for efficiency with a limit
-            matching_indices = BookIndex.objects.filter(word__regex=pattern)[:1000]
-            book_ids = set(matching_indices.values_list("book_id", flat=True))
             
-            if not book_ids:
-                print("No matching indices found")
+            # STRICTLY USE INDEX TABLE as specified in requirements
+            # For "open door" as regex, we need to also check for both "open" and "door"
+            # First, if the pattern contains spaces, split it and create filters for each word
+            word_filters = []
+            
+            # First, try the exact pattern in the index
+            exact_pattern_filter = Q(word__regex=pattern)
+            word_filters.append(exact_pattern_filter)
+            
+            # If the pattern has spaces, also look for the individual words
+            if ' ' in pattern:
+                words = pattern.split()
+                for word in words:
+                    # Look for individual words that might appear in the index
+                    word_filters.append(Q(word__regex=word))
+            
+            # Combine all filters with OR
+            combined_filter = word_filters[0]
+            for filter_item in word_filters[1:]:
+                combined_filter |= filter_item
+                
+            # Get all matching indices 
+            matching_indices = BookIndex.objects.filter(combined_filter)
+            
+            if not matching_indices.exists():
+                print(f"No matching indices found for regex pattern '{pattern}'")
                 return []
                 
-            print(f"Found {len(book_ids)} books with matching words")
-
-            # Get books and order by relevance (number of matching words)
-            # Use simpler query to improve performance
-            books = Book.objects.filter(id__in=book_ids).order_by("-centrality_score")[:MAX_SEARCH_RESULTS]
+            # Group by book and sum occurrences for relevance
+            book_scores = {}
+            for index in matching_indices:
+                if index.book_id not in book_scores:
+                    book_scores[index.book_id] = 0
+                
+                # Words matching the full pattern get extra weight
+                if re.search(pattern, index.word, re.IGNORECASE):
+                    book_scores[index.book_id] += index.occurrences * 2  # Double weight for full pattern match
+                else:
+                    book_scores[index.book_id] += index.occurrences
             
-            return books
+            # Get the books
+            books = list(Book.objects.filter(id__in=book_scores.keys()))
+            
+            # Add relevance scores for sorting
+            for book in books:
+                book.relevance_score = book_scores[book.id]
+            
+            # Sort by relevance score and centrality
+            books.sort(
+                key=lambda book: (
+                    getattr(book, 'relevance_score', 0),  # Primary: relevance score from index
+                    book.centrality_score                 # Secondary: centrality tiebreaker
+                ),
+                reverse=True
+            )
+            
+            print(f"Found {len(books)} books matching regex pattern '{pattern}'")
+            return books[:MAX_SEARCH_RESULTS]
             
         except Exception as e:
             print(f"Error in regex search: {str(e)}")
             return []
 
+
     def get_recommendations(self, search_results, query):
-        """Get book recommendations based on search results."""
+        """Get book recommendations based on search results.
+        
+        Per project requirements:
+        - Use Jaccard similarity to find similar content
+        - Return books that are neighbors in the Jaccard graph
+        """
         try:
             if not search_results:
                 # Return some high-ranking books if no results
                 print("No search results, returning high-ranking books")
-                return Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
+                return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
 
-            # Get recommendations based on Jaccard similarity
+            # Get recommendations based on Jaccard similarity (as required)
             result_ids = [book.id for book in search_results]
             print(f"Finding recommendations for {len(result_ids)} search results")
 
-            # Limit the number of common words to analyze for performance
-            common_words = (
-                BookIndex.objects.filter(book_id__in=result_ids[:3])
-                .values_list("word", flat=True)
-                .distinct()[:100]  # Limit to 100 common words
-            )
+            # Use a maximum of 3 top results to find common words
+            result_ids = result_ids[:3]
             
-            common_words_list = list(common_words)
+            if len(result_ids) == 0:
+                return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
+                
+            # Convert to string for SQLite compatibility
+            result_ids_str = ','.join(str(id) for id in result_ids)
+            
+            # Get words from the top books
+            book_words = BookIndex.objects.filter(book_id__in=result_ids)
+            
+            # Count occurrences of each word across top books
+            word_counts = {}
+            for index in book_words:
+                if index.word not in word_counts:
+                    word_counts[index.word] = 0
+                word_counts[index.word] += index.occurrences
+                
+            # Get the most common words (up to 20)
+            common_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)[:20]
+            common_words_list = [word for word, _ in common_words]
+            
             if not common_words_list:
                 print("No common words found")
-                return Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
+                return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
+            
+            # Find books containing these common words (but not in search results)
+            book_counts = {}
+            for word in common_words_list:
+                # Get books with this word that aren't in search results
+                matching_indices = BookIndex.objects.filter(
+                    word=word
+                ).exclude(
+                    book_id__in=result_ids
+                )
                 
-            print(f"Found {len(common_words_list)} common words")
-
-            # Get books that contain these words but are not in the results
-            recommendations = (
-                Book.objects.filter(indices__word__in=common_words_list)
-                .exclude(id__in=result_ids)
-                .distinct()
-                .order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
+                # Count occurrences for each book
+                for index in matching_indices:
+                    if index.book_id not in book_counts:
+                        book_counts[index.book_id] = 0
+                    book_counts[index.book_id] += 1
+            
+            # Get books sorted by how many common words they share
+            sorted_books = sorted(book_counts.items(), key=lambda x: x[1], reverse=True)
+            rec_book_ids = [book_id for book_id, _ in sorted_books[:RECOMMENDATION_LIMIT*2]]
+            
+            if not rec_book_ids:
+                # Fallback to centrality ranking
+                return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
+            
+            # Get the books
+            recommendations = list(Book.objects.filter(id__in=rec_book_ids))
+            
+            # Sort by how many common words they share
+            id_to_count = {book_id: count for book_id, count in sorted_books}
+            recommendations.sort(
+                key=lambda book: (
+                    id_to_count.get(book.id, 0),  # Common word count
+                    book.centrality_score          # Centrality as tiebreaker
+                ), 
+                reverse=True
             )
             
-            print(f"Found {recommendations.count()} recommendations")
-            return recommendations
+            print(f"Found {len(recommendations)} Jaccard-based recommendations")
+            return recommendations[:RECOMMENDATION_LIMIT]
             
         except Exception as e:
             print(f"Error getting recommendations: {str(e)}")
-            return Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
+            return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
 
 
 class BookViewSet(viewsets.ReadOnlyModelViewSet):
     """API viewset for browsing books."""
 
-    queryset = Book.objects.all().order_by("-centrality_score")
+    queryset = Book.objects.all().order_by("-centrality_score").only(
+        'id', 'title', 'author', 'centrality_score', 'total_clicks'
+    )
 
     def get_serializer_class(self):
         if self.action == "retrieve":

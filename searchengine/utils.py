@@ -5,12 +5,16 @@ import json
 import requests
 import numpy as np
 import nltk
+import time
+import itertools
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from scipy.sparse import csr_matrix
 from sklearn.metrics.pairwise import cosine_similarity
 import networkx as nx
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from functools import partial
 
 from django.db.models import Count, F
 from django.db import transaction
@@ -20,7 +24,9 @@ from .config import (
     GUTENBERG_MIRROR,
     MIN_WORDS_PER_BOOK,
     MAX_WORDS_TO_INDEX,
-    JACCARD_SIMILARITY_THRESHOLD
+    JACCARD_SIMILARITY_THRESHOLD,
+    MAX_GRAPH_WORKERS,
+    GRAPH_CHUNK_SIZE
 )
 
 # Download NLTK resources if not already downloaded
@@ -65,18 +71,43 @@ def tokenize_text(text):
         # Use nltk's word_tokenize for proper tokenization
         tokens = word_tokenize(cleaned_text)
         
+        # Special case for multi-word queries - preserve the original tokens too
+        # This ensures we can find things like "open door" even if they get tokenized
+        if ' ' in text and len(text.split()) <= 5:
+            # Add the original words (without cleaning) for better matching
+            original_tokens = [w.lower() for w in text.split() if len(w) > 1]
+            tokens.extend(original_tokens)
+            
+            # Also add the complete phrase as a token for exact matching
+            if len(text) > 1:
+                tokens.append(text.lower())
+        
         # Remove stopwords and single character tokens
         # Keep all tokens for search purposes, even if they're stopwords
         if len(text) <= 5:  # If the search query is short, don't filter
             tokens = [token for token in tokens if len(token) > 1]
         else:
             tokens = [token for token in tokens if token not in STOP_WORDS and len(token) > 1]
+        
+        # Remove duplicates but preserve order
+        seen = set()
+        unique_tokens = []
+        for token in tokens:
+            if token not in seen:
+                seen.add(token)
+                unique_tokens.append(token)
             
-        return tokens
+        return unique_tokens
     except Exception as e:
         print(f"Error in tokenize_text: {str(e)}")
         # Fallback to simple splitting if tokenization fails
-        return [w for w in text.lower().split() if len(w) > 1]
+        words = [w.lower() for w in text.split() if len(w) > 1]
+        
+        # Add the full text as a token too
+        if len(text) > 1:
+            words.append(text.lower())
+            
+        return words
 
 @transaction.atomic
 def index_book(book):
@@ -84,11 +115,36 @@ def index_book(book):
     # Delete any existing indices for this book
     BookIndex.objects.filter(book=book).delete()
     
-    # Tokenize the text
-    tokens = tokenize_text(book.text_content)
+    # Tokenize the text content
+    content_tokens = tokenize_text(book.text_content)
     
-    # Count word occurrences
-    word_counts = Counter(tokens)
+    # Tokenize title and author for special weighting
+    title_tokens = tokenize_text(book.title)
+    author_tokens = tokenize_text(book.author)
+    
+    # Count word occurrences in main text
+    word_counts = Counter(content_tokens)
+    
+    # Apply major boosting to title words (20x weight) and author words (10x weight)
+    # This ensures title/author matches are ranked much higher
+    for word in title_tokens:
+        word_counts[word] += 20 * (word_counts.get(word, 0) + 1)  # Add significant weight to title words
+    
+    for word in author_tokens:
+        word_counts[word] += 10 * (word_counts.get(word, 0) + 1)  # Add weight to author words
+    
+    # Also add multi-word phrases from title to the index
+    title_words = book.title.lower().split()
+    if len(title_words) > 1:
+        # Add bigrams (pairs of consecutive words)
+        for i in range(len(title_words) - 1):
+            bigram = title_words[i] + " " + title_words[i+1]
+            word_counts[bigram] = 30  # Very high weight for exact title phrases
+        
+        # Add the entire title as an index entry
+        full_title = book.title.lower()
+        if len(full_title) > 1:  # Only if it's not too short
+            word_counts[full_title] = 50  # Extremely high weight for exact title match
     
     # Create index entries for the most common words
     indices = [
@@ -183,27 +239,117 @@ def calculate_jaccard_similarity(book1, book2):
     
     return intersection / union
 
-def build_jaccard_graph():
-    """Build a graph where books are nodes and edges represent Jaccard similarity."""
+def _process_book_batch(book_pairs, word_cache=None):
+    """Process a batch of book pairs to calculate similarity."""
+    if word_cache is None:
+        word_cache = {}
+        
+    results = []
+    for book1_id, book1_data, book2_id, book2_data in book_pairs:
+        # Get words from cache or database
+        if book1_id not in word_cache:
+            word_cache[book1_id] = set(BookIndex.objects.filter(book_id=book1_id).values_list('word', flat=True))
+        if book2_id not in word_cache:
+            word_cache[book2_id] = set(BookIndex.objects.filter(book_id=book2_id).values_list('word', flat=True))
+        
+        words1 = word_cache[book1_id]
+        words2 = word_cache[book2_id]
+        
+        # Calculate Jaccard similarity
+        intersection = len(words1.intersection(words2))
+        union = len(words1.union(words2))
+        
+        similarity = intersection / union if union > 0 else 0
+        
+        if similarity >= JACCARD_SIMILARITY_THRESHOLD:
+            results.append((book1_id, book2_id, similarity))
+            
+    return results
+
+def build_jaccard_graph_chunk(chunk_id, total_chunks, use_parallel=True):
+    """Build part of the Jaccard graph for a chunk of books."""
     G = nx.Graph()
     
     # Get all books
-    books = list(Book.objects.all())
+    all_books = list(Book.objects.all().values('id', 'title', 'author'))
+    total_books = len(all_books)
     
-    # Add nodes
-    for book in books:
-        print(f"Adding node for {book.title}")
-        G.add_node(book.id, title=book.title, author=book.author)
+    # Divide books into chunks
+    chunk_size = (total_books + total_chunks - 1) // total_chunks  # Ceiling division
+    start_idx = chunk_id * chunk_size
+    end_idx = min((chunk_id + 1) * chunk_size, total_books)
     
-    # Calculate similarity and add edges
-    for i, book1 in enumerate(books):
-        print(f"Calculating similarity for {book1.title} ({i+1}/{len(books)})")
-        for book2 in books[i+1:]:
-            print(f"  - with {book2.title}")
-            similarity = calculate_jaccard_similarity(book1, book2)
-            print(f" - similarity {similarity}")
-            if similarity >= JACCARD_SIMILARITY_THRESHOLD:
-                G.add_edge(book1.id, book2.id, weight=similarity)
+    # This chunk's books
+    chunk_books = all_books[start_idx:end_idx]
+    print(f"Processing chunk {chunk_id+1}/{total_chunks} with {len(chunk_books)} books")
+    
+    # Add nodes for this chunk
+    for book in chunk_books:
+        G.add_node(book['id'], title=book['title'], author=book['author'])
+    
+    # Preload word cache for all books in chunk to avoid repeated DB queries
+    word_cache = {}
+    for book in chunk_books:
+        word_cache[book['id']] = set(BookIndex.objects.filter(book_id=book['id']).values_list('word', flat=True))
+    
+    # Compare books within this chunk
+    book_pairs = []
+    for i, book1 in enumerate(chunk_books):
+        for book2 in chunk_books[i+1:]:
+            book_pairs.append((book1['id'], book1, book2['id'], book2))
+    
+    # Compare with books from other chunks (only those after this chunk to avoid duplication)
+    for i, book1 in enumerate(chunk_books):
+        for book2 in all_books[end_idx:]:
+            book_pairs.append((book1['id'], book1, book2['id'], book2))
+    
+    # Process book pairs - either serially or in parallel
+    edges = []
+    if use_parallel and len(book_pairs) > 100:  # Only use parallel for large enough batches
+        # Split into smaller batches for parallel processing
+        batch_size = min(1000, max(50, len(book_pairs) // MAX_GRAPH_WORKERS))
+        batches = [book_pairs[i:i+batch_size] for i in range(0, len(book_pairs), batch_size)]
+        
+        with ProcessPoolExecutor(max_workers=MAX_GRAPH_WORKERS) as executor:
+            future_to_batch = {executor.submit(_process_book_batch, batch, word_cache): batch for batch in batches}
+            for future in as_completed(future_to_batch):
+                batch_edges = future.result()
+                edges.extend(batch_edges)
+    else:
+        # Process serially
+        edges = _process_book_batch(book_pairs, word_cache)
+    
+    # Add edges to graph
+    for book1_id, book2_id, similarity in edges:
+        G.add_edge(book1_id, book2_id, weight=similarity)
+    
+    print(f"Chunk {chunk_id+1} complete. Added {G.number_of_edges()} edges.")
+    return G
+
+def build_jaccard_graph():
+    """Build a graph where books are nodes and edges represent Jaccard similarity."""
+    start_time = time.time()
+    print("Starting Jaccard graph construction...")
+    
+    # Determine number of chunks based on book count
+    total_books = Book.objects.count()
+    # Use smaller chunks for larger book counts to limit memory usage
+    num_chunks = max(1, min(10, total_books // GRAPH_CHUNK_SIZE))
+    
+    # Build graph in chunks
+    graph_chunks = []
+    for chunk_id in range(num_chunks):
+        chunk_graph = build_jaccard_graph_chunk(chunk_id, num_chunks)
+        graph_chunks.append(chunk_graph)
+    
+    # Combine all chunk graphs
+    G = nx.Graph()
+    for chunk_graph in graph_chunks:
+        G.add_nodes_from(chunk_graph.nodes(data=True))
+        G.add_edges_from(chunk_graph.edges(data=True))
+    
+    print(f"Graph construction complete in {time.time() - start_time:.2f} seconds")
+    print(f"Graph has {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
     
     return G
 
@@ -243,5 +389,10 @@ def calculate_betweenness_centrality(G):
 
 def regex_search(pattern, book_content):
     """Search for a regex pattern in book content."""
-    matches = re.finditer(pattern, book_content, re.IGNORECASE)
-    return [match.group() for match in matches]
+    try:
+        # Limit to first 100 matches for performance
+        matches = re.finditer(pattern, book_content, re.IGNORECASE)
+        return [match.group() for match in matches][:100]
+    except Exception as e:
+        print(f"Error in regex_search: {str(e)}")
+        return []
