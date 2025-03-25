@@ -13,6 +13,14 @@ class Book(models.Model):
     centrality_score = models.FloatField(default=0.0)
     total_clicks = models.IntegerField(default=0)
     
+    # Related books through Jaccard similarity graph
+    similar_books = models.ManyToManyField(
+        'self', 
+        through='BookSimilarity',
+        symmetrical=False,
+        related_name='related_books'
+    )
+    
     def get_text_content(self):
         """Read book content from file."""
         try:
@@ -60,3 +68,21 @@ class BookClick(models.Model):
     
     def __str__(self):
         return f"Click on {self.book.title} from search '{self.search_log.search_term}'"
+
+
+class BookSimilarity(models.Model):
+    """Model representing an edge in the Jaccard similarity graph."""
+    from_book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='outgoing_similarities')
+    to_book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='incoming_similarities')
+    similarity_score = models.FloatField(default=0.0)
+    
+    class Meta:
+        unique_together = ('from_book', 'to_book')
+        indexes = [
+            models.Index(fields=['from_book']),
+            models.Index(fields=['to_book']),
+            models.Index(fields=['similarity_score']),
+        ]
+    
+    def __str__(self):
+        return f"Similarity between {self.from_book.title} and {self.to_book.title}: {self.similarity_score:.4f}"

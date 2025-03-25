@@ -2,7 +2,7 @@
 
 import re
 import time
-from django.db.models import Q, Count, F, Sum, IntegerField
+from django.db.models import Q, Count, F, Sum, IntegerField, Avg
 from django.db.models.functions import Coalesce
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import TemplateView
@@ -11,7 +11,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Book, BookIndex, SearchLog, BookClick
+from .models import Book, BookIndex, SearchLog, BookClick, BookSimilarity
 from .serializers import BookSerializer, BookDetailSerializer
 from .utils import regex_search, tokenize_text
 from .config import (
@@ -133,12 +133,14 @@ class SearchView(APIView):
             # Add relevance score attribute for sorting
             for book in books:
                 book.relevance_score = book_scores[book.id]
+                # For single token search, always mark the term as matched
+                book.matched_terms = {token: True}
 
-            # Sort by relevance (occurrences) and then by centrality
+            # Sort by relevance (occurrences) first, then by centrality
             books.sort(
                 key=lambda book: (
-                    book.centrality_score,  # Centrality as tiebreaker
-                    getattr(book, "relevance_score", 0),  # Occurrences in index
+                    getattr(book, "relevance_score", 0),  # Primary: Occurrences in index
+                    book.centrality_score,  # Secondary: Centrality score
                 ),
                 reverse=True,
             )
@@ -172,8 +174,28 @@ class SearchView(APIView):
                     )
                     indices = list(indices) + list(full_query_indices)
 
+                # Track which tokens are matched for this book
+                matched_token_set = set(idx.word for idx in indices)
+                book.matched_terms = {}
+                
+                # Create a dictionary mapping each search token to whether it was matched
+                for token in tokens:
+                    # Use the original unstemmed tokens for display
+                    orig_token = token
+                    if " " not in query and len(tokens) == len(query.split()):
+                        # If we can get the original query words, use those instead for display
+                        token_index = tokens.index(token)
+                        if token_index < len(query.split()):
+                            orig_token = query.split()[token_index].lower()
+                    
+                    book.matched_terms[orig_token] = token in matched_token_set
+                
+                # If the full query was matched, mark it too
+                if " " in query:
+                    book.matched_terms[query.lower()] = query.lower() in matched_token_set
+
                 # Count distinct tokens matched
-                matched_tokens = len(set(idx.word for idx in indices))
+                matched_tokens = len(matched_token_set)
 
                 # Sum occurrences for total relevance
                 total_occurrences = sum(idx.occurrences for idx in indices)
@@ -185,17 +207,13 @@ class SearchView(APIView):
                 book.matched_tokens = matched_tokens
                 book.total_occurrences = total_occurrences
 
-            # Sort by matched token count (primary) and total occurrences (secondary)
+            # Sort by matched token count (primary), total occurrences (secondary), and centrality (tertiary)
             matching_books = list(matching_books)
             matching_books.sort(
                 key=lambda book: (
-                    book.centrality_score,  # Centrality as final tiebreaker
-                    getattr(
-                        book, "matched_tokens", 0
-                    ),  # Number of query tokens matched
-                    getattr(
-                        book, "total_occurrences", 0
-                    ),  # Total occurrences of all matched tokens
+                    getattr(book, "matched_tokens", 0),  # Primary: Number of query tokens matched
+                    getattr(book, "total_occurrences", 0),  # Secondary: Total occurrences of all matched tokens
+                    book.centrality_score,  # Tertiary: Centrality as tiebreaker
                 ),
                 reverse=True,
             )
@@ -224,9 +242,15 @@ class SearchView(APIView):
         try:
             print(f"Searching for regex pattern: {pattern}")
 
+            # Add import for stemmer if not available
+            from nltk.stem import PorterStemmer
+            stemmer = PorterStemmer()
+            
+            # Import MIN_WORD_LENGTH from utils
+            from .utils import MIN_WORD_LENGTH
+
             # STRICTLY USE INDEX TABLE as specified in requirements
             # For "open door" as regex, we need to also check for both "open" and "door"
-            # First, if the pattern contains spaces, split it and create filters for each word
             word_filters = []
 
             # First, try the exact pattern in the index
@@ -237,17 +261,13 @@ class SearchView(APIView):
             if " " in pattern:
                 words = pattern.split()
                 for word in words:
-                    if (
-                        len(word) >= MIN_WORD_LENGTH
-                    ):  # Only use words that meet minimum length
+                    if len(word) >= MIN_WORD_LENGTH:  # Only use words that meet minimum length
                         # Look for individual words that might appear in the index
                         word_filters.append(Q(word__regex=word))
 
                         # Also try the stemmed version of each word
                         stemmed_word = stemmer.stem(word)
-                        if (
-                            stemmed_word != word
-                        ):  # Only add if stemming changed the word
+                        if stemmed_word != word:  # Only add if stemming changed the word
                             word_filters.append(Q(word__regex=stemmed_word))
 
             # Combine all filters with OR
@@ -280,9 +300,31 @@ class SearchView(APIView):
                 # Get the books
                 books = list(Book.objects.filter(id__in=book_scores.keys()))
 
-                # Add relevance scores for sorting
+                # Get which words were matched for each book
                 for book in books:
                     book.relevance_score = book_scores[book.id]
+                    
+                    # Create a dictionary of matched terms
+                    book.matched_terms = {}
+                    
+                    # For regex searches with space-separated words, check each word
+                    if " " in pattern:
+                        pattern_words = pattern.split()
+                        for word in pattern_words:
+                            if len(word) >= MIN_WORD_LENGTH:
+                                # Check if this word exists in the book's index
+                                word_matched = BookIndex.objects.filter(book=book, word__iregex=word).exists()
+                                # Also check the stemmed version
+                                stemmed_word = stemmer.stem(word)
+                                stem_matched = BookIndex.objects.filter(book=book, word__iregex=stemmed_word).exists()
+                                
+                                book.matched_terms[word] = word_matched or stem_matched
+                        
+                        # Also check if the whole pattern exists
+                        book.matched_terms[pattern] = BookIndex.objects.filter(book=book, word__iregex=pattern).exists()
+                    else:
+                        # For single-word regex patterns
+                        book.matched_terms[pattern] = True  # Since the book was found, the pattern must match
 
                 # Sort by relevance score and centrality
                 books.sort(
@@ -310,7 +352,8 @@ class SearchView(APIView):
 
         Per project requirements:
         - Use Jaccard similarity to find similar content
-        - Return books that are neighbors in the Jaccard graph
+        - Return books that are "vertices of the Jaccard graph in the neighbourhood 
+          of the highest ranked documents matching the search request"
         """
         try:
             if not search_results:
@@ -320,90 +363,124 @@ class SearchView(APIView):
                     Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
                 )
 
-            # Get recommendations based on Jaccard similarity (as required)
+            # Get IDs of the top search results
             result_ids = [book.id for book in search_results]
             print(f"Finding recommendations for {len(result_ids)} search results")
 
-            # Use a maximum of 5 top results to find common words
+            # Use a maximum of 5 top books to find recommendations
             result_ids = result_ids[:5]
 
             if len(result_ids) == 0:
                 return list(
                     Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
                 )
-
-            # Convert to string for SQLite compatibility
-            result_ids_str = ",".join(str(id) for id in result_ids)
-
-            # Get words from the top books
-            book_words = BookIndex.objects.filter(book_id__in=result_ids)
-
-            # Count occurrences of each word across top books
-            word_counts = {}
-            for index in book_words:
-                if index.word not in word_counts:
-                    word_counts[index.word] = 0
-                word_counts[index.word] += index.occurrences
-
-            # Get the most common words (up to 20)
-            common_words = sorted(
-                word_counts.items(), key=lambda x: x[1], reverse=True
-            )[:20]
-            common_words_list = [word for word, _ in common_words]
-
-            if not common_words_list:
-                print("No common words found")
-                return list(
-                    Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
+                
+            # Check if the Jaccard graph has been built by counting similarity relationships
+            similarity_count = BookSimilarity.objects.count()
+            print(f"Found {similarity_count} similarity relationships in the database")
+            
+            if similarity_count == 0:
+                print("No similarity relationships found. Run 'python manage.py reindex_local_books --only-calculate-centrality' to build the graph.")
+                # Fall back to keyword-based recommendations if no graph exists
+                return self._get_fallback_recommendations(search_results, query)
+            
+            # Use the Jaccard graph stored in the database to find neighboring books
+            # This is the key implementation of the requirement:
+            # "a list of documents which are vertices of the Jaccard graph in the 
+            # neighbourhood of the highest ranked documents matching the search request"
+            
+            # Find books that are connected in the graph to the top search results
+            # These are the "vertices in the neighborhood"
+            neighbor_books = (
+                BookSimilarity.objects.filter(
+                    from_book_id__in=result_ids,
+                    similarity_score__gte=JACCARD_SIMILARITY_THRESHOLD
                 )
-
-            # Find books containing these common words (but not in search results)
-            book_counts = {}
-            for word in common_words_list:
-                # Get books with this word that aren't in search results
-                matching_indices = BookIndex.objects.filter(word=word).exclude(
-                    book_id__in=result_ids
+                .exclude(to_book_id__in=result_ids)  # Exclude the search results themselves
+                .values('to_book')
+                .annotate(
+                    avg_similarity=Avg('similarity_score'),
+                    connection_count=Count('from_book')
                 )
-
-                # Count occurrences for each book
-                for index in matching_indices:
-                    if index.book_id not in book_counts:
-                        book_counts[index.book_id] = 0
-                    book_counts[index.book_id] += 1
-
-            # Get books sorted by how many common words they share
-            sorted_books = sorted(book_counts.items(), key=lambda x: x[1], reverse=True)
-            rec_book_ids = [
-                book_id for book_id, _ in sorted_books[: RECOMMENDATION_LIMIT * 2]
-            ]
-
+                .order_by('-connection_count', '-avg_similarity')
+                [:RECOMMENDATION_LIMIT * 2]  # Get more than needed to allow for filtering
+            )
+            
+            # Extract book IDs from the neighbor query
+            rec_book_ids = [item['to_book'] for item in neighbor_books]
+            
             if not rec_book_ids:
-                # Fallback to centrality ranking
-                return list(
-                    Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
-                )
-
-            # Get the books
+                print("No graph neighbors found, falling back to keyword-based recommendations")
+                # Fall back to keyword-based recommendations
+                return self._get_fallback_recommendations(search_results, query)
+                
+            # Get the actual book objects
             recommendations = list(Book.objects.filter(id__in=rec_book_ids))
-
-            # Sort by how many common words they share
-            id_to_count = {book_id: count for book_id, count in sorted_books}
+            
+            # Create mapping for sorting
+            similarity_info = {
+                item['to_book']: (item['connection_count'], item['avg_similarity']) 
+                for item in neighbor_books
+            }
+            
+            # Sort by connection count and similarity score
             recommendations.sort(
                 key=lambda book: (
-                    id_to_count.get(book.id, 0),  # Common word count
-                    book.centrality_score,  # Centrality as tiebreaker
+                    similarity_info.get(book.id, (0, 0))[0],  # Number of connections
+                    similarity_info.get(book.id, (0, 0))[1],  # Average similarity
+                    book.centrality_score,  # Centrality as final tiebreaker
                 ),
-                reverse=True,
+                reverse=True
             )
-
-            print(f"Found {len(recommendations)} Jaccard-based recommendations")
+            
+            print(f"Found {len(recommendations)} graph-based recommendations")
             return recommendations[:RECOMMENDATION_LIMIT]
-
+            
         except Exception as e:
             print(f"Error getting recommendations: {str(e)}")
-            return list(
-                Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT]
-            )
+            return self._get_fallback_recommendations(search_results, query)
+            
+    def _get_fallback_recommendations(self, search_results, query):
+        """Fallback method to get recommendations when the Jaccard graph is unavailable.
+        Uses a keyword-based approach to find similar books."""
+        try:
+            if not search_results or len(search_results) == 0:
+                return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
+                
+            # Get tokens from the query
+            query_tokens = tokenize_text(query, apply_stemming=True)
+            
+            if not query_tokens:
+                return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
+            
+            # Get the top book's keywords (most frequent words)
+            top_book = search_results[0]
+            top_book_keywords = list(BookIndex.objects.filter(book=top_book)
+                                    .order_by('-occurrences')[:20]
+                                    .values_list('word', flat=True))
+            
+            # Combine query tokens with top book keywords for a broader search
+            search_keywords = set(query_tokens + top_book_keywords)
+            
+            # Find books that contain these keywords but aren't in the search results
+            result_ids = [book.id for book in search_results[:5]]
+            
+            similar_books = Book.objects.filter(
+                indices__word__in=search_keywords
+            ).exclude(
+                id__in=result_ids
+            ).annotate(
+                keyword_matches=Count('indices__word', filter=Q(indices__word__in=search_keywords)),
+                total_occurrences=Sum('indices__occurrences', filter=Q(indices__word__in=search_keywords))
+            ).order_by('-keyword_matches', '-total_occurrences', '-centrality_score')
+            
+            print(f"Found {similar_books.count()} keyword-based recommendations")
+            return list(similar_books.distinct()[:RECOMMENDATION_LIMIT])
+            
+        except Exception as e:
+            print(f"Error in fallback recommendations: {str(e)}")
+            # Last resort fallback - just return high centrality books
+            return list(Book.objects.order_by("-centrality_score")[:RECOMMENDATION_LIMIT])
 
 
 class BookViewSet(viewsets.ReadOnlyModelViewSet):
@@ -524,17 +601,30 @@ class BookDetailView(TemplateView):
             else content
         )
 
-        # Get similar books based on Jaccard similarity
-        book_ids = (
-            BookIndex.objects.filter(
-                word__in=book.indices.values_list("word", flat=True)[:100]
+        # Get similar books based on Jaccard graph neighborhood
+        similar_books_ids = (
+            BookSimilarity.objects.filter(
+                from_book=book,
+                similarity_score__gte=JACCARD_SIMILARITY_THRESHOLD
             )
-            .exclude(book=book)
-            .values_list("book", flat=True)
-            .distinct()[:5]
+            .order_by('-similarity_score')
+            .values_list('to_book', flat=True)
+            [:5]
         )
+        
+        # If we don't have similarity data, fall back to the word-based approach
+        if not similar_books_ids:
+            similar_books_ids = (
+                BookIndex.objects.filter(
+                    word__in=book.indices.values_list("word", flat=True)[:100]
+                )
+                .exclude(book=book)
+                .values_list("book", flat=True)
+                .distinct()
+                [:5]
+            )
 
-        context["similar_books"] = Book.objects.filter(id__in=book_ids)
+        context["similar_books"] = Book.objects.filter(id__in=similar_books_ids)
 
         return context
 

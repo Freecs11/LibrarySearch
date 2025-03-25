@@ -70,6 +70,7 @@ class Command(BaseCommand):
             action="store_true",
             help="Skip centrality calculation after indexing",
         )
+
         parser.add_argument(
             "--ranking-method",
             type=str,

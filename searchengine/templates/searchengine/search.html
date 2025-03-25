@@ -2,6 +2,42 @@
 
 {% block title %}Search Books{% endblock %}
 
+{% block extra_css %}
+<style>
+    /* Style for matched terms section */
+    .matched-terms {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+    }
+    
+    .matched-terms .badge {
+        margin-right: 5px;
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+    
+    /* Make badges more visually distinct */
+    .badge.bg-success {
+        background-color: #28a745 !important;
+    }
+    
+    .badge.bg-secondary {
+        background-color: #6c757d !important;
+        opacity: 0.7;
+    }
+    
+    .badge.bg-primary {
+        background-color: #007bff !important;
+    }
+    
+    /* Ensure consistent height for list items */
+    .list-group-item {
+        min-height: 100px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-lg-8">
@@ -112,13 +148,44 @@
                     if (data.results && data.results.length > 0) {
                         // Display search results
                         data.results.forEach(function(book) {
-                            const resultItem = `
+                            // Create HTML for matched terms display
+                        let matchedTermsHTML = '';
+                        if (book.matched_terms && Object.keys(book.matched_terms).length > 0) {
+                            matchedTermsHTML = '<div class="mt-1 matched-terms">';
+                            
+                            // Get original query and split it into terms
+                            const queryTerms = data.query.toLowerCase().split(' ');
+                            
+                            // Display each term with appropriate styling
+                            queryTerms.forEach(term => {
+                                if (term.length < 3) return; // Skip very short terms
+                                
+                                // Check if this term was matched
+                                const isMatched = book.matched_terms[term] === true;
+                                
+                                if (isMatched) {
+                                    matchedTermsHTML += `<span class="badge bg-success me-1">${term}</span>`;
+                                } else {
+                                    matchedTermsHTML += `<span class="badge bg-secondary me-1 text-decoration-line-through">${term}</span>`;
+                                }
+                            });
+                            
+                            // If we have a multi-word query, also show if the full phrase matched
+                            if (queryTerms.length > 1 && book.matched_terms[data.query.toLowerCase()] === true) {
+                                matchedTermsHTML += `<span class="badge bg-primary me-1">"${data.query}"</span>`;
+                            }
+                            
+                            matchedTermsHTML += '</div>';
+                        }
+                        
+                        const resultItem = `
                                 <a href="#" class="list-group-item list-group-item-action book-item" data-book-id="${book.id}">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">${book.title}</h5>
-                                        <small class="text-muted">${book.publication_year || 'Unknown year'}</small>
+                                        <h5 class="mb-1 text-truncate" style="max-width: 75%;">${book.title}</h5>
+                                        <small class="text-muted" style="min-width: 110px; text-align: right;">${book.publication_year || 'Unknown year'}</small>
                                     </div>
                                     <p class="mb-1">by ${book.author}</p>
+                                    ${matchedTermsHTML}
                                     <small class="text-muted">
                                         <i class="fas fa-chart-line me-1"></i> Centrality: ${book.centrality_score.toFixed(4)}
                                         <i class="fas fa-mouse-pointer ms-3 me-1"></i> Clicks: ${book.total_clicks}
@@ -131,13 +198,39 @@
                         // Display recommendations if available
                         if (data.recommendations && data.recommendations.length > 0) {
                             data.recommendations.forEach(function(book) {
+                                // Create HTML for matched terms display in recommendations
+                                let recMatchedTermsHTML = '';
+                                if (book.matched_terms && Object.keys(book.matched_terms).length > 0) {
+                                    recMatchedTermsHTML = '<div class="mt-1 matched-terms">';
+                                    
+                                    // Get original query and split it into terms
+                                    const queryTerms = data.query.toLowerCase().split(' ');
+                                    
+                                    // Display each term with appropriate styling
+                                    queryTerms.forEach(term => {
+                                        if (term.length < 3) return; // Skip very short terms
+                                        
+                                        // Check if this term was matched
+                                        const isMatched = book.matched_terms[term] === true;
+                                        
+                                        if (isMatched) {
+                                            recMatchedTermsHTML += `<span class="badge bg-success me-1">${term}</span>`;
+                                        } else {
+                                            recMatchedTermsHTML += `<span class="badge bg-secondary me-1 text-decoration-line-through">${term}</span>`;
+                                        }
+                                    });
+                                    
+                                    recMatchedTermsHTML += '</div>';
+                                }
+                                
                                 const recItem = `
                                     <a href="#" class="list-group-item list-group-item-action book-item" data-book-id="${book.id}">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">${book.title}</h5>
-                                            <span class="badge bg-success">Recommended</span>
+                                            <h5 class="mb-1 text-truncate" style="max-width: 75%;">${book.title}</h5>
+                                            <span class="badge bg-success" style="min-width: 110px; text-align: center;">Recommended</span>
                                         </div>
                                         <p class="mb-1">by ${book.author}</p>
+                                        ${recMatchedTermsHTML}
                                     </a>
                                 `;
                                 $('#recommendations-list').append(recItem);

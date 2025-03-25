@@ -20,7 +20,7 @@ from functools import partial
 
 from django.db.models import Count, F
 from django.db import transaction
-from .models import Book, BookIndex
+from .models import Book, BookIndex, BookSimilarity
 from .config import (
     BOOKS_STORAGE_PATH,
     GUTENBERG_MIRROR,
@@ -428,6 +428,9 @@ def build_jaccard_graph():
     start_time = time.time()
     print("Starting Jaccard graph construction...")
 
+    # First, clear existing similarity relationships
+    BookSimilarity.objects.all().delete()
+    
     # Determine number of chunks based on book count
     total_books = Book.objects.count()
     # Use smaller chunks for larger book counts to limit memory usage
@@ -445,8 +448,36 @@ def build_jaccard_graph():
         G.add_nodes_from(chunk_graph.nodes(data=True))
         G.add_edges_from(chunk_graph.edges(data=True))
 
+    # Store the graph edges in the database
+    similarity_objects = []
+    for u, v, data in G.edges(data=True):
+        # Create bidirectional edges since the graph is undirected
+        similarity_objects.append(
+            BookSimilarity(
+                from_book_id=u,
+                to_book_id=v,
+                similarity_score=data['weight']
+            )
+        )
+        similarity_objects.append(
+            BookSimilarity(
+                from_book_id=v,
+                to_book_id=u,
+                similarity_score=data['weight']
+            )
+        )
+    
+    # Bulk create the similarity relationships
+    if similarity_objects:
+        BookSimilarity.objects.bulk_create(
+            similarity_objects,
+            batch_size=1000,
+            ignore_conflicts=True
+        )
+    
     print(f"Graph construction complete in {time.time() - start_time:.2f} seconds")
     print(f"Graph has {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
+    print(f"Stored {len(similarity_objects)} similarity relationships in database")
 
     return G
 

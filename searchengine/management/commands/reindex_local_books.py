@@ -527,6 +527,18 @@ class Command(BaseCommand):
         """Calculate centrality measures for all books."""
         start_time = time.time()
         self.stdout.write("Building Jaccard similarity graph...")
+        
+        # Clear existing similarity relationships
+        try:
+            from searchengine.models import BookSimilarity
+            self.stdout.write("Clearing existing Jaccard graph data...")
+            BookSimilarity.objects.all().delete()
+        except Exception as e:
+            self.stdout.write(
+                self.style.ERROR(f"Error clearing existing graph data: {str(e)}")
+            )
+        
+        # Build the graph - the updated function will now store edges in the database
         G = build_jaccard_graph()
         graph_time = time.time() - start_time
         self.stdout.write(f"Graph building completed in {graph_time:.2f} seconds.")
@@ -572,6 +584,18 @@ class Command(BaseCommand):
                 self.style.ERROR("Failed to calculate centrality after max retries")
             )
             return
+
+        # Count the number of similarity edges stored in the database
+        try:
+            from searchengine.models import BookSimilarity
+            edge_count = BookSimilarity.objects.count()
+            self.stdout.write(
+                self.style.SUCCESS(f"Stored {edge_count} Jaccard graph edges in the database")
+            )
+        except Exception as e:
+            self.stdout.write(
+                self.style.ERROR(f"Error counting graph edges: {str(e)}")
+            )
 
         centrality_time = time.time() - centrality_start
         total_time = time.time() - start_time

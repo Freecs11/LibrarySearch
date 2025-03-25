@@ -14,14 +14,14 @@ MIN_WORDS_PER_BOOK = 10000
 
 # Ranking settings
 # Options: 'occurrence', 'closeness', 'betweenness', 'pagerank'
-DEFAULT_RANKING_METHOD = "closeness"
+DEFAULT_RANKING_METHOD = "betweenness"
 
 # Number of similar books to suggest
 RECOMMENDATION_LIMIT = 5
 
 # Jaccard similarity threshold (0-1)
 # Higher value (0.1-0.2) means fewer connections, better performance
-JACCARD_SIMILARITY_THRESHOLD = 0.4
+JACCARD_SIMILARITY_THRESHOLD = 0.08
 
 # Maximum results per search query
 MAX_SEARCH_RESULTS = 500
@@ -32,7 +32,7 @@ MAX_SEARCH_RESULTS = 500
 MAX_WORDS_TO_INDEX = 30000
 
 # Number of parallel workers for graph building
-MAX_GRAPH_WORKERS = 6
+MAX_GRAPH_WORKERS = 16
 
 # Chunk size for batch processing in graph building
-GRAPH_CHUNK_SIZE = 25
+GRAPH_CHUNK_SIZE = 50
