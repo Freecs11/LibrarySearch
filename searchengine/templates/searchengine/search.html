@@ -4,36 +4,173 @@
 
 {% block extra_css %}
 <style>
+    /* Apply gradient background to the entire page */
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4eafd 100%);
+    }
+    
+    /* Style the search card */
+    .card.shadow {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        background-color: rgba(255, 255, 255, 0.95);
+        transition: transform 0.3s ease;
+    }
+    
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+        background: linear-gradient(135deg, #4287f5 0%, #274e8d 100%) !important;
+    }
+    
+    /* Style for search input and button */
+    #search-input {
+        border-radius: 10px 0 0 10px;
+        border: 2px solid #e0e0e0;
+        padding: 12px 15px;
+    }
+    
+    #search-form button {
+        border-radius: 0 10px 10px 0;
+        background: linear-gradient(135deg, #4287f5 0%, #274e8d 100%);
+        border: none;
+        padding: 12px 25px;
+    }
+    
     /* Style for matched terms section */
     .matched-terms {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
     }
     
     .matched-terms .badge {
         margin-right: 5px;
         font-size: 0.8rem;
-        padding: 5px 8px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     
-    /* Make badges more visually distinct */
+    /* Make badges more visually distinct with gradients */
     .badge.bg-success {
-        background-color: #28a745 !important;
+        background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
     }
     
     .badge.bg-secondary {
-        background-color: #6c757d !important;
-        opacity: 0.7;
+        background: linear-gradient(135deg, #6c757d 0%, #495057 100%) !important;
+        opacity: 0.8;
     }
     
     .badge.bg-primary {
-        background-color: #007bff !important;
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
     }
     
-    /* Ensure consistent height for list items */
+    /* Style for result list items */
     .list-group-item {
-        min-height: 100px;
+        min-height: 120px;
+        border-radius: 10px !important;
+        margin-bottom: 10px;
+        border: 1px solid #eee;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: linear-gradient(to right, #ffffff, #f8f9fa);
+    }
+    
+    .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #4287f5;
+    }
+    
+    /* Style for book titles */
+    .list-group-item h5 {
+        color: #274e8d;
+        font-weight: 600;
+    }
+    
+    /* Special style for recommended items */
+    .recommendation-badge {
+        background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%) !important;
+        padding: 8px 12px !important;
+        font-size: 0.9rem !important;
+        border-radius: 20px !important;
+        color: white !important;
+        box-shadow: 0 2px 10px rgba(255, 126, 95, 0.3);
+    }
+    
+    .recommendation-item {
+        background: linear-gradient(to right, #fff9f7, #ffffff) !important;
+        border-left: 4px solid #ff7e5f !important;
+    }
+    
+    /* Loading spinner animation */
+    .spinner-border {
+        border-width: 0.25em;
+        border-color: rgba(66, 135, 245, 0.25);
+        border-right-color: #4287f5;
+    }
+    
+    /* Animate search result appearance */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    #results-list .list-group-item,
+    #recommendations-list .list-group-item {
+        animation: fadeIn 0.3s ease forwards;
+    }
+    
+    /* Add slight delay for each result */
+    #results-list .list-group-item:nth-child(2) { animation-delay: 0.05s; }
+    #results-list .list-group-item:nth-child(3) { animation-delay: 0.1s; }
+    #results-list .list-group-item:nth-child(4) { animation-delay: 0.15s; }
+    #results-list .list-group-item:nth-child(5) { animation-delay: 0.2s; }
+    
+    /* Style for search meta information */
+    .search-meta {
+        padding: 10px 15px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .badge.result-count {
+        background: linear-gradient(135deg, #6c5ce7 0%, #4834d4 100%) !important;
+        color: white;
+        font-size: 0.85rem;
+        padding: 8px 15px;
+        border-radius: 20px;
+        margin-right: 10px;
+    }
+    
+    .badge.search-query {
+        background: linear-gradient(135deg, #00b894 0%, #00cec9 100%) !important;
+        color: white;
+        font-size: 0.85rem;
+        padding: 8px 15px;
+        border-radius: 20px;
+    }
+    
+    /* Style for section headings */
+    #search-results-container h4, 
+    #recommendations-container h5 {
+        color: #274e8d;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 8px;
+    }
+    
+    #search-results-container h4::after, 
+    #recommendations-container h5::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(135deg, #4287f5 0%, #274e8d 100%);
+        border-radius: 3px;
     }
 </style>
 {% endblock %}
@@ -42,8 +179,8 @@
 <div class="row justify-content-center">
     <div class="col-lg-8">
         <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0"><i class="fas fa-search me-2"></i>Library Search Engine</h3>
+            <div class="card-header text-white">
+                <h3 class="mb-0"><i class="fas fa-book-open me-2"></i>Library Search Engine</h3>
             </div>
             <div class="card-body">
                 <form id="search-form" class="mb-4">
@@ -64,9 +201,9 @@
                 
                 <div id="search-results-container" class="d-none">
                     <h4 class="mb-3">Search Results</h4>
-                    <div class="mb-2">
-                        <span id="result-count" class="badge bg-secondary">0 results</span>
-                        <span id="search-query" class="badge bg-info"></span>
+                    <div class="mb-3 search-meta">
+                        <span id="result-count" class="badge result-count">0 results</span>
+                        <span id="search-query" class="badge search-query"></span>
                     </div>
                     <div id="results-list" class="list-group mb-4"></div>
                     
@@ -77,20 +214,20 @@
                 </div>
                 
                 <div id="no-results-container" class="d-none">
-                    <div class="alert alert-warning">
-                        <i class="fas fa-exclamation-triangle me-2"></i> No results found for your query.
+                    <div class="alert alert-warning" style="background: linear-gradient(135deg, #ffea7f 0%, #fff3a5 100%); border: none; border-radius: 10px; box-shadow: 0 4px 15px rgba(255, 234, 127, 0.3);">
+                        <i class="fas fa-book-reader me-2"></i> No books found matching your query. Try different keywords or a broader search term.
                     </div>
                 </div>
                 
-                <div id="loading-container" class="d-none text-center my-4">
-                    <div class="spinner-border text-primary" role="status">
+                <div id="loading-container" class="d-none text-center my-5 py-4">
+                    <div class="spinner-border" style="width: 3rem; height: 3rem; color: #4287f5;" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <p class="mt-2">Searching the library...</p>
+                    <p class="mt-3" style="color: #274e8d; font-weight: 500;">Searching the library for you...</p>
                 </div>
                 
                 <div id="error-container" class="d-none">
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="background: linear-gradient(135deg, #ff7675 0%, #ff9f9f 100%); border: none; border-radius: 10px; color: white; box-shadow: 0 4px 15px rgba(255, 118, 117, 0.3);">
                         <i class="fas fa-exclamation-circle me-2"></i>
                         <span id="error-message">An error occurred during the search.</span>
                     </div>
@@ -224,10 +361,10 @@
                                 }
                                 
                                 const recItem = `
-                                    <a href="#" class="list-group-item list-group-item-action book-item" data-book-id="${book.id}">
+                                    <a href="#" class="list-group-item list-group-item-action book-item recommendation-item" data-book-id="${book.id}">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1 text-truncate" style="max-width: 75%;">${book.title}</h5>
-                                            <span class="badge bg-success" style="min-width: 110px; text-align: center;">Recommended</span>
+                                            <span class="badge recommendation-badge" style="min-width: 110px; text-align: center;">Recommended</span>
                                         </div>
                                         <p class="mb-1">by ${book.author}</p>
                                         ${recMatchedTermsHTML}
