@@ -11,10 +11,32 @@ A sophisticated search engine for a library of text documents, built with Django
 - **Interactive Web Interface**: User-friendly interface with responsive design
 - **Detailed Statistics**: View insights about the library and search patterns
 
+## Database Storage Optimization
+
+The system is optimized to reduce database size by:
+
+1. Storing book text files on disk rather than in the database
+2. Using file references in the DB model
+3. Loading content on-demand via the `get_text_content()` method
+
+### Migration from Content Storage to File References
+
+If upgrading from a previous version that stored full text content in the database:
+
+1. Run migrations to update the DB schema:
+   ```
+   python manage.py migrate
+   ```
+
+2. Run the SQL cleanup script to reclaim space:
+   ```
+   sqlite3 db.sqlite3 < migration_cleanup.sql
+   ```
+
 ## Project Structure
 
 - **Models**:
-  - `Book`: Stores book data and metadata
+  - `Book`: Stores book metadata and file path references
   - `BookIndex`: Indexes words in books for efficient searching
   - `SearchLog`: Logs user searches for recommendations
   - `BookClick`: Tracks which books users click on
@@ -33,6 +55,7 @@ A sophisticated search engine for a library of text documents, built with Django
 - Implements Jaccard similarity for content recommendations
 - Employs efficient database indexing techniques
 - Provides both API endpoints and rendered templates
+- File-based content storage for reduced database size
 
 ## Requirements
 
@@ -58,6 +81,15 @@ A sophisticated search engine for a library of text documents, built with Django
 7. Fetch books from Project Gutenberg: `python manage.py fetch_gutenberg_books`
 8. Run the server: `python manage.py runserver`
 9. Visit `http://localhost:8000/` in your browser
+
+
+  pip install tqdm
+
+  # Run the improved fetcher
+  python manage.py fetch_gutenberg_books_improved --count 1664 --max-workers 20
+
+  # If you want to clean up orphaned files and short books
+  python manage.py fetch_gutenberg_books_improved --cleanup
 
 ## Troubleshooting
 

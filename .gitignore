@@ -28,3 +28,6 @@ CLAUDE.md
 *.zip
 *.tar.gz
 *.tgz
+
+# book folder
+books_data/

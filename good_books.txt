@@ -1,0 +1,1674 @@
+# Found 1672 good books out of 10806 checked
+# book_id,title,author,tokens
+31552,Novo dicionário da língua portuguesa,Cândido de Figueiredo,113712
+10223,Meyers Konversationslexikon Band 15,Various,109360
+23962,西遊記,Cheng'en Wu,92168
+24226,史記,Qian Sima,90275
+23876,徐霞客遊記,Hongzu Xu,82884
+23835,隋唐演義,active 1675-1695 Renhu Chu,78953
+23817,閱微草堂筆記,Yun Ji,58774
+23910,封神演義,Xixing Lu,56653
+24233,東度記,active 17th century Qingxidaoren,55879
+200,The Project Gutenberg Encyclopedia; Volume 1 of 28,Project Gutenberg,50070
+10625,A Concise Dictionary of Middle English from A.D. 1150 to 1580,A. L. Mayhew,44249
+40074,A Dictionary of Cebuano Visayan,John U. Wolff,43130
+668,The Gutenberg Webster's Unabridged Dictionary: Section S,Project Gutenberg,43104
+660,The Gutenberg Webster's Unabridged Dictionary: Section A and B,Project Gutenberg,42740
+33982,Le maccheronee,Teofilo Folengo,41519
+31543,A Concise Anglo-Saxon Dictionary,J. R. Clark Hall,39772
+10800,The Anatomy of Melancholy,Robert Burton,39488
+22,Roget's Thesaurus,Peter Mark Roget,38819
+10681,Roget's Thesaurus of English Words and Phrases,Peter Mark Roget,38705
+662,The Gutenberg Webster's Unabridged Dictionary: Section D and E,Project Gutenberg,38592
+665,The Gutenberg Webster's Unabridged Dictionary: Section M; N; and O,Project Gutenberg,35399
+666,The Gutenberg Webster's Unabridged Dictionary: Section P and Q,Project Gutenberg,35378
+12342,The Nuttall Encyclopædia,P. Austin Nuttall,34837
+43016,Chaucer's Works; Volume 5 — Notes to the Canterbury Tales,Geoffrey Chaucer,34276
+43215,Ivanhoe,Walter Scott,34172
+12410,The Travels of Marco Polo — Volume 2,Marco Polo,33417
+43078,Der Occultismus des Altertums,Karl Kiesewetter,32156
+22514,Perth'in kaupungin kaunotar,Walter Scott,31656
+13975,Qventin Durward,Walter Scott,31618
+44042,Runous ja runouden muodot: Kirjoitelmia. Runoja.,B. F. Godenhjelm,31501
+43123,The Native Races [of the Pacific states]; Volume 3; Myths and Languages,Hubert Howe Bancroft,30581
+43555,Selections from Early Middle English; 1130-1250. Part 2: Notes,= Logeman; H.; Archiv; cxvii. 29; Björkman;,30373
+13691,Lastuja I-III,Juhani Aho,29876
+42453,Suomalaisen kirjallisuuden vaiheet,Julius Krohn,29840
+42397,Ιστορία της Αρχαίας Ελληνικής Λογοτεχνίας,Gilbert Murray,27997
+34241,Kenelm Chillingly: Hänen elämänvaiheensa ja mielipiteensä,Baron Edward Bulwer Lytton Lytton,27764
+43089,Chaucer's Works; Volume 1 — Romaunt of the Rose; Minor Poems,Geoffrey Chaucer,27736
+23824,說唐,Guanzhong Luo,27534
+43941,Erämaan taistelu: Historiallinen romaani,Santeri Ivalo,27358
+43610,Naisten aarreaitta,Émile Zola,27356
+24029,冷眼观,Junqing Wang,27291
+11431,Character Sketches of Romance; Fiction and the Drama; Vol. 1,Ebenezer Cobham Brewer,27031
+43032,The Catholic World; Vol. 04; October; 1866 to March; 1867,Various,27030
+33396,Ο Βίος του Χριστού,F. W. Farrar,26436
+13552,Ceylon; an Account of the Island Physical; Historical; and,Sir James Emerson Tennent,25893
+40739,Die Traumdeutung,Sigmund Freud,25781
+13920,Kevät ja takatalvi,Juhani Aho,25563
+11275,The Anti-Slavery Examiner; Omnibus,American Anti-Slavery Society,25233
+43868,Introduction to the Literature of Europe in the Fifteenth; Sixteenth; and Seventeenth Centuries; Vol. 1,Henry Hallam,25196
+44608,The Bābur-nāma in English (Memoirs of Bābur),Emperor of Hindustan Babur,24922
+30904,Glossaire du patois normand,Louis Du Bois,24883
+44028,The Every Day Book of History and Chronology,Joel Munsell,24444
+2100,Bibeln; Gamla och Nya Testamentet,Unknown Author,24247
+44578,Bentley's Miscellany; Volume I,Various,24133
+667,The Gutenberg Webster's Unabridged Dictionary: Section R,Project Gutenberg,24122
+42808,The Native Races [of the Pacific states]; Volume 2; Civilized Nations,Hubert Howe Bancroft,23697
+34117,Beowulf: An Introduction to the Study of the Poem with a Discussion of the Stories of Offa and Finn,R. W. Chambers,23492
+44833,Chaucer's Works; Volume 2 — Boethius and Troilus,Geoffrey Chaucer,23392
+32423,Encyclopaedia Britannica; 11th Edition; "Coucy-le-Château" to "Crocodile",Various,23301
+24231,韓湘子全傳,active 17th century Erzeng Yang,23144
+43575,Annali d'Italia; vol. 2,Lodovico Antonio Muratori,23131
+1301,The French Revolution: A History,Thomas Carlyle,23079
+11940,Seitsemän veljestä,Aleksis Kivi,22417
+1662,The 1997 CIA World Factbook,United States. Central Intelligence Agency,22379
+11317,De Aarde en haar Volken; Jaargang 1877,Various,22315
+20228,Noli Me Tangere,José Rizal,22256
+32600,History of the Reign of Philip the Second; King of Spain; Vols. 1 and 2,William Hickling Prescott,22156
+42770,The Story of My Life; volumes 4-6,Augustus J. C. Hare,22119
+24511,Helenan perhe,Elizabeth Rundle Charles,21922
+43579,An Introduction to Entomology: Vol. 4,William Kirby,21882
+23972,The Book of Humorous Verse,Unknown Author,21799
+571,The 1995 CIA World Factbook,United States. Central Intelligence Agency,21586
+12182,Veneh'ojalaiset,Arvid Järnefelt,21314
+31278,The History of Freedom; and Other Essays,Baron John Emerich Edward Dalberg Acton Acton,21286
+44070,Le ménagier de Paris (v. 1 & 2),Anonymous,21262
+1619,La Celestina,Fernando de Rojas,21228
+22049,A Literary History of the English People; from the Origins to the Renaissance,J. J. Jusserand,21107
+34225,Zápisky z mrtvého domu,Fyodor Dostoyevsky,20974
+13428,Valitut teokset 1910-1922,Eino Kaila,20932
+34751,Encyclopaedia Britannica; 11th Edition; "Dübner; Johann Friedrich" to "Dyeing",Various,20931
+13240,A Short Biographical Dictionary of English Literature,John W. Cousin,20896
+44621,Motion Pictures; 1960-1969: Catalog of Copyright Entries,Library of Congress. Copyright Office,20876
+42048,Encyclopaedia Britannica; 11th Edition; "Lefebvre; Tanneguy" to "Letronne; Jean Antoine",Various,20680
+43987,Die drei Sprünge des Wang-lun: Chinesischer Roman,Alfred Döblin,20661
+34595,The English Language,R. G. Latham,20651
+20450,The Lives of the Fathers; Martyrs; and Other Principal Saints. January; February; March,Alban Butler,20647
+43890,Erämaan nuijamiehet: Historiallinen romaani,Santeri Ivalo,20595
+43717,Uusi suomalainen lukemisto,Unknown Author,20540
+673,Unknown Title,Unknown Author,20537
+44638,Plant Lore; Legends; and Lyrics,Richard Folkard,20461
+21053,An anthology of German literature,Calvin Thomas,20403
+20484,Real Life In London; Volumes I. and II.,active 1816-1830 John Badcock,20362
+40486,Uusi tilanhaltia,Mór Jókai,20333
+41773,Encyclopaedia Britannica; 11th Edition; "Lamennais; Robert de" to "Latini; Brunetto",Various,20144
+42736,Encyclopaedia Britannica; 11th Edition; "Malta" to "Map; Walter",Various,20139
+13325,Sketches of the Natural History of Ceylon,Sir James Emerson Tennent,20133
+42638,Encyclopaedia Britannica; 11th Edition; "Map" to "Mars",Various,20100
+30171,Vertellingen van vroeger en later tijd,J. van Lennep,20096
+33378,Au soleil de juillet (1829-1830),Paul Adam,20078
+32758,Encyclopaedia Britannica; 11th Edition; "Dodwell; Edward" to "Drama",Various,20000
+43254,Encyclopaedia Britannica; 11th Edition; "Luray Cavern" to "Mackinac Island",Various,19977
+43603,Népmesék Heves- és Jász-Nagykun-Szolnok-megyéből; Magyar népköltési gyüjtemény 9. kötet,János Berze Nagy,19903
+40540,The Complete Opera Book,Gustav Kobbé,19883
+40863,Encyclopaedia Britannica; 11th Edition; "Justinian II." to "Kells",Various,19865
+31713,Geschichte der Ilchane; das ist der Mongolen in Persien,Freiherr von Joseph Hammer-Purgstall,19791
+31078,Curiosities of Literature; Vol. 3,Isaac Disraeli,19781
+43978,Uudesta Maailmasta: Hajanaisia matkakuvia Amerikasta,friherrinna Alexandra Gripenberg,19755
+14300,The Life of Napoleon I (Complete),J. Holland Rose,19742
+42525,Anciennes loix des François; conservées dans les coutumes angloises; recueillies par Littleton; Vol. I,Sir Thomas Littleton,19726
+21920,The Last Poems of Ovid,Ovid,19712
+22815,The Philippine Islands,F.R.G.S. John Foreman,19681
+33189,Encyclopaedia Britannica; 11th Edition; "Carnegie Andrew" to "Casus Belli",Various,19666
+21615,Curiosities of Literature; Vol. 1,Isaac Disraeli,19662
+40641,Encyclopaedia Britannica; 11th Edition; "Kite-Flying" to "Kyshtym",Various,19526
+42552,Encyclopaedia Britannica; 11th Edition; "Mars" to "Matteawan",Various,19480
+23654,Mémoires d'Outre-Tombe; Tome 2,vicomte de François-René Chateaubriand,19362
+41382,Claus Störtebecker,Georg Engel,19357
+30745,Calamities and Quarrels of Authors,Isaac Disraeli,19342
+32607,Encyclopaedia Britannica; 11th Edition; "Diameter" to "Dinarchus",Various,19280
+10117,Den siste Atenaren,Viktor Rydberg,19203
+32783,Encyclopaedia Britannica; 11th Edition; "Drama" to "Dublin",Various,19198
+44209,A History of the Inquisition of Spain; vol. 4,Henry Charles Lea,19192
+1323,History of the Conquest of Peru,William Hickling Prescott,19173
+42524,L'ingénieux chevalier Don Quichotte de la Manche,Miguel de Cervantes Saavedra,19169
+34047,Encyclopaedia Britannica; 11th Edition; "Apollodorus" to "Aral",Various,19109
+32182,Encyclopaedia Britannica; 11th Edition; "Coquelin; Benoît Constant" to "Costume",Various,19104
+24049,韩非子,Fei Han,19085
+42286,Álomvilág: Elbeszélések,Zoltán Ambrus,19068
+34533,Encyclopaedia Britannica; 11th Edition; "Bedlam" to "Benson; George",Various,19027
+31855,Encyclopaedia Britannica; 11th Edition; "Cockaigne" to "Columbus; Christopher",Various,18947
+12802,Vanha tarina Montrosesta,Walter Scott,18925
+40156,Encyclopaedia Britannica; 11th Edition; "Ichthyology" to "Independence",Various,18894
+41983,The Book of Curiosities,John Platts,18838
+10814,Legends; Tales and Poems,Gustavo Adolfo Bécquer,18832
+42212,Aloisiæ Sigeæ Toletanæ Satyra Sotadica de arcanis Amoris et Veneris,Johannes van Meurs,18775
+2981,The Memoirs of Jacques Casanova de Seingalt; 1725-1798. Complete,Giacomo Casanova,18718
+505,History of the Warfare of Science with Theology in Christendom,Andrew Dickson White,18661
+40435,Plato and the Other Companions of Sokrates; 3rd ed. Volume 1,George Grote,18629
+33764,De Reis om de Wereld,Charles Darwin,18593
+40935,A Greek-English Lexicon to the New Testament,William Greenfield,18591
+41567,Encyclopaedia Britannica; 11th Edition; "Letter" to "Lightfoot; John",Various,18555
+13594,Portraits littéraires; Tome I,Charles Augustin Sainte-Beuve,18553
+735,History of the Decline and Fall of the Roman Empire — Volume 5,Edward Gibbon,18552
+41006,The Fairy Mythology,Thomas Keightley,18544
+42173,Encyclopaedia Britannica; 11th Edition; "Liquid Gases" to "Logar",Various,18517
+34116,Encyclopaedia Britannica; 11th Edition; "Arculf" to "Armour; Philip",Various,18507
+32798,Légendes et curiosités des métiers,Paul Sébillot,18486
+44354,Dictionnaire de nos fautes contre la langue française,Raoul Rinfret,18464
+41264,Encyclopaedia Britannica; 11th Edition; "Jacobites" to "Japan" (part),Various,18460
+732,History of the Decline and Fall of the Roman Empire — Volume 2,Edward Gibbon,18456
+13220,Library of the World's Best Literature; Ancient and Modern — Volume 04,Unknown Author,18426
+10673,The Principal Navigations; Voyages; Traffiques and Discoveries of the English Nation — Volume 09,Richard Hakluyt,18390
+42463,La Vie de Madame Élisabeth; soeur de Louis XVI; Volume 2,A. de Beauchesne,18358
+33052,Encyclopaedia Britannica; 11th Edition; "Camorra" to "Cape Colony",Various,18353
+41287,Geschiedenis der Noordsche Compagnie,Samuel Muller,18332
+42798,Les guêpes ­— séries 3 & 4,Alphonse Karr,18256
+30282,Early English Alliterative Poems,Unknown Author,18251
+43443,Elbeszélések,Gergely Csiky,18249
+41156,Encyclopaedia Britannica; 11th Edition; "Japan" (part) to "Jeveros",Various,18230
+34162,Encyclopaedia Britannica; 11th Edition; "Armour Plates" to "Arundel; Earls of",Various,18214
+20854,Muuan suomalainen soturi Kristiina kuningattaren aikakaudella,Evald Ferdinand Jahnsson,18212
+43737,A Middle English Vocabulary; Designed for use with Sisam's Fourteenth Century Verse & Prose,J. R. R. Tolkien,18198
+34612,Encyclopaedia Britannica; 11th Edition; "Bent; James" to "Bibirine",Various,18178
+41687,How France Built Her Cathedrals: A Study in the Twelfth and Thirteenth Centuries,Elizabeth Boyle O'Reilly,18093
+30896,When Ghost Meets Ghost,William De Morgan,18092
+44969,The English and Scottish popular ballads; volume 1 (of 5),Unknown Author,18041
+34074,The New Gresham Encyclopedia. Amiel to Atrauli,Various,18021
+41766,The Jesuits; 1534-1921,Thomas J. Campbell,17990
+40780,Our Legal Heritage: King AEthelbert - King George III; 600 A.D. - 1776,S. A. Reilly,17954
+14692,Portraits littéraires; Tome III,Charles Augustin Sainte-Beuve,17912
+42108,The slang dictionary,John Camden Hotten,17896
+1365,The Complete Poetical Works of Henry Wadsworth Longfellow,Henry Wadsworth Longfellow,17891
+25,The 1991 CIA World Factbook,United States. Central Intelligence Agency,17869
+2383,The Canterbury Tales; and Other Poems,Geoffrey Chaucer,17797
+41055,Encyclopaedia Britannica; 11th Edition; "Jevons; Stanley" to "Joint",Various,17760
+33365,Encyclopaedia Britannica; 11th Edition; "Cerargyrite" to "Charing Cross",Various,17747
+23333,Ein Mann,Joachim Nettelbeck,17701
+41775,Cornish Characters and Strange Events,S. Baring-Gould,17701
+23907,無聲戲,Yu Li,17678
+13376,Our Legal Heritage; King AEthelbert; 596 to King George III; 1775,S. A. Reilly,17668
+11800,U.S. Copyright Renewals 1950 - 1977,Library of Congress. Copyright Office,17652
+40761,Marianne-rouva: Romaani,Victoria Benedictsson,17632
+44555,Systematic Theology (Volume 2 of 3),Augustus Hopkins Strong,17630
+24687,Alroy: Romani,Earl of Beaconsfield Benjamin Disraeli,17607
+2600,War and Peace,graf Leo Tolstoy,17586
+10055,Hamburgische Dramaturgie,Gotthold Ephraim Lessing,17550
+42342,Encyclopaedia Britannica; 11th Edition; "Logarithm" to "Lord Advocate",Various,17523
+11119,Personal Memoirs of a Residence of Thirty Years with the Indian Tribes on the American Frontiers,Henry Rowe Schoolcraft,17495
+31329,Encyclopaedia Britannica; 11th Edition; "Chicago; University of" to "Chiton",Various,17469
+736,History of the Decline and Fall of the Roman Empire — Volume 6,Edward Gibbon,17446
+12930,Publications of the Scottish History Society; Volume 36,Lord John Lauder Fountainhall,17403
+44851,Thirty Years' View (Vol. 1 of 2),Thomas Hart Benton,17377
+12218,Pastoral Poetry & Pastoral Drama,W. W. Greg,17377
+13737,George Sand et ses amis,Albert Le Roy,17352
+44021,Feudal England: Historical Studies on the Eleventh and Twelfth Centuries,John Horace Round,17333
+41101,Histoire de la Littérature Anglaise (Volume 3 de 5),Hippolyte Taine,17326
+43352,A History of English Versification,J. Schipper,17326
+44292,The Bruce,John Barbour,17314
+41343,Encyclopaedia Britannica; 11th Edition; "Italy" to "Jacobite Church",Various,17283
+40193,Histoire de la Monarchie de Juillet (Volume 1 / 7),Paul Thureau-Dangin,17259
+42647,Old and New Paris: Its History; Its People; and Its Places; v. 2,H. Sutherland Edwards,17243
+32975,Encyclopaedia Britannica; 11th Edition; "Calhoun" to "Camoens",Various,17214
+13028,Library of the World's Best Literature; Ancient and Modern — Volume 03,Unknown Author,17211
+24467,De Pleegzoon,J. van Lennep,17180
+42587,The Grey Friars in Oxford,A. G. Little,17176
+40798,A History of the Reformation (Vol. 2 of 2),Thomas M. Lindsay,17149
+24127,Peñas arriba,José María de Pereda,17125
+23475,The Works of Lord Byron. Vol. 5,Baron George Gordon Byron Byron,17123
+24919,Amor Crioulo,Abel Acácio de Almeida Botelho,17119
+12921,Gesammelte Werke in fünf Bänden — 1. Band,Bjørnstjerne Bjørnson,17102
+21090,Brief History of English and American Literature,Henry A. Beers,17074
+24253,Folkways,William Graham Sumner,17067
+34759,A vörös regina: regény,Árpád Abonyi,17063
+14587,The Crest-Wave of Evolution,Kenneth Morris,16998
+41322,Histoire de ma Vie; Livre 2 (Vol. 5 - 9),George Sand,16965
+41503,De Slavernij: Vervolg en Sleutel op De Negerhut,Harriet Beecher Stowe,16949
+42609,Pikku mies,Alphonse Daudet,16905
+13690,Aus meinem Leben — Zweiter Teil,August Bebel,16857
+733,History of the Decline and Fall of the Roman Empire — Volume 3,Edward Gibbon,16820
+30605,Spagna,Edmondo De Amicis,16811
+34073,The New Gresham Encyclopedia. A to Amide,Various,16785
+40096,Encyclopaedia Britannica; 11th Edition; "Independence; Declaration of" to "Indo-European Languages",Various,16773
+34075,The New Gresham Encyclopedia. Atrebates to Bedlis,Various,16717
+24869,The Rámáyan of Válmíki; translated into English verse,Valmiki,16706
+44860,The Comic History of England,Gilbert Abbott À Beckett,16689
+32816,Szirmay Ilona: Történeti regény,József Gaal,16688
+24882,Privateering and Piracy in the Colonial Period,Unknown Author,16654
+13769,Lohilastuja ja kalakaskuja,Juhani Aho,16645
+32977,From Sea to Sea; Letters of Travel,Rudyard Kipling,16638
+2332,Critical and Historical Essays — Volume 1,Baron Thomas Babington Macaulay Macaulay,16545
+20872,The Best Short Stories of 1917; and the Yearbook of the American Short Story,"The,16539
+42593,A History of American Literature Since 1870,Fred Lewis Pattee,16515
+33157,Voyage en Espagne,Théophile Gautier,16501
+40438,Plato and the Other Companions of Sokrates; 3rd ed. Volume 4,George Grote,16489
+43396,The Desert World,Arthur Mangin,16473
+11273,The Anti-Slavery Examiner; Part 3 of 4,American Anti-Slavery Society,16439
+42083,Chaucer's Translation of Boethius's "De Consolatione Philosophiae",Boethius,16421
+22094,Travels in the Great Desert of Sahara; in the Years of 1845 and 1846,James Richardson,16401
+10706,The History of Rome (Volumes 1-5),Theodor Mommsen,16399
+42661,The Golden Bough: A Study in Magic and Religion (Third Edition; Vol. 09 of 12),James George Frazer,16395
+30751,De Geschiedenis van Woutertje Pieterse; Deel 2,Multatuli,16386
+42433,Warda: Roman uit het oude Egypte,Georg Ebers,16361
+31793,Encyclopaedia Britannica; 11th Edition; "Clervaux" to "Cockade",Various,16332
+23877,玉嬌梨,Tianhuazangzhuren,16330
+32215,Ιστορία της Ρωμιοσύνης; Πρώτος τόμος,Argyris Eftaliotis,16310
+14970,Academica,Marcus Tullius Cicero,16304
+42935,De nijlbruid,Georg Ebers,16301
+24512,Ons Heerlijk Vaderland (deel 2 van 4),Hendrik Blink,16295
+20585,Sartor Resartus; and  On Heroes; Hero-Worship; and the Heroic in History,Thomas Carlyle,16274
+14380,The Life of John Milton; Volume 5 (of 7); 1654-1660,David Masson,16268
+10766,Enquire Within Upon Everything,Robert Kemp Philp,16260
+30781,Dictionnaire raisonné de l'architecture française du XIe au XVIe siècle - Tome 1 - (A),Eugène-Emmanuel Viollet-le-Duc,16229
+43023,La lotta politica in Italia; Volume 2 (of 3),Alfredo Oriani,16227
+41873,The History of Prostitution: Its Extent; Causes; and Effects throughout the World,William W. Sanger,16226
+40391,Der Dichter in Dollarica,Ernst von Wolzogen,16221
+24536,Los cuatro jinetes del apocalipsis,Vicente Blasco Ibáñez,16221
+1304,Bulchevy's Book of English Verse,Unknown Author,16216
+40617,The Teaching and Cultivation of the French Language in England during Tudor and Stuart Times,K. Rebillon Lambley,16213
+44443,Military schools and courses of instruction in the science and art of war;,Unknown Author,16196
+12829,Abélard; Tome I,Charles de Rémusat,16165
+34878,Encyclopaedia Britannica; 11th Edition; "Dyer; Sir Edward" to "Echidna",Various,16113
+20778,Sylva; Or; A Discourse of Forest Trees. Vol. 1 (of 2),John Evelyn,16097
+44504,L'Histoire de France racontée par les Contemporains (Tome 2/4),Unknown Author,16087
+42680,Sixty Years in Southern California; 1853-1913,Harris Newmark,16054
+44858,Kertomuksia Suomen historiasta V:2,Julius Krohn,16048
+1184,The Count of Monte Cristo,Alexandre Dumas,16037
+33385,Library of the World's Best Literature; Ancient and Modern — Volume 08,Unknown Author,16019
+43271,The Works of Alexander Pope; Volume 2 (of 10),Alexander Pope,16015
+30604,Les Rois Frères de Napoléon Ier,Albert Du Casse,16009
+21091,The Life of William Ewart Gladstone; Vol. 1 (of 3),John Morley,15994
+41924,Renaissance in Italy; Volume 2 (of 7),John Addington Symonds,15990
+2481,The Civilization of Illiteracy,Mihai Nadin,15949
+33454,Mathilde: mémoires d'une jeune femme,Eugène Sue,15907
+40196,The Oxford Book of American Essays,Unknown Author,15903
+10851,The Works of Charles and Mary Lamb — Volume 6,Charles Lamb,15884
+13919,Muistelmia ja matkakuvia,Juhani Aho,15877
+10631,Halleck's New English Literature,Reuben Post Halleck,15876
+30211,Au Pays des Moines (Noli me Tangere),José Rizal,15856
+23784,The History of Sir Richard Calmady: A Romance,Lucas Malet,15847
+42094,Székelyföldi gyüjtés; Magyar népköltési gyüjtemény 7. kötet,Oszkár Mailand,15830
+44636,The Mosaic History of the Creation of the World,Thomas Wood,15819
+41253,History of the Reformation of the Sixteenth Century; Volume 3,J. H. Merle d'Aubigné,15804
+41024,The Paston Letters; A.D. 1422-1509. Volume 3 (of 6),Unknown Author,15801
+44957,Anna Karenina; 2. Band,Unknown Author,15779
+12680,Children of the Ghetto: A Study of a Peculiar People,Israel Zangwill,15768
+32262,English Verse: Specimens Illustrating its Principles and History,Raymond MacDonald Alden,15767
+2650,Du côté de chez Swann,Marcel Proust,15753
+41832,The Golden Bough: A Study in Magic and Religion (Third Edition; Vol. 03 of 12),James George Frazer,15749
+31260,Napoléon et Alexandre Ier (2/3),Albert Vandal,15745
+2612,The History of England; from the Accession of James II — Volume 3,Baron Thomas Babington Macaulay Macaulay,15731
+44553,Letters of Samuel Taylor Coleridge; Vol. 1 (of 2),Samuel Taylor Coleridge,15731
+12606,The Great Speeches and Orations of Daniel Webster,Daniel Webster,15730
+40475,The Indian in his Wigwam; Or; Characteristics of the Red Race of America,Henry Rowe Schoolcraft,15723
+44921,Die Cellularpathologie,Rudolf Virchow,15722
+42776,Il secolo che muore; vol. II,Francesco Domenico Guerrazzi,15721
+42220,History of Linn County Iowa,Luther Albertus Brewer,15718
+24527,Fragments of Science: A Series of Detached Essays; Addresses; and Reviews. V. 1-2,John Tyndall,15711
+20583,The Tribes and Castes of the Central Provinces of India; Volume 1,R. V. Russell,15711
+32529,Διηγήματα,Emmanouel D. Rhoides,15687
+43060,Encyclopaedia Britannica; 11th Edition; "McKinley; William" to "Magnetism; Terrestrial",Various,15686
+44566,A History of Caricature and Grotesque in Literature and Art,Thomas Wright,15662
+22042,Christmas: Its Origin and Associations,W. F. Dawson,15655
+14472,Showell's Dictionary of Birmingham,Thomas T. Harman,15654
+42824,Scenes and Characters of the Middle Ages,Edward Lewes Cutts,15641
+33197,Döderlein's Hand-book of Latin Synonymes,Ludwig von Doederlein,15630
+43309,Histoire de la Monarchie de Juillet (Volume 5 / 7),Paul Thureau-Dangin,15627
+31950,Encyclopaedia Britannica; 11th Edition; "Columbus" to "Condottiere",Various,15618
+34838,The Life of Napoleon Bonaparte. Vol. 4 (of 4),William Milligan Sloane,15611
+34916,The Chainbearer; Or; The Littlepage Manuscripts,James Fenimore Cooper,15608
+11024,Max Havelaar,Multatuli,15603
+31636,Histoire littéraire d'Italie (2/9),Pierre Louis Ginguené,15563
+22492,Reise in die Aequinoctial-Gegenden des neuen Continents. Band 1.,Alexander von Humboldt,15544
+41810,A Spanish Anthology,Unknown Author,15542
+42778,Il secolo che muore; vol. IV,Francesco Domenico Guerrazzi,15538
+2577,The Ancient Regime,Hippolyte Taine,15537
+30788,Dictionnaire raisonné de l'architecture française du XIe au XVIe siècle - Tome 8 - (Q suite - R - S),Eugène-Emmanuel Viollet-le-Duc,15529
+145,Middlemarch,George Eliot,15516
+34352,La Repubblica di Venezia e la Persia,Guglielmo Berchet,15513
+1909,Darwin and Modern Science,A. C. Seward,15512
+40478,Αττικαί ημέραι,Bampes Anninos,15492
+23100,A Budget of Paradoxes; Volume I,Augustus De Morgan,15492
+968,Martin Chuzzlewit,Charles Dickens,15453
+32573,History of the Colony and Ancient Dominion of Virginia,Charles Campbell,15441
+14517,France and England in North America; Part VI : Montcalm and Wolfe,Francis Parkman,15437
+32902,Villa Eden: The Country-House on the Rhine,Berthold Auerbach,15408
+13182,Prefaces and prologues to famous books,Unknown Author,15379
+43990,A History of the Inquisition of Spain; vol. 2,Henry Charles Lea,15374
+33332,De Ridderromantiek der Franse en Duitse Middeleeuwen,Vald. Vedel,15361
+12012,Drei Gaugöttinnen,Ernst Ludwig Rochholz,15337
+43735,The Oxford Reformers: John Colet; Erasmus; and Thomas More,Frederic Seebohm,15326
+42060,The Town: Its Memorable Characters and Events,Leigh Hunt,15306
+24746,Reise in die Aequinoctial-Gegenden des neuen Continents. Band 2.,Alexander von Humboldt,15301
+21498,France and the Republic,William Henry Hurlbert,15288
+34082,Encyclopaedia Britannica; 11th Edition; "Aram; Eugene" to "Arcueil",Various,15280
+44669,The Jesuit Relations and Allied Documents; Vol. 1: Acadia; 1610-1613,Unknown Author,15264
+41601,Magyarhon szépségei; A legvitézebb huszár,Mór Jókai,15261
+1349,Russia,Donald Mackenzie Wallace,15244
+23881,The History of "Punch",M. H. Spielmann,15239
+24980,William Pitt and the Great War,J. Holland Rose,15237
+41948,Guida delle Prealpi Giulie,Olinto Marinelli,15231
+11070,La Fontana de Oro,Benito Pérez Galdós,15226
+30486,Shirley,Charlotte Brontë,15224
+1039,Missionary Travels and Researches in South Africa,David Livingstone,15222
+32536,Baskervillen koira,Arthur Conan Doyle,15221
+31100,The Complete Project Gutenberg Works of Jane Austen,Jane Austen,15206
+22119,The Satires of A. Persius Flaccus,Persius,15194
+38,The Jargon File; Version 2.9.10; 01 Jul 1992,Unknown Author,15185
+12864,A Collection of College Words and Customs,Benjamin Homer Hall,15184
+2613,The History of England; from the Accession of James II — Volume 4,Baron Thomas Babington Macaulay Macaulay,15184
+42637,Histoire de la Monarchie de Juillet (Volume 3 / 7),Paul Thureau-Dangin,15178
+31432,Histoire littéraire d'Italie (1/9),Pierre Louis Ginguené,15175
+23021,Sang Nova,Marià Vayreda,15173
+44489,Der Tunnel: Roman,Bernhard Kellermann,15165
+22400,Fox's Book of Martyrs,John Foxe,15149
+10770,The Former Philippines Thru Foreign Eyes,Tomás de Comyn,15143
+11208,De legende en de heldhaftige; vroolijke en roemrijke daden van Uilenspiegel en Lamme Goedzak in Vlaanderenland en elders,Charles de Coster,15132
+580,The Pickwick Papers,Charles Dickens,15104
+24246,Greener Than You Think,Ward Moore,15087
+34803,Les grandes chroniques de France (2/6),Unknown Author,15080
+41943,Madame de Longueville: La Jeunesse de Madame de Longueville,Victor Cousin,15069
+43707,Finger-ring lore,F.S.A. William Jones,15067
+10705,The History of Rome; Book V,Theodor Mommsen,15059
+12733,Tokyo to Tijuana: Gabriele Departing America,Steven David Justin Sills,15045
+20102,The International Monthly Magazine - Volume V - No II,Various,15042
+32510,The Life of William Ewart Gladstone; Vol. 2 (of 3),John Morley,15012
+41821,Politica estera: memorie e documenti,Francesco Crispi,14998
+22591,A Political History of the State of New York; Volumes 1-3,De Alva Stanwood Alexander,14993
+34010,The History and Antiquities of the Doric Race; Vol. 2 of 2,Karl Otfried Müller,14984
+43698,Les français au pôle Nord,Louis Boussenard,14980
+11048,La Presse Clandestine dans la Belgique Occupée,Jean Massart,14979
+32424,Arthur O'Leary: His Wanderings And Ponderings In Many Lands,Charles James Lever,14977
+40417,Zeemans-Woordeboek,J. van Lennep,14965
+40437,Plato and the Other Companions of Sokrates; 3rd ed. Volume 3,George Grote,14960
+20124,Béarn and the Pyrenees,Louisa Stuart Costello,14938
+13214,Anna Karenina,graf Leo Tolstoy,14936
+13819,Les compagnons de Jéhu,Alexandre Dumas,14911
+20864,La foire aux vanités; Tome II,William Makepeace Thackeray,14907
+23958,The Romance of Words (4th ed.),Ernest Weekley,14907
+1745,The Poetical Works of John Milton,John Milton,14905
+44218,Musta tulpaani: Romaani,Alexandre Dumas,14904
+11329,Lands of the Slave and the Free; Or; Cuba; the United States; and Canada,Henry A. Murray,14902
+10600,A General History and Collection of Voyages and Travels — Volume 01,Robert Kerr,14875
+12457,El Diablo Cojuelo,Luis Vélez de Guevara,14870
+13171,Tapani Löfvingin seikkailut,Kyösti Wilkuna,14859
+10357,Life of Johnson; Volume 4,James Boswell,14838
+44562,A Dictionary of Arts; Manufactures and Mines,Andrew Ure,14836
+34912,Woman in Science,J. A. Zahm,14831
+43792,The History of Modern Painting; Volume 1 (of 4),Richard Muther,14815
+32528,The Lusiad; Or; The Discovery of India; an Epic Poem,Luís de Camões,14811
+14644,The Development of the European Nations; 1870-1914 (5th ed.),J. Holland Rose,14807
+11729,Life of Johnson; Volume 6,James Boswell,14797
+43324,Csongrádmegyei gyüjtés; Magyar népköltési gyüjtemény 2. kötet,Károly Török,14795
+32308,Library of the World's Best Literature; Ancient and Modern — Volume 12,Unknown Author,14793
+32178,Los gringos; or; An inside view of Mexico and California,H. A. Wise,14778
+30714,The Works of Robert Louis Stevenson - Swanston Edition; Vol. 25,Robert Louis Stevenson,14758
+13520,Library of the World's Best Literature; Ancient and Modern — Volume 05,Unknown Author,14752
+32736,The Bible Story,Newton Marshall Hall,14743
+30051,The History of Woman Suffrage; Volume VI,Unknown Author,14742
+1468,The History of England; from the Accession of James II — Volume 1,Baron Thomas Babington Macaulay Macaulay,14739
+42557,Letters of Samuel Rutherford,Samuel Rutherford,14739
+43255,Domesday Book and Beyond: Three Essays in the Early History of England,Frederic William Maitland,14734
+22552,Histoire de France 1305-1364 (Volume 4/19),Jules Michelet,14723
+2895,Following the Equator: A Journey Around the World,Mark Twain,14706
+2988,Mark Twain: A Biography. Complete,Albert Bigelow Paine,14674
+32767,Some Specimens of the Poetry of the Ancient Welsh Bards,Evan Evans,14672
+14499,The Religions of India,Edward Washburn Hopkins,14671
+40627,Apró regények és esetek,György Szemere,14629
+24240,墨子,Di Mo,14609
+21962,Harvard Classics Volume 28,Unknown Author,14598
+20752,The Journal of Negro History; Volume 2; 1917,Various,14573
+2311,Travels through France and Italy,T. Smollett,14567
+12025,English Prose,Unknown Author,14564
+44710,Histoire de la Monarchie de Juillet (Volume 7 / 7),Paul Thureau-Dangin,14561
+13951,Les trois mousquetaires,Alexandre Dumas,14554
+20241,The Palace of Pleasure; Volume 1,Unknown Author,14550
+14290,The Life of Napoleon I (Volume 2 of 2),J. Holland Rose,14550
+42379,Öreg szekér fakó hám: Újabb elbeszélések,Kálmán Mikszáth,14547
+23034,Captain Canot; Or; Twenty Years of an African Slaver,Theodore Canot,14531
+24850,Lourdes,Émile Zola,14529
+41401,Harper's New Monthly Magazine; Vol. II; No. X.; March 1851,Various,14529
+14288,Mademoiselle de Maupin,Théophile Gautier,14519
+43894,The History of Modern Painting; Volume 2 (of 4),Richard Muther,14515
+12604,Ylösnousemus II,graf Leo Tolstoy,14509
+44999,Äiti,Victoria Benedictsson,14499
+40615,A History of the Reformation (Vol. 1 of 2),Thomas M. Lindsay,14494
+22136,The Book-Hunter,John Hill Burton,14470
+30480,The Humors of Falconbridge,Falconbridge,14468
+22066,The Long Roll,Mary Johnston,14454
+21425,Le rive della Bormida nel 1794,Giuseppe Cesare Abba,14444
+42389,The Pirate,Walter Scott,14444
+22030,Memoirs,Charles Godfrey Leland,14417
+31087,A Rebel War Clerk's Diary at the Confederate States Capital,J. B. Jones,14412
+42942,O Primo Bazilio: Episodio Domestico,Eça de Queirós,14396
+43900,History of the Jews; Vol. 4 (of 6),Heinrich Graetz,14391
+20696,Highways and Byways in Sussex,E. V. Lucas,14391
+44721,The Pillars of the House; Or; Under Wode; Under Rode; Vol. 2 (of 2),Charlotte M. Yonge,14388
+22501,Fino a Dogali,Alfredo Oriani,14385
+22421,The Hesperides & Noble Numbers: Vol. 1 and 2,Robert Herrick,14385
+43655,In Darkest Africa; Vol. 2; or; The Quest; Rescue; and Retreat of Emin; Governor of Equatoria,Henry M. Stanley,14372
+43111,The Personal History of David Copperfield,Charles Dickens,14353
+450,Susan Lenox: Her Fall and Rise,David Graham Phillips,14347
+21811,The Works of Lord Byron. Vol. 3,Baron George Gordon Byron Byron,14334
+23349,The Religious Experience of the Roman People,W. Warde Fowler,14332
+34635,Menazerya ludzka,Gabriela Zapolska,14329
+21848,Noli me tangere: Filippijnsche roman,José Rizal,14312
+44549,Il libro di Sidrach: testo inedito del secolo XIV,active 13th century Sidrac,14267
+42964,Bible animals,J. G. Wood,14256
+42909,The Collected Writing of Thomas De Quincey; Vol. II,Thomas De Quincey,14249
+23564,Rookwood,William Harrison Ainsworth,14233
+42464,Variétés Historiques et Littéraires (01/10),Unknown Author,14207
+22483,Across Unknown South America,Arnold Henry Savage Landor,14205
+33090,Ein Kampf um Rom: Historischer Roman. Zweiter Band,Felix Dahn,14203
+13457,The Bed-Book of Happiness,Harold Begbie,14193
+13771,Aventures de Monsieur Pickwick; Vol. I,Charles Dickens,14166
+40436,Plato and the Other Companions of Sokrates; 3rd ed. Volume 2,George Grote,14157
+20761,Histoires extraordinaires,Edgar Allan Poe,14154
+43312,Histoire du Consulat et de l'Empire; (Vol. 08 / 20),Adolphe Thiers,14145
+34387,Historia de Portugal: Tomo I,J. P. Oliveira Martins,14138
+42891,The Expositor's Bible: The First Book of Kings,F. W. Farrar,14122
+30008,Le féminisme français I: L'émancipation individuelle et sociale de la femme,Charles Marie Joseph Turgeon,14109
+41066,Essai sur l'Histoire Religieuse des Nations Slaves,Count Valerian Krasinski,14109
+12409,The Story of the Philippines,Murat Halstead,14105
+30725,Marocco,Edmondo De Amicis,14102
+21651,Los muertos mandan,Vicente Blasco Ibáñez,14090
+44417,The Cradle of Mankind; Life in Eastern Kurdistan,W. A. Wigram,14084
+42632,Private Letters of Edward Gibbon (1753-1794) Volume 2 (of 2),Edward Gibbon,14065
+23445,The Best Short Stories of 1919; and the Yearbook of the American Short Story,Unknown Author,14063
+33798,Sinister Street; vol. 2,Compton MacKenzie,14059
+34527,Makers,Cory Doctorow,14036
+31455,Harper's New Monthly Magazine; Vol. 2; No. 8; January; 1851,Various,14035
+34064,Der Courier des Czaar (Michael Strogoff),Jules Verne,14028
+43605,The Golden Bough: A Study in Magic and Religion (Third Edition; Vol. 05 of 12),James George Frazer,14021
+42959,The Survey of London,John Stow,14018
+12520,Deadham Hard: A Romance,Lucas Malet,14008
+20783,Como eu atravessei Àfrica do Atlantico ao mar Indico; volume segundo,Alexandre Alberto da Rocha de Serpa Pinto,13976
+21804,Aventures d'un Gentilhomme Breton aux îles Philippines,Paul P. de La Gironière,13962
+22694,The International Magazine; Volume 2; No. 2; January; 1851,Various,13958
+14972,Sketches and Studies in Italy and Greece; First Series,John Addington Symonds,13948
+12351,The German Classics of the Nineteenth and Twentieth Centuries; Volume 07,Unknown Author,13947
+12749,Études Littéraires; dix-huitième siècle,Émile Faguet,13946
+21263,On the Old Road; Vol. 2 (of 2),John Ruskin,13945
+24471,Tobacco; Its History; Varieties; Culture; Manufacture and Commerce,E. R. Billings,13943
+33965,The International Monthly; Volume 3; No. 4; July; 1851,Various,13937
+33205,Les grandes chroniques de France (1/6),Unknown Author,13934
+41218,The Diary of John Evelyn (Volume 1 of 2),John Evelyn,13919
+2735,The Golden Dog,William Kirby,13904
+14052,Rousseau (Volume 1 and 2),John Morley,13900
+34298,The Poetical Works of Sir Edward Bulwer Lytton; Bart. M.P.,Baron Edward Bulwer Lytton Lytton,13895
+2439,The History of England; from the Accession of James II — Volume 2,Baron Thomas Babington Macaulay Macaulay,13888
+31054,La clique dorée,Emile Gaboriau,13883
+24466,El intruso,Vicente Blasco Ibáñez,13880
+43576,An Introduction to Entomology: Vol. 1,William Kirby,13876
+42993,Castes and Tribes of Southern India. Vol. 3 of 7,Edgar Thurston,13870
+30943,Harper's New Monthly Magazine; Volume 2; No. 12; May; 1851.,Various,13862
+41626,Tukkijunkkari: Kertomus Karjalasta,Jacob Ahrenberg,13854
+32699,The Makers of Canada: Index and Dictionary of Canadian History,Unknown Author,13852
+43564,Kansalaisemme,Jacob Ahrenberg,13850
+20129,Het Leven der Dieren: Deel 1; Hoofdstuk 04: De Roofdieren,Alfred Edmund Brehm,13834
+30990,The Works of Robert Louis Stevenson - Swanston Edition; Vol. 16,Robert Louis Stevenson,13823
+20465,Reize door Frankrijk,Adriaan van der Willigen,13811
+21831,Misericordia,Benito Pérez Galdós,13808
+20065,Twenty Years of Congress; Volume 2,James Gillespie Blaine,13807
+31527,Max Havelaar,Multatuli,13803
+34051,History of the Intellectual Development of Europe; Volume II (of 2),John William Draper,13798
+1684,The Egoist: A Comedy in Narrative,George Meredith,13795
+43310,Histoire de la Monarchie de Juillet (Volume 4 / 7),Paul Thureau-Dangin,13795
+44104,The Native Races [of the Pacific states]; Volume 4; Antiquities,Hubert Howe Bancroft,13791
+30726,Cole's Funny Picture Book No. 1,E. W. Cole,13791
+42994,Castes and Tribes of Southern India. Vol. 4 of 7,Edgar Thurston,13788
+44682,Speeches of Benjamin Harrison; Twenty-third President of the United States,Benjamin Harrison,13784
+43656,The Works of Samuel Johnson; LL.D. in Nine Volumes; Volume 02,Samuel Johnson,13778
+44737,Im Sattel durch Zentralasien: 6000 Kilometer in 176 Tagen,Erich von Salzmann,13777
+1279,Poems and Songs of Robert Burns,Robert Burns,13776
+30425,El maestrante,Armando Palacio Valdés,13774
+31620,Vashti; Or; Until Death Us Do Part,Augusta J. Evans,13765
+31824,The "Genius",Theodore Dreiser,13758
+33234,Shadows of Flames: A Novel,Amélie Rives,13738
+2300,The Descent of Man; and Selection in Relation to Sex,Charles Darwin,13734
+12473,The German Classics of the Nineteenth and Twentieth Centuries; Volume 06,Unknown Author,13733
+11618,From Chaucer to Tennyson,Henry A. Beers,13723
+43010,竹葉亭雜記,Yuanzhi Yao,13703
+40810,Maximina,Armando Palacio Valdés,13680
+31698,A History of Nineteenth Century Literature (1780-1895),George Saintsbury,13674
+13056,The German Classics of the Nineteenth and Twentieth Centuries; Volume 10,Unknown Author,13655
+23600,La gaviota,Fernán Caballero,13641
+44260,Les Deux Rives: Roman,Fernand Vandérem,13633
+12233,Stonewall Jackson And The American Civil War,G. F. R. Henderson,13618
+24917,Heath's Modern Language Series: Mariucha,Benito Pérez Galdós,13608
+41113,Annette Laïs,Paul Féval,13602
+11921,The Illustrated London Reading Book,Various,13595
+42896,Angèle Méraud,Charles Mérouvel,13594
+10136,The Book of Household Management,Mrs. Beeton,13584
+42009,Glimpses of Three Coasts,Helen Hunt Jackson,13570
+23294,Catulli Carmina,Gaius Valerius Catullus,13563
+24324,Chatterbox; 1906,Various,13561
+11955,A Popular History of France from the Earliest Times; Volume 5,François Guizot,13561
+32364,Marta y María: novela de costumbres,Armando Palacio Valdés,13555
+23287,Lavengro: The Scholar; the Gypsy; the Priest,George Borrow,13543
+914,The Uncommercial Traveller,Charles Dickens,13539
+34351,Histoire de Marie-Antoinette,Edmond de Goncourt,13530
+1606,Kenilworth,Walter Scott,13525
+30646,Woman under socialism,August Bebel,13523
+31358,Harper's New Monthly Magazine; Volume 1; No. 4; September; 1850,Various,13511
+31557,The Works of Robert Louis Stevenson - Swanston Edition; Vol. 18,Robert Louis Stevenson,13505
+20094,Opere; Volume Secondo : scritti critici e letterari,Giovanni Berchet,13500
+30467,Thet Oera Linda Bok; Naar een Handschrift uit de Dertiende Eeuw,Unknown Author,13500
+43030,La maja desnuda,Vicente Blasco Ibáñez,13498
+31746,Les rues de Paris; tome premier,Bathild Bouniol,13483
+1012,La Divina Commedia di Dante,Dante Alighieri,13479
+31858,Ancestors: A Novel,Gertrude Franklin Horn Atherton,13478
+34322,The Moghul,Thomas Hoover,13478
+10703,The History of Rome; Book III,Theodor Mommsen,13477
+32049,The Lay of Havelok the Dane,Unknown Author,13469
+13055,A General History and Collection of Voyages and Travels — Volume 09,Robert Kerr,13447
+13983,The Book of the Epic: The World's Great Epics Told in Story,H. A. Guerber,13439
+40619,Camilla; or; A Picture of Youth,Fanny Burney,13438
+23759,Sagen van Koning Arthur en de Ridders van de Tafelronde,Nelly Montijn-de Fouw,13420
+10823,Reise durch England und Schottland,Johanna Schopenhauer,13415
+13942,Brave Men and Women: Their Struggles; Failures; And Triumphs,Osgood E. Fuller,13408
+32425,Maurice Tiernay; Soldier of Fortune,Charles James Lever,13402
+44837,Thirty Years' View (Vol. 2 of 2),Thomas Hart Benton,13397
+42292,Mémoires du prince de Talleyrand; Volume 5,prince de Bénévent Charles Maurice de Talleyrand-Périgord,13396
+1370,Autobiography of Andrew Dickson White — Volume 2,Andrew Dickson White,13393
+44202,The Red Cross in Peace and War,Clara Barton,13389
+41193,Työmiehiä: Romaani,Alexander Lange Kielland,13368
+567,The Complete Works of Brann; the Iconoclast — Volume 01,William Cowper Brann,13367
+41991,Mathématiques et Mathématiciens: Pensées et Curiosités,Unknown Author,13363
+43690,Storia delle repubbliche italiane dei secoli di mezzo; v. 02 (of 16),J.-C.-L. Simonde de Sismondi,13361
+41150,Italy; with sketches of Spain and Portugal,William Beckford,13356
+10940,Manners; Customs; and Dress During the Middle Ages and During the Renaissance Period,P. L. Jacob,13341
+14789,Aventures de Monsieur Pickwick; Vol. II,Charles Dickens,13337
+44280,The Life of the Rev. George Whitefield; Volume 1 (of 2),L. Tyerman,13337
+24490,Histoire de France 1758-1789 (Volume 19/19),Jules Michelet,13336
+32097,Encyclopaedia Britannica; 11th Edition; "Convention" to "Copyright",Various,13307
+41566,Curiosities of Superstition; and Sketches of Some Unrevealed Religions,W. H. Davenport Adams,13300
+42180,Parish Priests and Their People in the Middle Ages in England,Edward Lewes Cutts,13295
+13728,Marcella,Mrs. Humphry Ward,13271
+40977,The Life of Abraham Lincoln; from His Birth to His Inauguration as President,Ward Hill Lamon,13270
+44784,Plattdeutsche Briefe; Erzählungen und Gedichte,F. W. Lyra,13261
+31077,Raggio di Dio: Romanzo,Anton Giulio Barrili,13261
+24586,"The story of my life",Egerton Ryerson,13254
+43368,Harper's New Monthly Magazine; No. XXVII; August 1852; Vol. V,Various,13253
+30623,The Missourian,Eugene P. Lyle,13252
+34843,The Boys of '61,Charles Carleton Coffin,13248
+24979,A Source Book for Ancient Church History,Joseph Cullen Ayer,13246
+22036,Recollections of Forty Years in the House; Senate and Cabinet,John Sherman,13245
+12693,The Principal Navigations; Voyages; Traffiques and Discoveries of the English Nation — Volume 11,Richard Hakluyt,13240
+12442,In the Days of My Youth: A Novel,Amelia B. Edwards,13231
+13042,Knickerbocker's History of New York; Complete,Washington Irving,13224
+34868,Hammer and Anvil: A Novel,Friedrich Spielhagen,13222
+30527,The Works of Robert Louis Stevenson - Swanston Edition; Vol. 02,Robert Louis Stevenson,13217
+30331,Geschichte von England seit der Thronbesteigung Jakob's des Zweiten. Vierter Band,Baron Thomas Babington Macaulay Macaulay,13214
+31753,Lidewyde,Conrad Busken Huet,13212
+42713,King Horn; Floriz and Blauncheflur; The Assumption of Our Lady,Unknown Author,13208
+32840,One Of Them,Charles James Lever,13208
+41762,The Queer; the Quaint and the Quizzical: A Cabinet for the Curious,Frank H. Stauffer,13207
+34053,The Palace of Pleasure; Volume 2,Unknown Author,13205
+40057,The Life of Florence Nightingale; vol. 1 of 2,Sir Edward Tyas Cook,13201
+34099,In Stahlgewittern; aus dem Tagebuch eines Stoßtruppführers,Ernst Jünger,13194
+31637,La Fe,Armando Palacio Valdés,13194
+42454,Πλουτάρχου Βίοι Παράλληλοι - Τόμος 1,Plutarch,13188
+14140,Plutarch's Lives; Volume 3 (of 4),Plutarch,13179
+2048,The Sketch-Book of Geoffrey Crayon,Washington Irving,13171
+43409,The Kingdom of God is Within You; What is Art?,graf Leo Tolstoy,13170
+32046,Tales from the German; Comprising specimens from the most celebrated authors,Unknown Author,13168
+13682,Isänmaa,Arvid Järnefelt,13162
+20755,Short Studies on Great Subjects,James Anthony Froude,13159
+23639,Plutarch's Morals,Plutarch,13158
+2664,Zanoni,Baron Edward Bulwer Lytton Lytton,13156
+13953,Celsissimus: Salzburger Roman,Arthur Achleitner,13150
+30923,Histoire de l'Émigration pendant la Révolution Française. Tome 2,Ernest Daudet,13147
+33654,The Old English Herbals,Eleanour Sinclair Rohde,13147
+2561,Robert Falconer,George MacDonald,13147
+40868,The World as Will and Idea (Vol. 3 of 3),Arthur Schopenhauer,13140
+30782,Dictionnaire raisonné de l'architecture française du XIe au XVIe siècle - Tome 2 - (A suite - C),Eugène-Emmanuel Viollet-le-Duc,13138
+21569,Southern Arabia,J. Theodore Bent,13124
+14609,Théologie hindoue. Le Kama soutra.,Vatsyayana,13120
+13127,Observations on the Mussulmauns of India,Mrs. Meer Hasan Ali,13099
+44356,Bonaparte et les Républiques Italiennes (1796-1799),Paul Gaffarel,13091
+41572,The Golden Bough: A Study in Magic and Religion (Third Edition; Vol. 04 of 12),James George Frazer,13083
+23340,Campaigns of a Non-Combatant; and His Romaunt Abroad During the War,George Alfred Townsend,13072
+31865,Λόγια της Πλώρης: Θαλασσινά Διηγήματα,Andreas Karkavitsas,13068
+44101,The Holy Roman Empire,Viscount James Bryce Bryce,13062
+30941,The German Classics of the Nineteenth and Twentieth Centuries,Unknown Author,13061
+22747,Financial Crime and Corruption,Samuel Vaknin,13044
+11576,The Works of Charles and Mary Lamb — Volume 4,Charles Lamb,13041
+43337,History of the Jews; Vol. 3 (of 6),Heinrich Graetz,13034
+10685,Curiosités Infernales,P. L. Jacob,13027
+40382,Nuoruuden unelmia,Zacharias Topelius,13027
+10489,An English Garner: Critical Essays & Literary Fragments,and tell us; frankly; your opinion!,13023
+40538,Encyclopaedia Britannica; 11th Edition; "Husband" to "Hydrolysis",Various,13021
+12669,Marriage,Susan Ferrier,13014
+648,Wild Wales: Its People; Language and Scenery,George Borrow,13011
+43098,Selected Works of Voltairine de Cleyre,Voltairine De Cleyre,13002
+14129,The Works of Charles Lamb in Four Volumes; Volume 4,Charles Lamb,13001
+13296,Promenades of an Impressionist,James Huneker,12997
+926,Ten Thousand Dreams Interpreted; Or; What's in a Dream,Gustavus Hindman Miller,12992
+24532,Journeys Through Bookland; Vol. 8,Charles Herbert Sylvester,12990
+21018,Munkkiniemen Elsa,Eero Sissala,12986
+11397,The Works of Samuel Johnson; LL.D. in Nine Volumes; Volume 03,Samuel Johnson,12976
+917,Barnaby Rudge: A Tale of the Riots of 'Eighty,Charles Dickens,12976
+20143,La vie littéraire. Quatrième série,Anatole France,12975
+1047,The New Machiavelli,H. G. Wells,12968
+23137,Diary in America; Series One,Frederick Marryat,12967
+13806,Overland through Asia; Pictures of Siberian; Chinese; and Tartar Life,Thomas Wallace Knox,12966
+12009,Jean Jacques Rousseau: Een beeld van zijn leven en werken,Henriette Roland Holst-Van der Schalk,12962
+42224,The World's Progress; Vol. 01 (of 10),Delphian Society,12956
+268,The Octopus : A Story of California,Frank Norris,12953
+43294,Les Jeudis de Madame Charbonneau,comte de Armand Pontmartin,12952
+13814,The Development of the Feeling for Nature in the Middle Ages and Modern Times,Alfred Biese,12946
+11559,Renaissance in Italy; Volume 3 (of 7),John Addington Symonds,12932
+2848,Antiquities of the Jews,Flavius Josephus,12929
+44647,Komödiantinnen: Roman,Walter Bloem,12928
+24021,杜騙新書,active 16th century-17th century Yingyu Zhang,12918
+43020,The Crest of the Continent: A Summer's Ramble in the Rocky Mountains and Beyond,Ernest Ingersoll,12917
+40289,The Violin,George Dubourg,12915
+798,Le rouge et le noir: chronique du XIXe siècle,Stendhal,12912
+568,The Complete Works of Brann; the Iconoclast — Volume 10,William Cowper Brann,12910
+44449,Ruins of Ancient Cities (Vol. 2 of 2),Charles Bucke,12892
+41629,Harper's New Monthly Magazine; No. XXIII.—April; 1852.—Vol. IV.,Various,12892
+44343,The Journal of Negro History; Volume 8; 1923,Various,12889
+41828,General Bounce; Or; The Lady and the Locusts,G. J. Whyte-Melville,12888
+11697,Mare Nostrum (Our Sea): A Novel,Vicente Blasco Ibáñez,12886
+44573,The Entail; or; The Lairds of Grippy,John Galt,12885
+40182,Oriente,Vicente Blasco Ibáñez,12879
+42991,Castes and Tribes of Southern India. Vol. 1 of 7,Edgar Thurston,12866
+13287,A General History and Collection of Voyages and Travels — Volume 07,Robert Kerr,12860
+20128,Tolstoi's leven,Pavel Ivanovich Biriukov,12853
+10900,The King James Bible,Unknown Author,12848
+24598,A Modern History; From the Time of Luther to the Fall of Napoleon,John Lord,12847
+32776,Women of the Teutonic Nations,Hermann Schoenfeld,12843
+1150,The Danish History; Books I-IX,Grammaticus Saxo,12841
+1260,Jane Eyre: An Autobiography,Charlotte Brontë,12825
+40459,Animal Intelligence,George John Romanes,12821
+14477,The Inside Story of the Peace Conference,Emile Joseph Dillon,12817
+14260,The Great Events by Famous Historians; Volume 06,Unknown Author,12817
+20790,Nouvelles histoires extraordinaires,Edgar Allan Poe,12816
+44797,Ettore Fieramosca: ossia; La disfida di Barletta,Massimo d' Azeglio,12810
+40533,The Life of John Marshall; Volume 4: The building of the nation; 1815-1835,Albert J. Beveridge,12806
+22780,Voyages dans la basse et la haute Egypte,Vivant Denon,12803
+21859,Historical Sketches; Volume I (of 3),John Henry Newman,12800
+31846,Histoire du Consulat et de l'Empire; (Vol. 04 / 20),Adolphe Thiers,12800
+43413,Life of Mozart; Vol. 3 (of 3),Otto Jahn,12788
+30749,Ringan Gilhaize; or; The Covenanters,John Galt,12781
+42844,Life and Correspondence of David Hume; Volume 2,John Hill Burton,12777
+10803,A General History and Collection of Voyages and Travels — Volume 02,Robert Kerr,12774
+43578,An Introduction to Entomology: Vol. 3,William Kirby,12772
+33697,The Children of the World,Paul Heyse,12769
+42388,The Solomon Islands and Their Natives,H. B. Guppy,12769
+11927,Aventures du Capitaine Hatteras,Jules Verne,12765
+41124,Voyage à Cayenne; dans les deux Amériques et chez les anthropophages (Vol. 2 de 2),Louis Ange Pitou,12761
+41082,The Golden Bough: A Study in Comparative Religion (Vol. 1 of 2),James George Frazer,12756
+30789,Dictionnaire raisonné de l'architecture française du XIe au XVIe siècle - Tome 9 - (T - U - V - Y - Z),Eugène-Emmanuel Viollet-le-Duc,12746
+1660,Scenes from a Courtesan's Life,Honoré de Balzac,12743
+1615,Old English libraries,Ernest Albert Savage,12739
+31217,Household Papers and Stories,Harriet Beecher Stowe,12728
+497,Tracks of a Rolling Stone,Henry J. Coke,12709
+43921,One Irish Summer,William Eleroy Curtis,12708
+42432,Supplément à la Correspondance Diplomatique de Bertrand de Salignac de La Mothe Fénélon; Tome Septième,active 16th century seigneur de La Mothe-Fénelon Bertrand de Salignac,12697
+41841,Aikojen yöstä: Historiallisia kertomuksia IV,Kyösti Wilkuna,12694
+11870,The Country of the Blind; and Other Stories,H. G. Wells,12693
+543,Main Street,Sinclair Lewis,12685
+13037,The Rowley Poems,Thomas Chatterton,12680
+23700,The Decameron of Giovanni Boccaccio,Giovanni Boccaccio,12678
+24072,First Italian Readings,Various,12662
+44687,Sorretun voitto: Historiallinen kertomus,Eva Ljungberg,12660
+13671,Horace,George Sand,12659
+40336,The Agrarian Problem in the Sixteenth Century,R. H. Tawney,12650
+44156,Histoire de Flandre (T. 1/4),Baron Joseph Marie Bruno Constantin Kervyn de Lettenhove,12633
+14810,La maison à vapeur: Voyage à travers l'Inde septentrionale,Jules Verne,12623
+10656,A Collection of Old English Plays; Volume 2,Unknown Author,12622
+22939,The Gypsies,Charles Godfrey Leland,12619
+14091,Barkham Burroughs' Encyclopaedia of Astounding Facts and Useful Information; 1889,Barkham Burroughs,12616
+40031,Nooks and Corners of English Life; Past and Present,John Timbs,12613
+31809,The Works of Robert Louis Stevenson - Swanston Edition; Vol. 24,Robert Louis Stevenson,12611
+33556,The Fortunes of Glencore,Charles James Lever,12610
+43802,Storia delle repubbliche italiane dei secoli di mezzo; v. 03 (of 16),J.-C.-L. Simonde de Sismondi,12609
+42849,Storia della Guerra della Independenza degli Stati Uniti di America; vol. 4,Carlo Botta,12601
+21265,Pohjavirtoja: Romaani,Marja Salmela,12597
+42925,The Conquest: The True Story of Lewis and Clark,Eva Emery Dye,12595
+41442,Alkuperäisiä suomalaisia uuteloita II-III,K. J. Gummerus,12593
+40858,History of the Reformation in the Sixteenth Century; Volume 1,J. H. Merle d'Aubigné,12591
+32062,The Daltons; Or; Three Roads In Life. Volume II (of II),Charles James Lever,12588
+34251,English As We Speak It in Ireland,P. W. Joyce,12585
+34161,The Story of the Great War; Volume 7,Unknown Author,12567
+44865,The Secret Service; the Field; the Dungeon; and the Escape,Albert D. Richardson,12565
+10635,Stories from the Italian Poets: with Lives of the Writers; Volume 2,Leigh Hunt,12563
+13721,Mardi: and A Voyage Thither; Vol. II,Herman Melville,12557
+10925,A Collection of Old English Plays; Volume 4,Unknown Author,12556
+33744,Œuvres complètes de lord Byron; Tome 12,Baron George Gordon Byron Byron,12555
+43411,Life of Mozart; Vol. 1 (of 3),Otto Jahn,12555
+14384,White Shadows in the South Seas,Frederick O'Brien,12548
+2440,The Naturalist on the River Amazons,Henry Walter Bates,12547
+14413,Blackwood's Edinburgh Magazine — Volume 54; No. 333; July 1843,Various,12547
+43657,The College; the Market; and the Court,Caroline Wells Healey Dall,12544
+1322,Leaves of Grass,Walt Whitman,12541
+1069,Four Short Stories By Emile Zola,Émile Zola,12535
+41751,Travels in Central Asia,Ármin Vámbéry,12533
+32593,Elizabethan England,William Harrison,12526
+14372,Autour de la table,George Sand,12522
+43970,Every Day Life in the Massachusetts Bay Colony,George Francis Dow,12518
+13985,V. V.'s Eyes,Henry Sydnor Harrison,12515
+21006,The Governments of Europe,Frederic Austin Ogg,12511
+13949,Le vicomte de Bragelonne; Tome III.,Alexandre Dumas,12504
+718,Tono-Bungay,H. G. Wells,12500
+12646,La maison,Henry Bordeaux,12499
+40058,The Life of Florence Nightingale; vol. 2 of 2,Sir Edward Tyas Cook,12496
+20023,The letters of Queen Victoria; vol. 1; 1837-1843,Queen of Great Britain Victoria,12489
+43223,The World's Best Poetry; Volume 09: Of Tragedy: of Humour,Unknown Author,12489
+388,The Crossing,Winston Churchill,12478
+10695,The Atlantic Monthly; Volume 03; No. 15; January; 1859,Various,12473
+31797,Αμλέτος,William Shakespeare,12468
+44267,Mr. Punch's History of Modern England; Vol. 1 (of 4).—1841-1857,Charles L. Graves,12467
+13611,Studies in the Psychology of Sex; Volume 2,Havelock Ellis,12467
+40445,The Life of John Marshall; Volume 3: Conflict and construction; 1800-1815,Albert J. Beveridge,12463
+43654,In Darkest Africa; Vol. 1; or; The Quest; Rescue; and Retreat of Emin; Governor of Equatoria,Henry M. Stanley,12461
+34631,Hovin Roosa,Friedrich Spielhagen,12451
+31198,Legenden en Romances van Spanje,Lewis Spence,12449
+40851,Abridgment of the Debates of Congress; from 1789 to 1856; Vol. 2 (of 16),United States. Congress,12446
+21339,The Works of Aphra Behn; Volume I,Aphra Behn,12445
+20950,La Grande Marnière,Georges Ohnet,12444
+12515,Selected English Letters (XV-XIX Centuries),Unknown Author,12444
+13479,Descripción Geografica; Histórica y Estadística de Bolivia; Tomo 1.,Alcide Dessalines d' Orbigny,12436
+21093,The Journal of Negro History; Volume 4; 1919,Various,12432
+30598,The Works of Robert Louis Stevenson - Swanston Edition; Vol. 09,Robert Louis Stevenson,12427
+22485,Devon; Its Moorlands; Streams and Coasts,Rosalind Northcote,12424
+34203,History of the Reign of Philip the Second King of Spain; Vol. 3,William Hickling Prescott,12418
+44125,The Histories of Polybius; Vol. 1 (of 2),Polybius,12409
+31954,Noorsche mythen uit de Edda's en de sagen,H. A. Guerber,12394
+41153,The Spell of Switzerland,Nathan Haskell Dole,12392
+33693,Vie de Jeanne d'Arc. Vol. 2 de 2,Anatole France,12391
+14308,El préstamo de la difunta,Vicente Blasco Ibáñez,12389
+44275,Fru Marie Grubbe: Interieurer fra det syttende Aarhundrede,J. P. Jacobsen,12384
+11196,The Atlantic Monthly; Volume 04; No. 21; July; 1859,Various,12378
+23998,The World's Greatest Books — Volume 19 — Travel and Adventure,Unknown Author,12371
+30235,Six Centuries of English Poetry: Tennyson to Chaucer,James Baldwin,12369
+40007,Säkeniä; Kokous runoelmia,August Ahlqvist,12369
+43591,The Life of Ludwig van Beethoven; Volume I,Alexander Wheelock Thayer,12369
+2370,Sir Gibbie,George MacDonald,12363
+31464,La de Bringas,Benito Pérez Galdós,12363
+32690,The Great Events by Famous Historians; Volume 14,Unknown Author,12357
+14182,The World's Best Orations; Vol. 1 (of 10),Unknown Author,12345
+30663,Dal primo piano alla soffitta,Enrico Castelnuovo,12334
+14498,A Handbook to the Works of Browning (6th ed.),Mrs. Sutherland Orr,12332
+44713,Le roman de la rose - Tome IV,de Lorris Guillaume,12331
+41359,The Golden Bough: A Study in Comparative Religion (Vol. 2 of 2),James George Frazer,12331
+2385,Gala-Days,Gail Hamilton,12324
+12425,De Orbe Novo; Volume 1 (of 2),Pietro Martire d' Anghiera,12319
+20508,Como eu atravessei Àfrica do Atlantico ao mar Indico; volume primeiro,Alexandre Alberto da Rocha de Serpa Pinto,12318
+24218,The Works of Samuel Johnson; LL.D. in Nine Volumes; Volume 08,Samuel Johnson,12315
+808,The Complete Plays of Gilbert and Sullivan,Arthur Sullivan,12310
+24780,The letters of Queen Victoria; vol. 2; 1844-1853,Queen of Great Britain Victoria,12307
+24689,New Italian sketches,John Addington Symonds,12306
+24950,Bradford's History of 'Plimoth Plantation',William Bradford,12304
+12632,Yesterdays with Authors,James Thomas Fields,12302
+40882,Felix Holt; the Radical,George Eliot,12296
+10822,El paraiso de las mujeres,Vicente Blasco Ibáñez,12294
+1209,History of the Conquest of Peru,William Hickling Prescott,12292
+43871,Vercingétorix,Camille Jullian,12292
+13707,Twice-told tales,Nathaniel Hawthorne,12286
+41792,Theodore Watts-Dunton: Poet; Novelist; Critic,James Douglas,12285
+1484,The Four Horsemen of the Apocalypse,Vicente Blasco Ibáñez,12281
+2145,Ben-Hur: A tale of the Christ,Lew Wallace,12277
+34350,A Manual of Elementary Geology,Sir Charles Lyell,12271
+13635,New York Times Current History: The European War; Vol 1; No. 1,Various,12269
+33141,Blackwood's Edinburgh Magazine; Volume 57; No. 355; May 1845,Various,12268
+21600,The Flourishing of Romance and the Rise of Allegory,George Saintsbury,12262
+42981,The Folk-Tales of the Magyars,Unknown Author,12254
+24484,The Journal of Negro History; Volume 7; 1922,Various,12249
+34323,The Samurai Strategy,Thomas Hoover,12248
+41088,Passeggiate per l'Italia; vol. 4,Ferdinand Gregorovius,12239
+43967,A Christian Directory; Part 4: Christian Politics,Richard Baxter,12234
+30954,The Works of Robert Louis Stevenson - Swanston Edition; Vol. 13,Robert Louis Stevenson,12229
+24781,The Birth of Yugoslavia; Volume 2,Henry Baerlein,12224
+41477,Humphrey; Duke of Gloucester: A Biography,Kenneth Hotham Vickers,12218
+42046,Ireland under the Tudors; with a Succinct Account of the Earlier History. Vol. 1 (of 3),Richard Bagwell,12216
+40140,On the Face of the Waters: A Tale of the Mutiny,Flora Annie Webster Steel,12216
+20459,Hours in a Library; Volume 1,Leslie Stephen,12215
+12742,Minstrelsy of the Scottish border; Volume 1,Walter Scott,12214
+42067,The Golden Bough: A Study in Magic and Religion (Third Edition; Vol. 07 of 12),James George Frazer,12214
+21880,The Medallic History of the United States of America 1776-1876,J. F. Loubat,12210
+351,Of Human Bondage,W. Somerset Maugham,12203
+43034,Zes maanden bij de commando's,Nico J. Hofmeyr,12201
+14114,Plutarch's Lives; Volume 2 (of 4),Plutarch,12200
+32509,Œuvres complètes de lord Byron; Tome 11,Baron George Gordon Byron Byron,12193
+24401,Viagens na Minha Terra (Completo),Visconde de João Batista da Silva Leitão de Almeida Garrett Almeida Garrett,12193
+44365,Storia delle repubbliche italiane dei secoli di mezzo; v. 16 (of 16),J.-C.-L. Simonde de Sismondi,12192
+22903,The Expedition to Borneo of H.M.S. Dido,Sir Henry Keppel,12184
+944,The Voyage of the Beagle,Charles Darwin,12183
+10610,Letters and Journals of James; Eighth Earl of Elgin,Earl of James Bruce Elgin,12182
+44183,Blackwood's Edinburgh Magazine; Volume 65; No. 399; January 1849,Various,12180
+41040,Some Account of Gothic Architecture in Spain,George Edmund Street,12179
+44855,Elizabethan & Jacobean Pamphlets,marry; you take vp (though it be at the worst hand),12179
+41213,The Secrets of a Kuttite,Edward O. Mousley,12177
+41748,The Real Shelley. New Views of the Poet's Life. Vol. 2 (of 2),John Cordy Jeaffreson,12171
+34336,Ο Πατούχας,Ioannes Kondylakes,12170
+14613,The foundations of Japan,J. W. Robertson Scott,12167
+11606,The Atlantic Monthly; Volume 03; No. 16; February; 1859,Various,12161
+700,The Old Curiosity Shop,Charles Dickens,12161
+1024,The Wrecker,Robert Louis Stevenson,12155
+41716,The Pacific Triangle,Sydney Greenbie,12151
+33604,Tony Butler,Charles James Lever,12145
+23610,Voyages du capitaine Robert Lade en differentes parties de l'Afrique; de l'Asie et de l'Amérique,abbé Prévost,12143
+41857,The Broken Sword; Or; A Pictorial Page in Reconstruction,D. Worthington,12141
+43803,Storia delle repubbliche italiane dei secoli di mezzo; v. 04 (of 16),J.-C.-L. Simonde de Sismondi,12133
+33414,Le roman bourgeois: Ouvrage comique,Antoine Furetière,12115
+41494,Aikakausien vaihteessa: Historiallisia kertomuksia,Kyösti Wilkuna,12112
+42997,Castes and Tribes of Southern India. Vol. 7 of 7,Edgar Thurston,12112
+42326,Régi magyar vitézi énekek és elegyes dalok (2. kötet),Kálmán Thaly,12106
+14399,Ce que disait la flamme,Hector Bernier,12105
+22641,Lucifero,Mario Rapisardi,12103
+42706,Across America; Or; The Great West and the Pacific Coast,James Fowler Rusling,12102
+14470,The German Classics of the Nineteenth and Twentieth Centuries; Volume 12,Unknown Author,12101
+44378,Blackwood's Edinburgh Magazine; Vol. 60; No. 374; December; 1846,Various,12096
+13612,Studies in the Psychology of Sex; Volume 3,Havelock Ellis,12096
+30030,I coniugi Varedo,Enrico Castelnuovo,12095
+1258,Ten Years Later,Alexandre Dumas,12095
+11271,The Anti-Slavery Examiner; Part 1 of 4,American Anti-Slavery Society,12086
+41413,Monsieur de Phocas; Astarté: Roman,Jean Lorrain,12081
+43313,Histoire du Consulat et de l'Empire; (Vol. 09 / 20),Adolphe Thiers,12077
+31026,The Life of Napoleon Bonaparte. Vol. 2 (of 4),William Milligan Sloane,12076
+34796,William Shakespeare as He Lived: An Historical Tale,Henry Curling,12075
+42240,The Paston Letters; A.D. 1422-1509. Volume 6 (of 6); Part 1 (Letters; Chronological Table),Unknown Author,12074
+30021,Correspondance inédite de Hector Berlioz; 1819-1868,Hector Berlioz,12074
+22149,The Journal of Negro History; Volume 6; 1921,Various,12065
+10885,Stories from the Italian Poets: with Lives of the Writers; Volume 1,Leigh Hunt,12060
+21444,Peritäänkö vihakin? Jutelma kahdessa osassa,K. J. Gummerus,12055
+43228,Lotgevallen van een jeugdigen natuuronderzoeker,Lucien Biart,12047
+12088,Composition-Rhetoric,Stratton D. Brooks,12045
+42447,The Heart of the White Mountains; Their Legend and Scenery,Samuel Adams Drake,12042
+43398,Erämaan lapset: Historiallisia kertomuksia V,Kyösti Wilkuna,12042
+42332,The Sorrows of Satan,Marie Corelli,12037
+1564,Boswell's Life of Johnson,James Boswell,12036
+40860,Ruins of Ancient Cities (Vol. 1 of 2),Charles Bucke,12034
+11512,O. Henry Memorial Award Prize Stories of 1921,Unknown Author,12031
+622,The Letters of Robert Louis Stevenson — Volume 1,Robert Louis Stevenson,12027
+43358,Modern Flirtations: A Novel,Catherine Sinclair,12025
+43824,In the Track of the Trades,Lewis R. Freeman,12023
+33734,Barnave,Jules Gabriel Janin,12022
+10130,The Works of Charles and Mary Lamb — Volume 3,Charles Lamb,12021
+43378,Excursions in the mountains of Ronda and Granada; with characteristic sketches of the inhabitants of southern Spain; vol. 1/2,C. Rochfort‏ Scott,12020
+41632,The Art of Entertaining,M. E. W. Sherwood,12019
+40097,The World as Will and Idea (Vol. 2 of 3),Arthur Schopenhauer,12007
+23240,Blackwood's Edinburgh Magazine; No. CCCXXXVI. October; 1843. Vol. LIV.,Various,12004
+13366,A General History and Collection of Voyages and Travels — Volume 08,Robert Kerr,12003
+21128,Twenty Years of Congress; Vol. 1,James Gillespie Blaine,12001
+13901,Perzië; Chaldea en Susiane,Jane Dieulafoy,12000
+20075,Frank Fairlegh: Scenes from the Life of a Private Pupil,Frank E. Smedley,11998
+22631,An Account of Timbuctoo and Housa Territories in the Interior of Africa,active 1820 Abd Salam Shabeeny,11993
+14833,Varney the Vampire; Or; the Feast of Blood,Thomas Peckett Prest,11992
+14158,De l'origine des espèces,Charles Darwin,11989
+42412,Blackwood's Edinburgh Magazine; No. 401; March 1849,Various,11988
+30535,El origen del pensamiento,Armando Palacio Valdés,11987
+20004,Tancred; Or; The New Crusade,Earl of Beaconsfield Benjamin Disraeli,11983
+893,History of the Decline and Fall of the Roman Empire — Volume 4,Edward Gibbon,11967
+14995,Los Hombres de Pro,José María de Pereda,11966
+11072,Jumalainen näytelmä: Kiirastuli,Dante Alighieri,11951
+13260,Droll Stories — Complete,Honoré de Balzac,11951
+13030,The German Classics of the Nineteenth and Twentieth Centuries; Volume 09,Unknown Author,11949
+30637,Writings in the United Amateur; 1915-1922,H. P. Lovecraft,11948
+44051,Briefwechsel zwischen Abaelard und Heloise; mit der Leidensgeschichte Abaelards,Peter Abelard,11941
+42594,Les réprouvés et les élus (t.2),Émile Souvestre,11937
+40499,Abridgment of the Debates of Congress; from 1789 to 1856; Vol. 1 (of 16),United States. Congress,11929
+20635,Une fête de Noël sous Jacques Cartier,Ernest Myrand,11917
+41332,Ten Thousand a-Year. Volume 2.,Samuel Warren,11917
+10456,The Atlantic Monthly; Volume 02; No. 11; September; 1858,Various,11914
+14033,Plutarch's Lives; Volume 1 (of 4),Plutarch,11913
+20085,The Tragic Muse,Henry James,11912
+32738,Blackwood's Edinburgh Magazine; Volume 58; No. 359; September 1845,Various,11899
+14353,The Poems of Jonathan Swift; D.D.; Volume 1,Jonathan Swift,11899
+12246,Œuvres complètes de François Villon,François Villon,11898
+21210,Thomas Davis; selections from his prose and poetry,Thomas Davis,11893
+42502,Paolo Pelliccioni; Volume 1 (of 2),Francesco Domenico Guerrazzi,11890
+11680,George Eliot; a Critical Study of Her Life; Writings and Philosophy,George Willis Cooke,11883
+43416,Rambles in Rome,S. Russell Forbes,11880
+41123,Voyage à Cayenne; dans les deux Amériques et chez les anthropophages (Vol. 1 de 2),Louis Ange Pitou,11879
+30786,Dictionnaire raisonné de l'architecture française du XIe au XVIe siècle - Tome 6 - (G - H - I - J - K - L - M - N - O),Eugène-Emmanuel Viollet-le-Duc,11876
+23403,Special Report on Diseases of the Horse,United States. Bureau of Animal Industry,11875
+20303,The Best Short Stories of 1915; and the Yearbook of the American Short Story,Unknown Author,11872
+24658,The loyalists of America and their times,Egerton Ryerson,11864
+40100,Life histories of North American wood warblers; Part 1 (of 2),Arthur Cleveland Bent,11863
+42529,Dariel: A Romance of Surrey,R. D. Blackmore,11852
+43577,An Introduction to Entomology: Vol. 2,William Kirby,11850
+14583,The Continental Monthly; Vol. 1; No. 3; March; 1862,Various,11848
+10820,Een liefde,Lodewijk van Deyssel,11843
+42553,Excursions; and Poems,Henry David Thoreau,11838
+31368,Glimpses of the Past: History of the River St. John; A.D. 1604-1784,W. O. Raymond,11836
+14323,Là-bas,J.-K. Huysmans,11831
+32589,Blackwood's Edinburgh Magazine; Volume 57; No. 353; March 1845,Various,11826
+12310,The Atlantic Monthly; Volume 09; No. 56; June; 1862,Various,11825
+44469,The Sheepfold and the Common; Or; Within and Without. Vol. 1 (of 2),Timothy East,11824
+43541,A Diplomat in Japan,Ernest Mason Satow,11822
+24504,The Greville Memoirs; Part 2 (of 3); Volume 1 (of 3),Charles Greville,11821
+40126,The Cock and Anchor,Joseph Sheridan Le Fanu,11805
+21946,Op Eigen Wieken,Louisa May Alcott,11805
+40412,Through the Year with Famous Authors,Mabel Patterson,11797
+44205,Gregg's Commerce of the Prairies; 1831-1839; part 2,Josiah Gregg,11791
+41349,Historic Towns of the Western States,Unknown Author,11787
+987,The Scientific Monthly; October to December; 1915,Various,11781
+40128,Blackwood's Edinburgh Magazine; Volume 64; No.394; August; 1848,Various,11778
+14596,Christian Mysticism,William Ralph Inge,11776
+13097,Lives of the Most Remarkable Criminals Who have been Condemned and Executed for Murder; the Highway; Housebreaking; Street Robberies; Coining or other offences,Unknown Author,11773
+20110,Canada: the Empire of the North,Agnes C. Laut,11771
+40090,Blackwood's Edinburgh Magazine; Volume 63; No. 391; May; 1848,Various,11771
+12373,The Atlantic Monthly; Volume 01; No. 05; March; 1858,Various,11770
+12280,The Grandissimes,George Washington Cable,11769
+23959,Fair Italy; the Riviera and Monte Carlo,W. Cope Devereux,11759
+20884,Yhdyselämää,Jonas Lie,11758
+44548,The Englishman in China During the Victorian Era; Vol. 2 (of 2),Alexander Michie,11754
+10947,The Best American Humorous Short Stories,Unknown Author,11752
+12271,Contes littéraires du bibliophile Jacob à ses petits-enfants,P. L. Jacob,11752
+33468,Roland Cashel; Volume I (of II),Charles James Lever,11749
+42508,Curious Creatures in Zoology,John Ashton,11747
+33012,Carnival,Compton MacKenzie,11745
+41247,Ten Thousand a-Year. Volume 3.,Samuel Warren,11744
+44769,The Sheepfold and the Common; Or; Within and Without. Vol. 2 (of 2),Timothy East,11744
+21544,Biographie des Sagamos illustres  de l'Amérique Septentrionale (1848),Maximilien Bibaud,11736
+24675,Ontboezemingen,Carel van Nievelt,11723
+30048,The Contemporary Review; Volume 36; September 1879,Various,11713
+44533,Blackwood's Edinburgh Magazine; Volume 64; No. 393; July 1848,Various,11710
+23690,Blackwood's Edinburgh Magazine; Volume 61; No. 378; April; 1847,Various,11710
+11079,Essays in Rebellion,Henry Woodd Nevinson,11705
+24885,The Atlantic Monthly; Volume 14; No. 85; November; 1864,Various,11703
+11982,Eighty Years and More; Reminiscences 1815-1897,Elizabeth Cady Stanton,11699
+14194,France in the Nineteenth Century,Elizabeth Wormeley Latimer,11697
+21658,Ehstnische Märchen,Friedrich Reinhold Kreutzwald,11696
+42214,On a Donkey's Hurricane Deck,R. Pitcher Woodward,11694
+13444,Searchlights on Health: The Science of Eugenics,B. G. Jefferis,11682
+33097,Blackwood's Edinburgh Magazine; Volume 57; No. 354; April 1845,Various,11681
+13258,Consuelo; Tome 2 (1861),George Sand,11678
+23520,Mon oncle et mon curé; Le voeu de Nadia,Jean de La Brète,11675
+12097,The Atlantic Monthly; Volume 09; No. 54; April; 1862,Various,11672
+42483,At home with the Patagonians,George C. Musters,11670
+44586,Diplomatic Days,Edith O'Shaughnessy,11664
+12874,The New North,Agnes Deans Cameron,11660
+43099,Biographia Epistolaris; Volume 2,Samuel Taylor Coleridge,11654
+24360,The Life of Napoleon Bonaparte. Vol. 1 (of 4),William Milligan Sloane,11654
+23140,The Death Shot: A Story Retold,Mayne Reid,11644
+22240,Masterpieces of Negro Eloquence,Unknown Author,11643
+31277,Anglo-Saxon Grammar and Exercise Book,C. Alphonso Smith,11641
+23134,Frau Pauline Brater: Lebensbild einer deutschen Frau,Agnes Sapper,11638
+44344,Blackwood's Edinburgh Magazine; Vol. 65; No. 400; February; 1849,Various,11638
+30351,The Cup of Fury: A Novel of Cities and Shipyards,Rupert Hughes,11638
+23925,Het Leven der Dieren: Deel 1; Hoofdstuk 11: De Evenvingerigen,Alfred Edmund Brehm,11623
+41385,Histoire de la Guerre de Trente Ans,Friedrich Schiller,11621
+14742,Vanishing England,P. H. Ditchfield,11620
+14412,The History of the Great Irish Famine of 1847 (3rd ed.) (1902),Canon John O'Rourke,11619
+22502,Economisti del cinque e seicento,Geminiano Montanari,11617
+40388,The Life of John Marshall; Volume 1: Frontiersman; soldier; lawmaker; 1755-1788,Albert J. Beveridge,11617
+10038,The Magnetic North,Elizabeth Robins,11612
+34081,Myths & Legends of the Celtic Race,T. W. Rolleston,11606
+24674,Expositions of Holy Scripture,Alexander Maclaren,11603
+21046,Story Hour Readings: Seventh Year,E. C. Hartwell,11602
+2739,More Letters of Charles Darwin — Volume 1,Charles Darwin,11600
+24664,Fairy Fingers,Anna Cora Ogden Mowatt Ritchie,11597
+31902,Tom Burke Of "Ours"; Volume II,Charles James Lever,11591
+33041,Unsichtbare Bande: Erzählungen,Selma Lagerlöf,11590
+1565,The Last Days of Pompeii,Baron Edward Bulwer Lytton Lytton,11588
+44916,Modernities,Horace Barnett Samuel,11585
+40143,France and England in North America; Part III: La Salle; Discovery of The Great West,Francis Parkman,11577
+43804,Storia delle repubbliche italiane dei secoli di mezzo; v. 05 (of 16),J.-C.-L. Simonde de Sismondi,11575
+42544,Soyer's Culinary Campaign: Being Historical Reminiscences of the Late War.,Alexis Soyer,11573
+32342,Davenport Dunn; a Man of Our Day. Volume 2 (of 2),Charles James Lever,11572
+41933,Hihhuleita: Kuvauksia Itä-Suomesta,Jacob Ahrenberg,11571
+751,The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,11566
+2087,Life and Letters of Charles Darwin — Volume 1,Charles Darwin,11566
+33602,The Firebrand,S. R. Crockett,11563
+31859,Blackwood's Edinburgh Magazine; Volume 61; No. 377; March 1847,Various,11559
+43686,De la démonialité des animaux incubes et succubes,Ludovico Maria Sinistrari,11558
+21012,The loyalists of America and their times,Egerton Ryerson,11549
+21858,The Daughters of Danaus,Mona Caird,11547
+21424,Il Comento alla Divina Commedia; e gli altri scritti intorno a Dante; vol. 1,Giovanni Boccaccio,11543
+13239,Grain and Chaff from an English Manor,Arthur Herbert Savory,11542
+34158,入れかわった男,E. Phillips Oppenheim,11531
+41056,Cours familier de Littérature - Volume 19,Alphonse de Lamartine,11527
+507,Adam Bede,George Eliot,11521
+43590,The Life of Isaac Ingalls Stevens; Volume 2 (of 2),Hazard Stevens,11521
+1081,Dead Souls,Nikolai Vasilevich Gogol,11521
+44491,Blackwood's Edinburgh Magazine; Vol. 70; No. 434; December; 1851,Various,11512
+42513,Le vergini delle rocce,Gabriele D'Annunzio,11508
+44640,The World's Greatest Books — Volume 17 — Poetry and Drama,Unknown Author,11505
+42386,Sixty Years a Queen: The Story of Her Majesty's Reign,Sir Herbert Maxwell,11499
+14842,Lippincott's Magazine of Popular Literature and Science; Volume 26; September; 1880,Various,11494
+40319,The Life of Mrs. Humphry Ward,Janet Penrose Trevelyan,11492
+31750,Lippincott's Magazine of Popular Literature and Science; Volume 20. July; 1877.,Various,11488
+33354,Η χολεριασμένη: Τα μετά θάνατον,Alexandros Papadiamantes,11487
+43056,History of the Jews; Vol. 1 (of 6),Heinrich Graetz,11481
+43442,The Golden Butterfly,Walter Besant,11474
+12411,The Long White Cloud: "Ao Tea Roa",William Pember Reeves,11469
+34481,The Prime Minister,William Henry Giles Kingston,11468
+20295,My New Curate,Patrick Augustine Sheehan,11461
+11687,The Atlantic Monthly; Volume 03; No. 17; March; 1859,Various,11458
+30310,Special report on diseases of cattle,United States. Bureau of Animal Industry,11455
+14803,Journal des Goncourt  (Deuxième volume),Edmond de Goncourt,11448
+14276,Italian Journeys,William Dean Howells,11442
+12319,The Atlantic Monthly; Volume 01; No. 04; February; 1858,Various,11442
+42313,The Life and Letters of Lafcadio Hearn; Volume 2,Elizabeth Bisland,11441
+27,Far from the Madding Crowd,Thomas Hardy,11437
+43847,The Expositor's Bible: The Book of the Twelve Prophets; Vol. 1,George Adam Smith,11431
+41203,Six Discourses on the Miracles of Our Saviour; and Defences of His Discourses,Thomas Woolston,11431
+2099,A History of the Moravian Church,J. E. Hutton,11430
+30323,The Book of Religions,John Hayward,11429
+32585,Minerva e lo scimmione,Ettore Romagnoli,11428
+33709,Διηγήματα,Demetrios Vikelas,11427
+23572,Blackwood's Edinburgh Magazine; Volume 61; No. 379; May; 1847,Various,11425
+24549,Souvenirs d'un sexagénaire; Tome IV,A.-V. Arnault,11415
+20350,The Atlantic Monthly; Volume 14; No. 83; September; 1864,Various,11414
+24930,Glances at Europe,Horace Greeley,11413
+13832,Romance of California Life,John Habberton,11411
+12514,A General History and Collection of Voyages and Travels — Volume 04,Robert Kerr,11407
+12325,A General History and Collection of Voyages and Travels — Volume 03,Robert Kerr,11406
+30855,The Wife of Sir Isaac Harman,H. G. Wells,11405
+43043,George Eliot's Life; as Related in Her Letters and Journals. Vol. 1 (of 3),George Eliot,11401
+41537,The Divine Comedy of Dante Alighieri: The Inferno,Dante Alighieri,11401
+11173,The Atlantic Monthly; Volume 05; No. 27; January; 1860,Various,11400
+33580,Les caquets de l'accouchée,Unknown Author,11394
+43497,Trans-Himalaya: Discoveries and Adventurers in Tibet. Vol. 1 (of 2),Sven Anders Hedin,11391
+12613,Eros' begravning,Hjalmar Bergman,11387
+21406,Novelas do Minho,Camilo Castelo Branco,11385
+41609,Diary of John Manningham,John Manningham,11379
+30608,Christology of the Old Testament: And a Commentary on the Messianic Predictions. Vol. 2,Ernst Wilhelm Hengstenberg,11376
+33847,The History of Cuba; vol. 1,Willis Fletcher Johnson,11374
+43329,The Life of Jefferson Davis,Frank H. Alfriend,11373
+13645,The Tatler; Volume 1,Sir Richard Steele,11370
+44762,Chacune son Rêve,Daniel Lesueur,11362
+31185,Chapters in the History of the Insane in the British Isles,Daniel Hack Tuke,11358
+41521,South Africa and the Boer-British War; Volume I,Murat Halstead,11356
+30388,Blackwood's Edinburgh Magazine; Volume 59; No. 367; May 1846,Various,11353
+33398,A Select Collection of Old English Plays; Volume 14,Unknown Author,11347
+32341,Davenport Dunn; a Man of Our Day. Volume 1 (of 2),Charles James Lever,11346
+11300,La belle Gabrielle — Tome 1,Auguste Maquet,11346
+43814,Blackwood's Edinburgh Magazine; Vol. 66; No 409; November 1849,Various,11345
+11160,A Cotswold Village; Or; Country Life and Pursuits in Gloucestershire,J. Arthur Gibbs,11335
+31427,Miscellaneous Writings; 1883-1896,Mary Baker Eddy,11328
+10165,Across the Zodiac,Percy Greg,11327
+43478,Zágoni Mikes Kelemen törökországi levelei (1. kötet),Kelemen Mikes,11327
+44908,The Law of Civilization and Decay: An Essay on History,Brooks Adams,11326
+30455,Essays in English Literature; 1780-1860,George Saintsbury,11321
+14951,A Wanderer in Holland,E. V. Lucas,11317
+205,Walden; and On The Duty Of Civil Disobedience,Henry David Thoreau,11316
+33963,The Valiants of Virginia,Hallie Erminie Rives,11316
+34756,Livro de Consolação: Romance,Camilo Castelo Branco,11316
+14672,The Religion of the Ancient Celts,J. A. MacCulloch,11311
+33885,Historia de los Judíos en España,Adolfo de Castro,11310
+1895,Armadale,Wilkie Collins,11309
+43938,The Sorceress of Rome,Unknown Author,11308
+11103,The Atlantic Monthly; Volume 06; No. 37; November; 1860,Various,11306
+43722,Blackwood's Edinburgh Magazine; Vol. 66 No.406; August 1849,Various,11305
+40857,From Gretna Green to Land's End: A Literary Journey in England.,Katharine Lee Bates,11300
+30704,The Record of Nicholas Freydon,A. J. Dawson,11297
+44332,Blackwood's Edinburgh Magazine; Volume 67; No. 411; January 1850,Various,11292
+40293,Vie de Bohème: A Patch of Romantic Paris,Orlo Williams,11290
+637,The Letters of Robert Louis Stevenson — Volume 2,Robert Louis Stevenson,11288
+14363,The Worst Journey in the World: Antarctic; 1910-1913,Apsley Cherry-Garrard,11287
+42025,Europe in the Sixteenth Century; 1494-1598; Fifth Edition,A. H. Johnson,11287
+13026,The Atlantic Monthly; Volume 11; No. 67; May; 1863,Various,11286
+12565,An Account of the English Colony in New South Wales; Volume 1,David Collins,11285
+13010,Frank Mildmay; Or; The Naval Officer,Frederick Marryat,11282
+31709,Our Southern Highlanders,Horace Kephart,11281
+12046,Narrative of a Survey of the Intertropical and Western Coasts of Australia — Vol. 2,Philip Parker King,11280
+24924,Aventures extraordinaires d'un savant russe; IV. Le désert sidéral,Georges Le Faure,11278
+21331,The Adventures of Hajji Baba of Ispahan,James Justinian Morier,11276
+12745,The World's Greatest Books — Volume 11 — Ancient and Mediæval History,Unknown Author,11270
+2118,History of Friedrich II of Prussia — Volume 18,Thomas Carlyle,11259
+13768,Katajainen kansani,Juhani Aho,11256
+32666,Ιδανικός σύζυγος: Δράμα εις τέσσαρας πράξεις,Oscar Wilde,11250
+42177,Histoire de Flandre (T. 3/4),Baron Joseph Marie Bruno Constantin Kervyn de Lettenhove,11250
+10088,Thaumaturgia; Or; Elucidations of the Marvellous,Oxonian,11250
+11134,The Atlantic Monthly; Volume 07; No. 41; March; 1861,Various,11246
+43863,Child Life in Colonial Days,Alice Morse Earle,11245
+11039,A Woman's Journey Round the World,Ida Pfeiffer,11245
+10125,The Best Letters of Charles Lamb,Charles Lamb,11241
+10574,The History of England; Volume I,David Hume,11240
+13739,Shandygaff,Christopher Morley,11237
+13514,Tales of a Traveller,Washington Irving,11234
+14113,Les fantômes; étude cruelle,Ch. Flor O'Squarr,11233
+10649,Beacon Lights of History; Volume 14: The New Era,John Lord,11227
+12263,Blackwood's Edinburgh Magazine — Volume 53; No. 331; May; 1843,Various,11225
+43589,The Life of Isaac Ingalls Stevens; Volume 1 (of 2),Hazard Stevens,11225
+10687,Tartarin de Tarascon,Alphonse Daudet,11224
+360,What is Property? An Inquiry into the Principle of Right and of Government,P.-J. Proudhon,11222
+22460,New York Times Current History; The European War; Vol 2; No. 5; August; 1915,Various,11221
+40421,The Comical Adventures of Twm Shon Catty (Thomas Jones; Esq.);,T. J. Llewelyn Prichard,11214
+11118,The Atlantic Monthly; Volume 07; No. 39; January; 1861,Various,11209
+1675,New Forces in Old China: An Inevitable Awakening,Arthur Judson Brown,11205
+12726,Le nabab; tome I,Alphonse Daudet,11195
+20063,Theodoric the Goth: Barbarian Champion of Civilisation,Thomas Hodgkin,11192
+41730,Dixie After the War,Myrta Lockett Avary,11191
+32075,The Galaxy; June 1877,Various,11188
+43949,Storia delle repubbliche italiane dei secoli di mezzo; v. 09 (of 16),J.-C.-L. Simonde de Sismondi,11186
+31051,The Atlantic Monthly; Volume 15; No. 92; June; 1865,Various,11183
+972,The Devil's Dictionary,Ambrose Bierce,11183
+11415,The Atlantic Monthly; Volume 08; No. 49; November; 1861,Various,11179
+11954,A Popular History of France from the Earliest Times; Volume 4,François Guizot,11176
+14945,Cato Maior de Senectute with Introduction and Notes,Marcus Tullius Cicero,11174
+30611,The Atlantic Monthly; Volume 15; No. 90; April; 1865,Various,11172
+23207,Americans All,Unknown Author,11172
+40817,Dizionario storico-critico degli scrittori di musica e de' più celebri artisti; vol. 1,Giuseppe Bertini,11171
+33033,Les historiettes de Tallemant des Réaux; tome premier,Tallemant des Réaux,11171
+13336,Clotilde Martory,Hector Malot,11169
+20151,Hidden Treasures; Or; Why Some Succeed While Others Fail,Harry A. Lewis,11169
+13614,Studies in the Psychology of Sex; Volume 5,Havelock Ellis,11169
+11366,The German Classics of the Nineteenth and Twentieth Centuries; Volume 02,Unknown Author,11168
+22023,The Scottish Reformation,Alexander F. Mitchell,11165
+30871,Legends & Romances of Brittany,Lewis Spence,11164
+13116,Lippincott's Magazine of Popular Literature and Science; Volume 17; No. 097; January; 1876,Various,11164
+32761,Caxton's Book: A Collection of Essays; Poems; Tales; and Sketches.,W. H. Rhodes,11163
+1576,A Unique Story of a Marvellous Career: Life of Hon. Phineas T. Barnum,Joel Benton,11157
+40066,Páginas sevillanas,Manuel Chaves Rey,11157
+43308,Histoire parlementaire de France; Volume 3.,François Guizot,11155
+44044,London Souvenirs,Unknown Author,11155
+44361,Blackwood's Edinburgh Magazine; Vol. 70; No. 431; September 1851,Various,11155
+13945,Sunny Memories Of Foreign Lands; Volume 1,Harriet Beecher Stowe,11153
+21631,Kotka-Wappu: Kertomus Tyrolin vuoristosta,Wilhelmine von Hillern,11151
+22414,The Birth of Yugoslavia; Volume 1,Henry Baerlein,11150
+2497,Put Yourself in His Place,Charles Reade,11147
+21554,Frank Mildmay; Or; the Naval Officer,Frederick Marryat,11147
+23984,Esperanto Self-Taught with Phonetic Pronunciation,William W. Mann,11147
+14105,Im grünen Tann,Arthur Achleitner,11143
+41683,Figurák. (Furcsa emberekről furcsa históriák.),Géza Gárdonyi,11142
+44971,Briefe aus dem hohen Norden,Elias Haffter,11133
+101,The Hacker Crackdown: Law and Disorder on the Electronic Frontier,Bruce Sterling,11133
+33185,Fragments of an Autobiography,Felix Moscheles,11126
+2666,The Poet at the Breakfast-Table,Oliver Wendell Holmes,11123
+10676,The Reign of Greed,José Rizal,11123
+22630,Der Roman eines geborenen Verbrechers,Antonino M.,11123
+21421,The Magnificent Montez: From Courtesan to Convert,Horace Wyndham,11118
+14303,Queed: A Novel,Henry Sydnor Harrison,11110
+43348,The Paston Letters; A.D. 1422-1509. Volume 1 (of 6),Unknown Author,11104
+11745,Blackwood's Edinburgh Magazine — Volume 53; No. 330; April 1843,Various,11103
+40088,Grimm testvérek összegyüjtött meséi,Jacob Grimm,11102
+41636,Ravenshoe,Henry Kingsley,11102
+13454,Aylwin,Theodore Watts-Dunton,11099
+43860,Storia delle repubbliche italiane dei secoli di mezzo; v. 07 (of 16),J.-C.-L. Simonde de Sismondi,11097
+30754,The Stones of Venice; Volume 1 (of 3),John Ruskin,11096
+13154,Lippincott's Magazine of Popular Literature and Science; Volume 17; No. 098; February; 1876,Various,11095
+40330,Inchbracken: The Story of a Fama Clamosa,Robert Cleland,11093
+32232,The Atlantic Monthly; Volume 16; No. 94; August; 1865,Various,11091
+41934,Idling in Italy: Studies of literature and of life,Joseph Collins,11088
+41744,The Egyptian campaigns; 1882 to 1885,Charles Royle,11081
+21201,Journal of a Voyage to Brazil,Lady Maria Callcott,11080
+33345,Lafcadio Hearn,Nina H. Kennard,11080
+20300,Henry VIII.,A. F. Pollard,11078
+30720,Happy Days for Boys and Girls,Various,11077
+12304,Nancy: A Novel,Rhoda Broughton,11074
+42910,The Mystery of Mary Stuart,Andrew Lang,11071
+12455,Legends of the Middle Ages,H. A. Guerber,11065
+14461,Letters on Demonology and Witchcraft,Walter Scott,11061
+10927,Tulitikkuja lainaamassa,Maiju Lassila,11061
+34620,Mémoires du maréchal Marmont; duc de Raguse (9/9),duc de Raguse Auguste Frédéric Louis Viesse de Marmont,11056
+12341,Against the Grain,J.-K. Huysmans,11055
+44168,Storia delle repubbliche italiane dei secoli di mezzo; v. 11 (of 16),J.-C.-L. Simonde de Sismondi,11051
+41774,Pincher Martin; O.D.: A Story of the Inner Life of the Royal Navy,H. Taprell Dorling,11050
+30548,The Shores of the Adriatic,F. Hamilton Jackson,11049
+30756,The Stones of Venice; Volume 3 (of 3),John Ruskin,11046
+14154,The Tale of Terror: A Study of the Gothic Romance,Edith Birkhead,11035
+2088,Life and Letters of Charles Darwin — Volume 2,Charles Darwin,11035
+2083,In Search of the Castaways; Or; The Children of Captain Grant,Jules Verne,11032
+11117,The Atlantic Monthly; Volume 07; No. 40; February; 1861,Various,11031
+42846,Storia della Guerra della Independenza degli Stati Uniti di America; vol. 1,Carlo Botta,11031
+40718,Atlantic Narratives: Modern Short Stories; Second Series,Mary Antin,11029
+34240,Nevermore,Rolf Boldrewood,11029
+32373,The Golden Treasury,Unknown Author,11029
+30190,Around the World with Josiah Allen's Wife,Marietta Holley,11020
+30213,Algo de todo,Juan Valera,11019
+32786,Legends of Florence: Collected from the People; First Series,Charles Godfrey Leland,11016
+43798,Haaksirikkoiset,Kyösti Wilkuna,11015
+41489,One of Clive's Heroes: A Story of the Fight for India,Unknown Author,11014
+30200,Ancient and Modern Celebrated Freethinkers,Charles Bradlaugh,11013
+44900,The Life of Sir John Falstaff,Robert B. Brough,11012
+2803,The Rise of David Levinsky,Abraham Cahan,11012
+41569,Jerusalem Explored; Volume 1—Text,Ermete Pierotti,11010
+11873,A Holiday in the Happy Valley with Pen and Pencil,T. R. Swinburne,11006
+425,Familiar Studies of Men and Books,Robert Louis Stevenson,11006
+44960,Angélique de Mackau; Marquise de Bombelles; et la Cour de Madame Élisabeth,comte Maurice Fleury,11001
+13655,Lippincott's Magazine of Popular Literature and Science; Volume 17; No. 099; March; 1876,Various,11000
+11159,The Atlantic Monthly; Volume 10; No. 62; December; 1862,Various,11000
+31946,Lippincott's Magazine of Popular Literature and Science; Volume 20; September; 1877.,Various,10997
+13478,Zézette : moeurs foraines,Oscar Méténier,10996
+1235,Captain Fracasse,Théophile Gautier,10995
+43221,The Ceramic Art,Jennie J. Young,10995
+23953,Souvenirs d'un sexagénaire; Tome II,A.-V. Arnault,10993
+13440,Lippincott's Magazine of Popular Literature and Science; Volume 15; No. 85; January; 1875,Various,10993
+31754,Devil Stories: An Anthology,Unknown Author,10990
+33451,The Atlantic Monthly; Volume 20; No. 119; September; 1867,Various,10988
+514,Little Women,Louisa May Alcott,10986
+14847,Veden päällä liikkuva kaupunki,Jules Verne,10982
+2184,Unbeaten Tracks in Japan,Isabella L. Bird,10979
+40012,Ein Buch; das gern ein Volksbuch werden möchte,Marie von Ebner-Eschenbach,10978
+11625,The Wrong Twin,Harry Leon Wilson,10977
+44163,London in the Sixties (with a few digressions),Unknown Author,10977
+24851,Lippincott's Magazine of Popular Literature and Science; Vol. 26; August; 1880,Various,10969
+30157,The Atlantic Monthly; Volume 15; No. 88; February; 1865,Various,10968
+43705,Excursions in the mountains of Ronda and Granada; with characteristic sketches of the inhabitants of southern Spain; vol. 2/2,C. Rochfort‏ Scott,10960
+34123,Familiar Letters of John Adams and His Wife Abigail Adams During the Revolution,John Adams,10957
+10095,The Twilight of the Gods; and Other Tales,Richard Garnett,10955
+20160,A History of American Christianity,Leonard Woolsey Bacon,10955
+11719,Kincaid's Battery,George Washington Cable,10955
+12525,Narrative of the Voyage of H.M.S. Rattlesnake; Commanded By the Late Captain Owen Stanley; R.N.; F.R.S. Etc. During the Years 1846-1850. — Volume 2,John MacGillivray,10950
+43823,L'oeuvre du divin Arétin; première partie,Pietro Aretino,10950
+44376,The Knights Templars,C. G. Addison,10949
+44747,The Red and the Black: A Chronicle of 1830,Stendhal,10946
+2401,The Memoirs of General Baron de Marbot,baron de Jean-Baptiste-Antoine-Marcelin Marbot,10939
+42489,Die Luftschiffahrt der Gegenwart,Hermann Hoernes,10939
+10149,Home as Found,James Fenimore Cooper,10933
+44776,Adventures of the Ojibbeway and Ioway Indians in England; France; and Belgium; Vol. 1 (of 2),George Catlin,10933
+24982,The Continental Monthly; Vol. 3; No. 1 January 1863,Various,10933
+43745,With the World's Great Travellers; Volume 4,Unknown Author,10930
+153,Jude the Obscure,Thomas Hardy,10929
+12478,Books and Characters; French & English,Lytton Strachey,10928
+44827,Under the Witches' Moon: A Romantic Tale of Mediaeval Rome,Nathan Gallizier,10928
+40397,Blackwood's Edinburgh Magazine; Volume 65; No. 403; May; 1849,Various,10926
+21273,The Atlantic Monthly; Volume 2; No. 14; December 1858,Various,10923
+43672,The Expositor's Bible: The Book of Isaiah; Volume 2 (of 2),George Adam Smith,10921
+34370,Ephemera Critica; Or; Plain Truths About Current Literature,John Churton Collins,10919
+24550,The Rise of Canada; from Barbarism to Wealth and Civilisation. Volume 1,Charles Roger,10919
+34736,True Christianity,Johann Arndt,10917
+33420,The Expositor's Bible: The Book of Exodus,G. A. Chadwick,10915
+42082,History of Ancient Art,Franz von Reber,10913
+30281,Die Räuberbande,Leonhard Frank,10913
+31086,"And they thought we wouldn't fight",Floyd Phillips Gibbons,10912
+2056,The Life of William Carey; Shoemaker & Missionary,George Smith,10910
+11230,Macmillan's Reading Books. Book V,Anonymous,10906
+13636,Lippincott's Magazine of Popular Literature and Science; Volume 11; No. 23; February; 1873,Various,10902
+30862,The Atlantic Monthly; Volume 15; No. 91; May; 1865,Various,10898
+13837,Correspondance; 1812-1876 — Tome 2,George Sand,10891
+11157,The Atlantic Monthly; Volume 08; No. 46; August; 1861,Various,10889
+30949,Anselme Adorne; Sire de Corthuy; Pèlerin De Terre-Sainte,Edmond De La Coste,10887
+10764,Lettres écrites d'Égypte et de Nubie en 1828 et 1829,Jean-François Champollion,10886
+44103,The Expositor's Bible: The Book of Daniel,F. W. Farrar,10883
+44727,Wanderings in Corsica: Its History and Its Heroes. Vol. 1 of 2,Ferdinand Gregorovius,10880
+21262,The Works of Christopher Marlowe; Vol. 3 (of 3),Christopher Marlowe,10880
+42081,The Diary of John Evelyn (Volume 2 of 2),John Evelyn,10877
+40021,The History of Chivalry; Or; Knighthood and Its Times; Volume 1 (of 2),Charles Mills,10869
+14324,Lippincott's Magazine of Popular Literature and Science; Volume 15; No. 88; April; 1875,Various,10868
+10938,The Headsman; Or; The Abbaye des Vignerons,James Fenimore Cooper,10863
+20521,The New York Times Current History; A Monthly Magazine,Various,10863
+10797,The Wits and Beaux of Society. Volume 2,Mrs. A. T. Thomson,10860
+10626,The Atlantic Monthly; Volume 02; No. 10; August; 1858,Various,10860
+22329,A Daughter of the Middle Border,Hamlin Garland,10857
+44646,Memoirs of the Duchesse de Dino (Afterwards Duchesse de Talleyrand et de Sagan); 1836-1840,duchesse de Dorothée Dino,10854
+2872,The Variation of Animals and Plants under Domestication — Volume 2,Charles Darwin,10849
+41516,Club Life of London; Vol. 2 (of 2),John Timbs,10844
+31439,Weird Tales; Vol. 2 (of 2),E. T. A. Hoffmann,10842
+703,Lucasta,Richard Lovelace,10841
+12367,Le péché de Monsieur Antoine; Tome 1,George Sand,10839
+13727,Les Pardaillan — Tome 06 : Les amours du Chico,Michel Zévaco,10836
+11229,The Purple Cloud,M. P. Shiel,10834
+12882,Minstrelsy of the Scottish Border; Volume 2 (of 3),Walter Scott,10834
+40398,The Turn of the Balance,Unknown Author,10834
+12527,Kimono,John Paris,10832
+40902,Histoire amoureuse des Gaules; suivie des Romans historico-satiriques du XVIIe siècle; Tome IV,comte de Roger de Rabutin Bussy,10829
+43877,The Life of Galileo Galilei; with Illustrations of the Advancement of Experimental Philosophy,John Elliot Drinkwater Bethune,10828
+44958,Les quatre livres de philosophie morale et politique de la Chine,Confucius,10827
+22048,Napoléon Le Petit,Victor Hugo,10826
+12785,The Atlantic Monthly; Volume 11; No. 64; February; 1863,Various,10826
+20639,La gran rivale,Luigi Gualdo,10825
+42645,The Expositor's Bible: The Epistle to the Galatians,George G. Findlay,10823
+14806,La Jangada: Huit cent lieues sur l'Amazone,Jules Verne,10822
+41435,British Secret Service During the Great War,Nicholas Everitt,10821
+12700,Ralph Waldo Emerson,Oliver Wendell Holmes,10812
+44364,Storia delle repubbliche italiane dei secoli di mezzo; v. 15 (of 16),J.-C.-L. Simonde de Sismondi,10812
+32418,Oriental Women,Edward B. Pollard,10806
+41479,Current History; Vol. VIII; No. 3; June 1918,Various,10795
+43681,The Popular Religion and Folk-Lore of Northern India; Vol. 1 (of 2),William Crooke,10794
+44190,Boys of the Light Brigade: A Story of Spain and the Peninsular War,Unknown Author,10794
+422,The Romany Rye,George Borrow,10792
+13094,Heart of the West [Annotated],O. Henry,10789
+43617,The Memoirs of Harriette Wilson; Volumes One and Two,Harriette Wilson,10787
+2578,The French Revolution - Volume 1,Hippolyte Taine,10787
+1334,Paul Kelver,Jerome K. Jerome,10785
+11158,The Atlantic Monthly; Volume 10; No. 61; November; 1862,Various,10782
+2622,The Home Book of Verse — Volume 4,Burton Egbert Stevenson,10782
+40840,Ten Years Among the Mail Bags,James Holbrook,10777
+12959,Newton Forster,Frederick Marryat,10773
+40413,Voyages loin de ma chambre t.1,Noémie Dondel Du Faouëdic,10770
+24596,History of the Thirty-Ninth Congress of the United States,William Horatio Barnes,10769
+41652,The Wages of Virtue,Unknown Author,10764
+11678,La belle Gabrielle — Tome 2,Auguste Maquet,10763
+23727,The Lost Girl,D. H. Lawrence,10756
+13363,The Parish Clerk,P. H. Ditchfield,10755
+14172,Willis the Pilot : A Sequel to the Swiss Family Robinson,Adrien Paul,10753
+14768,La Parada,Joaquín Ruyra,10749
+14739,The Altar Steps,Compton MacKenzie,10749
+20899,The Continental Monthly ; Vol. 2 No. 5;  November 1862,Various,10749
+34317,Caribbee,Thomas Hoover,10745
+44490,Northern Spain,Edgar Thomas Ainger Wigram,10741
+22749,From Edinburgh to India & Burmah,W. G. Burn Murdoch,10739
+1694,Our Legal Heritage: The First Thousand Years: 600 - 1600,S. A. Reilly,10739
+10336,A Select Collection of Old English Plays; Volume 07,Unknown Author,10734
+30582,Atar-Gull; Un Corsaire; Le Parisien en Mer; Voyages et Aventures sur Mer de Narcisse Gelin.,Eugène Sue,10728
+32356,Roman Women,Alfred Brittain,10728
+31930,The Song of the Wolf,Frank Mayer,10723
+34577,Έργα Ποιήματα - Πεζά Τόμος Δεύτερος,Kostas Krystalles,10721
+11068,The Spirit of the Age; Or; Contemporary Portraits,William Hazlitt,10720
+21200,The Letters of Cicero; Volume 1,Marcus Tullius Cicero,10720
+24636,Picounoc le maudit,Pamphile Lemay,10719
+1356,The Cruise of the "Cachalot" Round the World After Sperm Whales,Frank Thomas Bullen,10718
+10315,The Persian Literature; Comprising The Shah Nameh; The Rubaiyat; The Divan; and The Gulistan; Volume 1,Firdawsi,10715
+14333,Lippincott's Magazine of Popular Literature and Science; Volume 17; No. 102; June; 1876,Various,10714
+20829,Souvenirs de voyage,Mercier-Thoinnet,10711
+21282,Tradiciones peruanas,Ricardo Palma,10709
+42017,Tom Burnaby: A Story of Uganda and the Great Congo Forest,Unknown Author,10709
+33009,The Atlantic Monthly; Volume 16; No. 98; December; 1865,Various,10706
+40580,A General History of the Pyrates,Daniel Defoe,10704
+1559,A Distinguished Provincial at Paris,Honoré de Balzac,10703
+12353,The Making of Religion,Andrew Lang,10702
+10434,Wyandotté; Or; The Hutted Knoll: A Tale,James Fenimore Cooper,10701
+20885,The Promised Land,Mary Antin,10692
+32728,The English in the West Indies; Or; The Bow of Ulysses,James Anthony Froude,10691
+42200,The Shadow of Ashlydyat,Mrs. Henry Wood,10691
+21557,Newton Forster; Or; The Merchant Service,Frederick Marryat,10688
+30590,The Greville Memoirs; Part 1 (of 3); Volume 2 (of 3),Charles Greville,10688
+12471,What I Remember; Volume 2,Thomas Adolphus Trollope,10684
+2519,A Popular Account of Dr. Livingstone's Expedition to the Zambesi and Its Tributaries,David Livingstone,10683
+23743,The Atlantic Monthly; Volume 18; No. 107; September; 1866,Various,10683
+11675,Vanishing Roads and Other Essays,Richard Le Gallienne,10681
+12845,The World's Greatest Books — Volume 12 — Modern History,Unknown Author,10680
+10606,The Tragedie of Hamlet; Prince of Denmark,William Shakespeare,10679
+13738,The Last Shot,Frederick Palmer,10674
+12372,The Atlantic Monthly; Volume 01; No. 06; April; 1858,Various,10671
+32727,Women of Modern France (Illustrated),Hugo P. Thieme,10669
+40600,Over the Border: A Novel,Unknown Author,10661
+14717,Twelve Men,Theodore Dreiser,10654
+21240,The Lone Ranche,Mayne Reid,10651
+14558,Darwinism (1889),Alfred Russel Wallace,10648
+13115,Anahuac : or; Mexico and the Mexicans; Ancient and Modern,Edward B. Tylor,10644
+41546,Curiosities of Olden Times,S. Baring-Gould,10630
+2505,The Heir of Redclyffe,Charlotte M. Yonge,10621
+11579,Scott's Last Expedition; Volume I,Robert Falcon Scott,10619
+24739,Bidwell's Travels; from Wall Street to London Prison: Fifteen Years in Solitude,Austin Bidwell,10618
+34172,Peter's Rock in Mohammed's Flood; from St. Gregory the Great to St. Leo III,T. W. Allies,10617
+41139,The Drunkard,Guy Thorne,10613
+1713,Lincoln; An Account of his Personal Life; Especially of its Springs of Action as Revealed and Deepened by the Ordeal of War,Nathaniel W. Stephenson,10611
+2665,The Professor at the Breakfast-Table,Oliver Wendell Holmes,10609
+40482,The Meaning of Faith,Harry Emerson Fosdick,10608
+22024,L'olmo e l'edera,Anton Giulio Barrili,10607
+14397,Le roman de Miraut - Chien de chasse,Louis Pergaud,10603
+41373,Secret History of the English Occupation of Egypt,Wilfrid Scawen Blunt,10600
+13271,Rides on Railways,Samuel Sidney,10599
+40994,Zoraida: A Romance of the Harem and the Great Sahara,William Le Queux,10595
+12950,L'Immortel,Alphonse Daudet,10593
+12074,Letters of Horace Walpole — Volume II,Horace Walpole,10592
+21982,The Violin,George Hart,10590
+12200,Delsarte System of Oratory,Delaumosne,10584
+11488,The Poetical Works of John Dryden; Volume 1,John Dryden,10583
+12698,Stuk,Herman Bang,10582
+1879,Royalty Restored; Or; London Under Charles II,J. Fitzgerald Molloy,10579
+2148,The Works of Edgar Allan Poe — Volume 2,Edgar Allan Poe,10576
+13084,Back to Methuselah: A Metabiological Pentateuch,Bernard Shaw,10575
+23469,A History of the Four Georges; Volume I,Justin McCarthy,10571
+24203,Lippincott's Magazine of Popular Literature and Science; Vol. 12; No. 32; November; 1873,Various,10567
+31952,Mémoires du prince de Talleyrand; Volume 4,prince de Bénévent Charles Maurice de Talleyrand-Périgord,10559
+32617,The Galaxy; May; 1877,Various,10555
+40544,La lucha por la vida: Aurora roja,Pío Baroja,10549
+43684,Eothen; with an Introduction and Notes,Alexander William Kinglake,10547
+42249,Memoirs of the Duchesse de Dino (Afterwards Duchesse de Talleyrand et de Sagan); 1831-1835,duchesse de Dorothée Dino,10545
+31817,Monsieur de Camors — Complet,Octave Feuillet,10541
+20745,An Outcast; Or; Virtue and Faith,F. Colburn Adams,10540
+224,A pair of blue eyes,Thomas Hardy,10540
+43389,Une Maladie Morale: Le mal du siècle,Paul Charpentier,10539
+2517,Lincoln's yarns and stories,Alexander K. McClure,10539
+30265,The Atlantic Monthly; Volume 15; No. 89; March; 1865,Various,10538
+40044,Journal and Letters of Philip Vickers Fithian: A Plantation Tutor of the Old Dominion; 1773-1774.,Philip Vickers Fithian,10536
+41839,The Boy's Playbook of Science,John Henry Pepper,10536
+34148,Wilson's Tales of the Borders and of Scotland; Volume 10,Unknown Author,10533
+32713,Women of the Romance Countries (Illustrated),John R. Effinger,10533
+44793,Kertomuksia Intian ylängöiltä ja laaksoista,Rudyard Kipling,10528
+34973,The Spy of the Rebellion,Allan Pinkerton,10525
+33469,Roland Cashel; Volume II (of II),Charles James Lever,10524
+20462,Ernest Linwood; or; The Inner Life of the Author,Caroline Lee Hentz,10523
+42875,Wagner as I Knew Him,Ferdinand Praeger,10520
+14555,William Lloyd Garrison; the Abolitionist,Archibald Henry Grimké,10519
+34748,Problematic Characters: A Novel,Friedrich Spielhagen,10515
+44222,Those Times and These,Irvin S. Cobb,10512
+14605,The Devil's Garden,W. B. Maxwell,10512
+12024,Bred in the Bone; Or; Like Father; Like Son: A Novel,James Payn,10511
+22375,The Atlantic Monthly; Volume 17; No. 104; June; 1866,Various,10511
+32297,La philosophie zoologique avant Darwin,Edmond Perrier,10502
+42390,The Myths of the North American Indians,Lewis Spence,10499
+14469,The English Novel,George Saintsbury,10497
+33833,Glories of Spain,Charles W. Wood,10492
+23664,Flamsted quarries,Mary E. Waller,10488
+14636,Tragic Sense Of Life,Miguel de Unamuno,10485
+34285,Partie carrée,Théophile Gautier,10485
+30358,A History of Horncastle; from the earliest period to the present time,J. Conway Walter,10483
+40315,The Contemporary Review; Volume 36; December 1879,Various,10481
+22305,The Naval History of the United States. Volume 1,Willis J. Abbot,10478
+40381,Vistas in Sicily,Arthur Stanley Riggs,10477
+13169,The Prose Works of Jonathan Swift; D.D. — Volume 09,Jonathan Swift,10475
+31801,The Story of Old Fort Loudon,Charles Egbert Craddock,10474
+33225,The Memoirs of Count Carlo Gozzi; Volume the Second,Carlo Gozzi,10473
+40263,Folly as It Flies; Hit at by Fanny Fern,Fanny Fern,10470
+42976,Nozze d'oro: romanzo,Enrico Castelnuovo,10464
+12276,Viajes por Filipinas: De Manila á Tayabas,Juan Alvarez Guerra,10464
+10953,Histoire de la Révolution française; Tome 05,Adolphe Thiers,10463
+22250,Lippincott's Magazine of Popular Literature and Science; Vol. 22; September; 1878,Various,10462
+14126,The Marriage of William Ashe,Mrs. Humphry Ward,10462
+454,The Breitmann Ballads,Charles Godfrey Leland,10458
+34143,A Little World,George Manville Fenn,10458
+33539,Voyage musical en Allemagne et en Italie; I,Hector Berlioz,10458
+20185,Eventide,Effie Afton,10458
+21965,Preventable Diseases,Woods Hutchinson,10457
+13061,Lippincott's Magazine of Popular Literature and Science; Volume 15; No. 87; March; 1875,Various,10456
+44049,Die Hessen und die andern deutschen Hilfstruppen im Kriege gross-britanniens gegen Amerika; 1776-1783,Edward J. Lowell,10455
+40264,Regiment of Women,Clemence Dane,10453
+34011,The Development of Rates of Postage: An Historical and Analytical Study,A. D. Smith,10451
+21009,The Atlantic Monthly; Volume 17; No. 100; February; 1866,Various,10448
+20418,Lords of the North,Agnes C. Laut,10446
+10330,Fruitfulness,Émile Zola,10443
+44881,Confessions of a Thug,Meadows Taylor,10443
+12429,The Last Leaf,James Kendall Hosmer,10440
+14697,Lewis Rand,Mary Johnston,10439
+24096,En Route,J.-K. Huysmans,10438
+23107,A Book of Discovery,M. B. Synge,10436
+43955,Letters of Peregrine Pickle,George P. Upton,10429
+13828,Lippincott's Magazine of Popular Literature and Science; Volume 12; No. 29; August; 1873,Various,10427
+31241,Aliens,William McFee,10426
+122,The Return of the Native,Thomas Hardy,10421
+86,A Connecticut Yankee in King Arthur's Court,Mark Twain,10419
+466,The Gaming Table: Its Votaries and Victims. Volume 1 (of 2),Andrew Steinmetz,10416
+70,What Is Man? and Other Essays,Mark Twain,10416
+10857,My Native Land,James Cox,10416
+13198,Nouvelles lettres d'un voyageur,George Sand,10416
+43200,Cornell Nature-Study Leaflets,New York State College of Agriculture,10415
+23646,The Pharaoh and the Priest: An Historical Novel of Ancient Egypt,Bolesław Prus,10414
+21328,The Parables of Our Lord,William Arnot,10413
+2433,Donal Grant,George MacDonald,10406
+14440,Alla kasvon kaikkivallan: Mystillinen trilogia,Eino Leino,10403
+2120,History of Friedrich II of Prussia — Volume 20,Thomas Carlyle,10400
+1497,The Republic,Plato,10396
+2396,History of the Catholic Church from the Renaissance to the French Revolution — Volume 1,James MacCaffrey,10393
+20305,Marion's Faith.,Charles King,10393
+34703,The Tower of Oblivion,Oliver Onions,10392
+13106,Memoirs of Margaret Fuller Ossoli; Volume II,Margaret Fuller,10392
+14418,Thrift,Samuel Smiles,10392
+44896,The Autobiography of Parley Parker Pratt,Parley P. Pratt,10389
+31138,The So-called Human Race,Bert Leston Taylor,10387
+34754,The Orpheus C. Kerr Papers; Series 2,R. H. Newell,10384
+40242,The Modern Railroad,Edward Hungerford,10382
+11013,Letters of a Traveller; Or; Notes of Things Seen in Europe and America,William Cullen Bryant,10379
+40928,Johnny Ludlow; Second Series,Mrs. Henry Wood,10377
+12000,A Walk from London to John O'Groat's,Elihu Burritt,10377
+32151,The Intellectual Life,Philip Gilbert Hamerton,10377
+44369,Pals: Young Australians in Sport and Adventure,Unknown Author,10376
+11904,Ailsa Paige: A Novel,Robert W. Chambers,10374
+33472,With the World's Great Travellers; Volume 2,Unknown Author,10370
+40885,Villa Glori - Ricordi ed aneddoti dell'autunno 1867,Pio Vittorio Ferrari,10366
+1856,Cousin Pons,Honoré de Balzac,10364
+2386,Theodore Roosevelt: An Intimate Biography,William Roscoe Thayer,10362
+31931,La politique du Paraguay,Charles Expilly,10362
+41830,The Spell of Flanders,Edward Neville Vose,10361
+44468,Charlie,Fernand Vandérem,10359
+14669,Jaffery,William John Locke,10357
+13242,Lippincott's Magazine of Popular Literature and Science; Volume 17; No. 100; April; 1876,Various,10356
+1725,Heart of the West,O. Henry,10356
+2038,The Lock and Key Library: Classic Mystery and Detective Stories: Modern English,Unknown Author,10352
+33400,The Book of Susan: A Novel,Lee Wilson Dodd,10352
+40677,Lives of Illustrious Shoemakers,W. E. Winks,10348
+40884,The Personality of American Cities,Edward Hungerford,10344
+20248,The Necessity of Atheism,David Marshall Brooks,10334
+20343,The Spinners' Book of Fiction,Spinners' Club,10326
+11771,Occasional Papers,R. W. Church,10324
+10532,Beacon Lights of History; Volume 06: Renaissance and Reformation,John Lord,10323
+14327,Lippincott's Magazine of Popular Literature and Science; Volume 11; No. 22; January; 1873,Various,10319
+24269,The Odyssey of Homer,Homer,10316
+22900,Erasmus and the Age of Reformation,Johan Huizinga,10312
+21409,De Zonderlinge Lotgevallen van Gil Blas van Santillano; deel 1 van 2,Alain René Le Sage,10309
+12875,Life in the Roman World of Nero and St. Paul,T. G. Tucker,10306
+32747,Travels in Tartary; Thibet; and China during the years 1844-5-6. Volume 1,Evariste Régis Huc,10302
+1595,Whirligigs,O. Henry,10301
+22558,Abrégé de l'Histoire Générale des Voyages (Tome 1),Jean-François de La Harpe,10301
+14840,Vaihdokas: Kuvaus vanhan kansan elämästä,Juho Heikki Reijonen,10301
+12216,The Pirates Own Book,Charles Ellms,10299
+20308,White Ashes,Sidney R. Kennedy,10295
+43004,La pêcheuse d'âmes,Ritter von Leopold Sacher-Masoch,10294
+32517,Black Forest Village Stories,Berthold Auerbach,10291
+33809,Tratado metódico y práctico de Materia Médica y de Terapéutica; tomo primero,Alexis Espanet,10287
+12273,Grevinde,Hermann Heiberg,10287
+34144,Wilson's Tales of the Borders and of Scotland; Volume 04,Unknown Author,10285
+11645,La rôtisserie de la Reine Pédauque,Anatole France,10282
+22686,Een strijd om de schatten van Alva: of De watergeuzen in 1572,H. Bertrand,10279
+143,The Mayor of Casterbridge,Thomas Hardy,10279
+43678,Anne of Geierstein; Or; The Maiden of the Mist. Volume 1 (of 2),Walter Scott,10279
+12449,A Reputed Changeling; Or; Three Seventh Years Two Centuries Ago,Charlotte M. Yonge,10278
+12999,Le Côté de Guermantes - Deuxième partie,Marcel Proust,10276
+40257,Man's Place in Nature; and Other Essays,Thomas Henry Huxley,10274
+40295,Lord Montagu's Page: An Historical Romance,G. P. R. James,10274
+12985,Eugene Field; a Study in Heredity and Contradictions — Volume 2,Slason Thompson,10274
+1957,Beatrix,Honoré de Balzac,10270
+10643,The World's Greatest Books — Volume 02 — Fiction,Unknown Author,10264
+577,The Works of Samuel Johnson; in Sixteen Volumes. Volume 04,Samuel Johnson,10264
+21068,Under the Meteor Flag: Log of a Midshipman during the French Revolutionary War,Harry Collingwood,10259
+43844,Claret and Olives; from the Garonne to the Rhone,Angus B. Reach,10259
+1828,Chronicles of the Canongate; 1st Series,Walter Scott,10255
+1575,The Foundations of Personality,Abraham Myerson,10255
+42205,Studies on the Legend of the Holy Grail,Alfred Trübner Nutt,10253
+40550,Plain English,Marian Wharton,10253
+2447,Eminent Victorians,Lytton Strachey,10252
+2533,Round the Sofa,Elizabeth Cleghorn Gaskell,10247
+21465,Hurricane Hurry,William Henry Giles Kingston,10243
+31684,Belford's Magazine; Volume II; No. 8; January; 1889,Various,10242
+34037,Under the Southern Cross,Maturin M. Ballou,10241
+43359,Human Intercourse,Philip Gilbert Hamerton,10241
+10,The King James Version of the Bible,Unknown Author,10239
+23400,A Lenda da Meia-Noite,Manuel Pinheiro Chagas,10236
+13195,Lippincott's Magazine of Popular Literature and Science; Volume 11; No. 27; June; 1873,Various,10235
+10327,Alias the Lone Wolf,Louis Joseph Vance,10234
+40763,Les Cent Nouvelles Nouvelles; tome I,Unknown Author,10232
+22926,The Continental Monthly; Vol. 6; No 3;  September 1864,Various,10230
+14345,The Fight for the Republic in China,B. L. Putnam Weale,10229
+42124,American Forest Trees,Henry H. Gibson,10227
+32603,Reminiscences; 1819-1899,Julia Ward Howe,10226
+13839,Correspondance; 1812-1876 — Tome 5,George Sand,10226
+31953,Merchantmen-at-arms : the British merchants' service in the war,David W. Bone,10219
+11527,The World's Greatest Books — Volume 07 — Fiction,Unknown Author,10218
+23296,The Fighting Shepherdess,Caroline Lockhart,10218
+42387,Casta diva,Gerolamo Rovetta,10217
+42727,La alegría del capitán Ribot,Armando Palacio Valdés,10217
+34809,Uusia kertomuksia,Magdalene Thoresen,10212
+41405,The Accumulation of Capital,Rosa Luxemburg,10211
+33887,Fairy and Folk Tales of the Irish Peasantry,Unknown Author,10211
+12285,The Atlantic Monthly; Volume 07; No. 44; June; 1861,Various,10207
+41304,The Mother of Parliaments,Harry Graham,10206
+23040,The Atlantic Monthly; Volume 18; No. 106; August; 1866,Various,10205
+23000,Orley Farm,Anthony Trollope,10204
+12326,The Story of My Life: Recollections and Reflections,Ellen Terry,10201
+42271,La Madonna di Mamà: Romanzo del tempo della guerra,Alfredo Panzini,10200
+10668,The War and Democracy,R. W. Seton-Watson,10200
+44065,An Apology for the Life of Mr. Colley Cibber; Volume 2 (of 2),Colley Cibber,10195
+24686,Chips from a German Workshop; Volume 1,F. Max Müller,10194
+12047,Legends of the Madonna as Represented in the Fine Arts,Mrs. Jameson,10193
+583,The Woman in White,Wilkie Collins,10188
+13856,La reine Margot - Tome I,Alexandre Dumas,10186
+42899,Rambles in Normandy,M. F. Mansfield,10183
+40915,Johnny Ludlow; First Series,Mrs. Henry Wood,10183
+33269,Travels in Tartary; Thibet; and China During the years 1844-5-6. Volume 2,Evariste Régis Huc,10182
+2563,Memoirs of the Comtesse Du Barry,baron de Etienne-Léon Lamothe-Langon,10177
+41916,Nestleton Magna: A Story of Yorkshire Methodism,J. Jackson Wray,10177
+42845,The Sea (La Mer),Jules Michelet,10176
+11573,The Crater; Or; Vulcan's Peak: A Tale of the Pacific,James Fenimore Cooper,10175
+34485,The Circassian Chief: A Romance of Russia,William Henry Giles Kingston,10174
+11590,Les Français en Amérique pendant la guerre de l'indépendance des États-Unis 1777-1783,Thomas Balch,10171
+11256,Social life at Rome in the Age of Cicero,W. Warde Fowler,10168
+33182,Entre o caffé e o cognac,Alberto Pimentel,10168
+31505,Psychologie de l'éducation,Gustave Le Bon,10166
+40871,Fifty-two Stories of the British Navy; from Damme to Trafalgar.,Alfred H. Miles,10166
+754,The Story of Mankind,Hendrik Willem Van Loon,10161
+41463,Industrial Cuba,Robert P. Porter,10159
+21391,Great African Travellers: From Mungo Park to Livingstone and Stanley,William Henry Giles Kingston,10157
+42885,In het rijk van Siameezen en Maleiers,Hans Morgenthaler,10154
+43033,La lucha por la vida: Mala hierba,Pío Baroja,10151
+11747,Les Demi-Vierges,Marcel Prévost,10150
+11534,The Lions of the Lord: A Tale of the Old West,Harry Leon Wilson,10148
+24390,Irmela,Heinrich Steinhausen,10146
+41800,The Treaty of Waitangi; or; how New Zealand became a British Colony,Thomas Lindsay Buick,10146
+43017,Mala Hierba,Pío Baroja,10146
+603,Letters of George Borrow to the British and Foreign Bible Society,George Borrow,10145
+41235,The Sunset Trail,Alfred Henry Lewis,10144
+13793,En famille,Hector Malot,10143
+11243,Miles Wallingford,James Fenimore Cooper,10143
+33818,Pictures of German Life in the XVIIIth and XIXth Centuries; Vol. I.,Gustav Freytag,10142
+10471,The World's Greatest Books — Volume 01 — Fiction,Unknown Author,10140
+12422,Journal of a Residence on a Georgian Plantation: 1838-1839,Fanny Kemble,10133
+2158,The Prime Minister,Anthony Trollope,10132
+13813,The Common Law,Robert W. Chambers,10128
+34844,Collection of Nebraska Pioneer Reminiscences,Daughters of the American Revolution. Nebraska,10126
+14509,Lippincott's Magazine; October 1885,Various,10124
+140,The Jungle,Upton Sinclair,10124
+10678,Histoire de la Révolution française; Tome 04,Adolphe Thiers,10119
+12387,Paul Faber; Surgeon,George MacDonald,10119
+14992,The Life of Froude,Herbert W. Paul,10118
+40136,The Mercy of the Lord,Flora Annie Webster Steel,10116
+14020,The Works of Horace,Horace,10116
+21549,Jacob Faithful,Frederick Marryat,10116
+32409,Seeds of Pine,Emily F. Murphy,10114
+2832,Myth; Ritual and Religion; Vol. 1 (of 2),Andrew Lang,10113
+41344,Wisconsin in Story and Song;,Unknown Author,10112
+44223,Back Home: Being the Narrative of Judge Priest and His People,Irvin S. Cobb,10111
+12984,Eugene Field; a Study in Heredity and Contradictions — Volume 1,Slason Thompson,10110
+10865,Play-Making: A Manual of Craftsmanship,William Archer,10104
+41720,Prisons and Prayer; Or; a Labor of Love,Elizabeth Ryder Wheaton,10103
+22943,The Nebuly Coat,John Meade Falkner,10102
+44143,Lord Lyons: A Record of British Diplomacy; Vol. 2 of 2,Baron Thomas Wodehouse Legh Newton,10101
+12115,Discoveries in Australia; Volume 1.,John Lort Stokes,10100
+1994,Adventures Among Books,Andrew Lang,10100
+30823,Memoirs of Life and Literature,W. H. Mallock,10099
+40384,Musical Myths and Facts; Volume 2 (of 2),Carl Engel,10099
+1004,Divine Comedy; Longfellow's Translation; Complete,Dante Alighieri,10098
+13875,Correspondance; 1812-1876 — Tome 4,George Sand,10098
+31373,Solaris Farm: A Story of the Twentieth Century,Milan C. Edson,10097
+14200,Abbe Mouret's Transgression,Émile Zola,10094
+41530,In Search of El Dorado: A Wanderer's Experiences,Alexander MacDonald,10092
+892,History of the Decline and Fall of the Roman Empire — Volume 3,Edward Gibbon,10081
+34738,The Ivory Gate; a new edition,Walter Besant,10080
+44683,South London,Walter Besant,10080
+11423,Histoire de la Révolution française; Tome 06,Adolphe Thiers,10075
+14343,Poésies de Charles d'Orléans,d'Orléans Charles,10074
+43272,American Weasels,E. Raymond Hall,10074
+23761,Little Journeys to the Homes of the Great; Volume 7,Elbert Hubbard,10074
+41973,Yachting; Vol. 2,R. T. Pritchett,10073
+14192,Le portrait de Dorian Gray,Oscar Wilde,10069
+40758,Genius in Sunshine and Shadow,Maturin M. Ballou,10066
+41418,Contraband; Or; A Losing Hazard,G. J. Whyte-Melville,10066
+713,Memoirs of Extraordinary Popular Delusions — Volume 2,Charles Mackay,10065
+14968,The Standard Operas: Their Plots; Their Music; and Their Composers,George P. Upton,10062
+12437,Histoire de St. Louis; Roi de France,Richard Girard de Bury,10060
+23736,The Dew of Their Youth,S. R. Crockett,10059
+2141,Strictly Business: More Stories of the Four Million,O. Henry,10059
+10115,Two Centuries of Costume in America; Volume 1 (1620-1820),Alice Morse Earle,10058
+43848,Un Misanthrope à la Cour de Louis XIV: Montausier; sa vie et son temps,Amédée Roux,10057
+34150,Wilson's Tales of the Borders and of Scotland; Volume 13,Unknown Author,10056
+1750,Laws,Plato,10054
+22027,Iloisia juttuja IV,Kaapro Jääskeläinen,10051
+42359,Tales and Legends of the English Lakes,Wilson Armistead,10050
+30144,Discours par Maximilien Robespierre — 21 octobre 1789-1er juillet 1794,Maximilien Robespierre,10045
+725,Men of Invention and Industry,Samuel Smiles,10042
+41548,Life in Dixie during the War; 1861-1862-1863-1864-1865,Mary Ann Harris Gay,10038
+21852,Folklore as an Historical Science,George Laurence Gomme,10031
+22680,The Biglow Papers,James Russell Lowell,10029
+13818,Jacques,George Sand,10026
+34247,Caught in a Trap,John C. Hutcheson,10025
+12487,A quoi tient l'amour?,Emile Blémont,10025
+40975,Life in a Railway Factory,Alfred Williams,10024
+14028,Über das Aussterben der Naturvölker,Georg Karl Cornelius Gerland,10023
+20008,The Young Duke,Earl of Beaconsfield Benjamin Disraeli,10021
+44857,Kertomuksia Suomen historiasta V:1,Julius Krohn,10020
+42007,Sir Christopher Wren: His Family and His Times,Lucy Phillimore,10014
+43452,The Master of Game: The Oldest English Book on Hunting,of Norwich Edward,10012
+40474,The Life and Writings of Henry Fuseli; Volume 3 (of 3),Henry Fuseli,10012
+24491,The Continental Monthly; Vol. 6; No. 6; December 1864,Various,10012
+43208,Music in the History of the Western Church,Edward Dickinson,10009

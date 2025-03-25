@@ -168,7 +168,6 @@ class Command(BaseCommand):
                 title=title,
                 author=author,
                 publication_year=year,
-                text_content=content,
                 file_path=file_path,
                 gutenberg_id=book_id,
             )

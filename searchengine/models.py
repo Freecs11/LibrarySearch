@@ -6,13 +6,21 @@ class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     publication_year = models.IntegerField(null=True, blank=True)
-    text_content = models.TextField()
-    file_path = models.CharField(max_length=512, blank=True, null=True)
+    file_path = models.CharField(max_length=512, blank=True, default="books_data/unknown.txt")
     gutenberg_id = models.IntegerField(null=True, blank=True, unique=True)
     
     # Fields for ranking
     centrality_score = models.FloatField(default=0.0)
     total_clicks = models.IntegerField(default=0)
+    
+    def get_text_content(self):
+        """Read book content from file."""
+        try:
+            with open(self.file_path, 'r', encoding='utf-8-sig', errors='replace') as f:
+                return f.read()
+        except Exception as e:
+            print(f"Error reading file {self.file_path}: {str(e)}")
+            return ""
     
     def __str__(self):
         return f"{self.title} by {self.author}"
