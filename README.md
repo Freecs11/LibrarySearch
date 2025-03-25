@@ -18,6 +18,7 @@ A sophisticated search engine for a library of text documents, built with Django
   - `BookIndex`: Indexes words in books for efficient searching
   - `SearchLog`: Logs user searches for recommendations
   - `BookClick`: Tracks which books users click on
+  - `BookSimilarity`: Stores Similarity graph data
   
 - **Main Components**:
   - Search engine with keyword and RegEx capabilities
@@ -55,7 +56,11 @@ A sophisticated search engine for a library of text documents, built with Django
 4. Install dependencies: `pip install -r requirements.txt`
 5. Download required NLTK data: `python manage.py download_nltk_data`
 6. Apply migrations: `python manage.py migrate`
-7. Fetch books from Project Gutenberg: `python manage.py fetch_gutenberg_books`
+7. Fetch books from Project Gutenberg: 
+  - `python manage.py find_good_books --count 1664 --max-workers 30 --output good_books.txt` gets ids of 1664 books that meet the 10K minimum words and stores them in good_books.txt
+  - `python manage.py download_gutenberg_books` downloads the books in the good_books.txt
+  - `python manage.py index_gutenberg_books` indexes the downloaded books and calculates their jaccaard similarity.
+
 8. Run the server: `python manage.py runserver`
 9. Visit `http://localhost:8000/` in your browser
 
@@ -69,9 +74,3 @@ If you encounter NLTK-related errors:
   nltk.download('punkt')
   nltk.download('stopwords')
   ```
-
-## Final Project - PRIMARY CHOICE
-
-This project fulfills the requirements of the DAAR Final Assignment - PRIMARY CHOICE.
-
-© 2024
