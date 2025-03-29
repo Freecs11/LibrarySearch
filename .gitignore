@@ -29,4 +29,4 @@ CLAUDE.md
 *.tgz
 
 # book folder
-books_data/
+books_data/db.sqlite3
