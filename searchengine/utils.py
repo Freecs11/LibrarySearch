@@ -52,7 +52,7 @@ stemmer = PorterStemmer()
 STOP_WORDS = set(stopwords.words("english"))
 
 # Minimum word length for indexing
-MIN_WORD_LENGTH = 3
+MIN_WORD_LENGTH = 4
 
 
 def clean_text(text):
@@ -73,7 +73,7 @@ def tokenize_text(text, apply_stemming=True):
     Tokenize text into words, removing stopwords and applying stemming.
     For book validation: Implements a strict tokenization that properly counts unique words.
     For search queries: Preserves multi-word phrases for better search results.
-    
+
     Args:
         text: The text to tokenize
         apply_stemming: Whether to apply stemming (default: True)
@@ -93,36 +93,65 @@ def tokenize_text(text, apply_stemming=True):
         # This ensures we can find things like "open door" even if they get tokenized
         # But only for short text (likely search queries, not book content)
         original_phrase = None
-        if " " in text and len(text.split()) <= 5:
-            # Add the original words (without cleaning) for better matching
-            original_tokens = [w.lower() for w in text.split() if len(w) >= MIN_WORD_LENGTH]
-            tokens.extend(original_tokens)
+        # if " " in text and len(text.split()) <= 5:
+        #     # Add the original words (without cleaning) for better matching
+        #     original_tokens = [w.lower() for w in text.split() if len(w) >= MIN_WORD_LENGTH]
+        #     tokens.extend(original_tokens)
 
-            # Also add the complete phrase as a token for exact matching
-            if len(text) > 1:
-                original_phrase = text.lower()
-                tokens.append(original_phrase)
+        #     # Also add the complete phrase as a token for exact matching
+        #     if len(text) > 1:
+        #         original_phrase = text.lower()
+        #         tokens.append(original_phrase)
 
         # Remove stopwords and short tokens
         # For short text (search queries), keep all tokens of minimum length
         # For long text (book content), remove stopwords
         is_query = len(text) <= 100  # If the text is short, it's likely a query
-        
+
         if is_query:
             tokens = [token for token in tokens if len(token) >= MIN_WORD_LENGTH]
         else:
             # For book content, be less aggressive with stopword removal
             # to ensure we get a more accurate word count for validation
-            if len(text) > 20000:  # Likely a book, not a query
+            if len(text) > 8000:  # Likely a book, not a query
                 # Keep words that appear in the text more than just as common stopwords
                 # This helps get a more accurate word count for large texts
                 # But still removes the most common words that would skew counts
-                limited_stopwords = {'the', 'and', 'a', 'to', 'of', 'in', 'i', 'that', 'is', 'was', 
-                                     'it', 'for', 'as', 'with', 'be', 'on', 'at', 'by', 'this', 'have'}
-                tokens = [token for token in tokens if (token not in limited_stopwords) and len(token) >= MIN_WORD_LENGTH]
+                limited_stopwords = {
+                    "the",
+                    "and",
+                    "a",
+                    "to",
+                    "of",
+                    "in",
+                    "i",
+                    "that",
+                    "is",
+                    "was",
+                    "it",
+                    "for",
+                    "as",
+                    "with",
+                    "be",
+                    "on",
+                    "at",
+                    "by",
+                    "this",
+                    "have",
+                }
+                tokens = [
+                    token
+                    for token in tokens
+                    if (token.lower() not in limited_stopwords)
+                    and len(token) >= MIN_WORD_LENGTH
+                ]
             else:
                 # Standard processing for search queries and smaller texts
-                tokens = [token for token in tokens if token not in STOP_WORDS and len(token) >= MIN_WORD_LENGTH]
+                tokens = [
+                    token.lower()
+                    for token in tokens
+                    if token.lower() not in STOP_WORDS and len(token) >= MIN_WORD_LENGTH
+                ]
 
         # Apply stemming to get the root form of words, except for the original phrase
         if apply_stemming:
@@ -139,7 +168,7 @@ def tokenize_text(text, apply_stemming=True):
         seen = set()
         unique_tokens = []
         for token in tokens:
-            if token not in seen:
+            if token.lower() not in seen:
                 seen.add(token)
                 unique_tokens.append(token)
 
@@ -172,10 +201,10 @@ def index_book(book):
 
     # Tokenize title and author for special weighting (with stemming)
     title_tokens = tokenize_text(book.title, apply_stemming=True)
-    
+
     # Also store the unstemmed title tokens for exact matching
     unstemmed_title_tokens = tokenize_text(book.title, apply_stemming=False)
-    
+
     author_tokens = tokenize_text(book.author, apply_stemming=True)
 
     # Count word occurrences in main text
@@ -197,11 +226,16 @@ def index_book(book):
 
     # Also add multi-word phrases from title to the index
     # Use the unstemmed title for exact phrase matching
-    title_words = [word for word in book.title.lower().split() if len(word) >= MIN_WORD_LENGTH]
+    title_words = [
+        word for word in book.title.lower().split() if len(word) >= MIN_WORD_LENGTH
+    ]
     if len(title_words) > 1:
         # Add bigrams (pairs of consecutive words)
         for i in range(len(title_words) - 1):
-            if len(title_words[i]) >= MIN_WORD_LENGTH and len(title_words[i+1]) >= MIN_WORD_LENGTH:
+            if (
+                len(title_words[i]) >= MIN_WORD_LENGTH
+                and len(title_words[i + 1]) >= MIN_WORD_LENGTH
+            ):
                 bigram = title_words[i] + " " + title_words[i + 1]
                 word_counts[bigram] = 30  # Very high weight for exact title phrases
 
@@ -211,8 +245,11 @@ def index_book(book):
             word_counts[full_title] = 50  # Extremely high weight for exact title match
 
     # Filter out words that are too short before creating indices
-    filtered_word_counts = {word: count for word, count in word_counts.items() 
-                          if len(word) >= MIN_WORD_LENGTH or " " in word}  # Keep multi-word phrases regardless of length
+    filtered_word_counts = {
+        word: count
+        for word, count in word_counts.items()
+        if len(word) >= MIN_WORD_LENGTH or " " in word
+    }  # Keep multi-word phrases regardless of length
 
     # Convert filtered dictionary back to Counter for most_common method
     filtered_counter = Counter(filtered_word_counts)
@@ -430,7 +467,7 @@ def build_jaccard_graph():
 
     # First, clear existing similarity relationships
     BookSimilarity.objects.all().delete()
-    
+
     # Determine number of chunks based on book count
     total_books = Book.objects.count()
     # Use smaller chunks for larger book counts to limit memory usage
@@ -454,27 +491,21 @@ def build_jaccard_graph():
         # Create bidirectional edges since the graph is undirected
         similarity_objects.append(
             BookSimilarity(
-                from_book_id=u,
-                to_book_id=v,
-                similarity_score=data['weight']
+                from_book_id=u, to_book_id=v, similarity_score=data["weight"]
             )
         )
         similarity_objects.append(
             BookSimilarity(
-                from_book_id=v,
-                to_book_id=u,
-                similarity_score=data['weight']
+                from_book_id=v, to_book_id=u, similarity_score=data["weight"]
             )
         )
-    
+
     # Bulk create the similarity relationships
     if similarity_objects:
         BookSimilarity.objects.bulk_create(
-            similarity_objects,
-            batch_size=1000,
-            ignore_conflicts=True
+            similarity_objects, batch_size=1000, ignore_conflicts=True
         )
-    
+
     print(f"Graph construction complete in {time.time() - start_time:.2f} seconds")
     print(f"Graph has {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
     print(f"Stored {len(similarity_objects)} similarity relationships in database")
@@ -524,7 +555,7 @@ def regex_search(pattern, book):
     try:
         # Get content from file
         book_content = book.get_text_content()
-        
+
         # Limit to first 100 matches for performance
         matches = re.finditer(pattern, book_content, re.IGNORECASE)
         return [match.group() for match in matches]

@@ -12,8 +12,8 @@ ENV/
 .venv/
 
 # Base de données
-db.sqlite3
-*.sqlite3
+# db.sqlite3
+# *.sqlite3
 *.sqlite3-journal
 *.db
 db.sqlite3.backup

@@ -64,13 +64,13 @@ class Command(BaseCommand):
         parser.add_argument(
             "--max-workers",
             type=int,
-            default=10,
+            default=20,
             help="Maximum number of parallel content processing workers",
         )
         parser.add_argument(
             "--batch-size",
             type=int,
-            default=50,
+            default=100,
             help="Number of books to process in each batch",
         )
         parser.add_argument(
@@ -116,6 +116,12 @@ class Command(BaseCommand):
             action="store_true",
             help="Reindex all books, including those already indexed",
         )
+        parser.add_argument(
+            "--number_books_to_index",
+            type=int,
+            default=20,
+            help="Number of books to index (for testing purposes)",
+        )
 
     def handle(self, *args, **options):
         self.ranking_method = options["ranking_method"]
@@ -131,12 +137,15 @@ class Command(BaseCommand):
         self.optimize_db = options["optimize_db"]
         self.min_word_length = options["min_word_length"]
         self.reindex_all = options["reindex_all"]
-        
+        self.number_books_to_index = options["number_books_to_index"]
+
         # If custom min word length is used, display it
         if self.min_word_length != MIN_WORD_LENGTH:
-            self.stdout.write(self.style.WARNING(
-                f"Using custom minimum word length: {self.min_word_length}"
-            ))
+            self.stdout.write(
+                self.style.WARNING(
+                    f"Using custom minimum word length: {self.min_word_length}"
+                )
+            )
 
         # Set up database queue with batch accumulation
         self.db_queue = queue.Queue()
@@ -172,6 +181,11 @@ class Command(BaseCommand):
             )
             return
 
+        # Limit the number of books to index if requested
+        if self.number_books_to_index:
+            book_files = book_files[: self.number_books_to_index]
+            self.stdout.write(f"Indexing {self.number_books_to_index} books")
+
         # Filter to specific books if requested
         if self.specific_books:
             specific_ids = [int(id.strip()) for id in self.specific_books.split(",")]
@@ -205,17 +219,20 @@ class Command(BaseCommand):
                 )
         elif self.reindex_all:
             # If reindex_all is set, delete all existing book indices
-            self.stdout.write(self.style.WARNING('Reindexing ALL books with improved stemming...'))
+            self.stdout.write(
+                self.style.WARNING("Reindexing ALL books with improved stemming...")
+            )
             try:
                 with self.db_lock:
                     from searchengine.models import BookIndex
+
                     count = BookIndex.objects.count()
                     BookIndex.objects.all().delete()
-                    self.stdout.write(f"Deleted {count} existing book indices for reindexing")
+                    self.stdout.write(
+                        f"Deleted {count} existing book indices for reindexing"
+                    )
             except Exception as e:
-                self.stdout.write(
-                    self.style.ERROR(f"Error clearing indices: {str(e)}")
-                )
+                self.stdout.write(self.style.ERROR(f"Error clearing indices: {str(e)}"))
 
         if not book_files:
             self.stdout.write(self.style.SUCCESS("No new books to index!"))
@@ -388,7 +405,7 @@ class Command(BaseCommand):
                         existing_book = Book.objects.filter(
                             gutenberg_id=book_data["gutenberg_id"]
                         ).first()
-                        
+
                         if existing_book and not self.reindex_all:
                             continue
                         elif existing_book and self.reindex_all:
@@ -396,6 +413,7 @@ class Command(BaseCommand):
                             book = existing_book
                             # Delete any existing indices for this book
                             from searchengine.models import BookIndex
+
                             BookIndex.objects.filter(book=book).delete()
                         else:
                             # Create new book entry
@@ -495,10 +513,12 @@ class Command(BaseCommand):
 
             # Get tokens and check length, applying stemming
             tokens = tokenize_text(content, apply_stemming=True)
-            
+
             # Filter out tokens that are too short based on min_word_length
-            filtered_tokens = [token for token in tokens if len(token) >= self.min_word_length]
-            
+            filtered_tokens = [
+                token for token in tokens if len(token) >= self.min_word_length
+            ]
+
             if self.verify_length and len(filtered_tokens) < MIN_WORDS_PER_BOOK:
                 return {
                     "status": "too_short",
@@ -527,17 +547,18 @@ class Command(BaseCommand):
         """Calculate centrality measures for all books."""
         start_time = time.time()
         self.stdout.write("Building Jaccard similarity graph...")
-        
+
         # Clear existing similarity relationships
         try:
             from searchengine.models import BookSimilarity
+
             self.stdout.write("Clearing existing Jaccard graph data...")
             BookSimilarity.objects.all().delete()
         except Exception as e:
             self.stdout.write(
                 self.style.ERROR(f"Error clearing existing graph data: {str(e)}")
             )
-        
+
         # Build the graph - the updated function will now store edges in the database
         G = build_jaccard_graph()
         graph_time = time.time() - start_time
@@ -588,14 +609,15 @@ class Command(BaseCommand):
         # Count the number of similarity edges stored in the database
         try:
             from searchengine.models import BookSimilarity
+
             edge_count = BookSimilarity.objects.count()
             self.stdout.write(
-                self.style.SUCCESS(f"Stored {edge_count} Jaccard graph edges in the database")
+                self.style.SUCCESS(
+                    f"Stored {edge_count} Jaccard graph edges in the database"
+                )
             )
         except Exception as e:
-            self.stdout.write(
-                self.style.ERROR(f"Error counting graph edges: {str(e)}")
-            )
+            self.stdout.write(self.style.ERROR(f"Error counting graph edges: {str(e)}"))
 
         centrality_time = time.time() - centrality_start
         total_time = time.time() - start_time
