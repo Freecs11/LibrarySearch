@@ -1,5 +1,7 @@
 """URL patterns for the search engine."""
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 from . import views
 
@@ -18,4 +20,12 @@ urlpatterns = [
     path('books/', views.BooksPageView.as_view(), name='books_page'),
     path('book/<int:pk>/', views.BookDetailView.as_view(), name='book_detail'),
     path('stats/', views.StatsPageView.as_view(), name='stats_page'),
+    
+    # Jaccard Matrix Visualization
+    path('matrix/', views.MatrixView.as_view(), name='matrix_view'),
+    path('matrix/download/', views.download_matrix, name='download_matrix'),
 ]
+
+# Serve static files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

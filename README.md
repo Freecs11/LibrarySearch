@@ -1,109 +1,117 @@
 # Library Search Engine
 
-A sophisticated search engine for a library of text documents, built with Django. This project allows users to search through a large collection of texts (from Project Gutenberg) using both keyword search and advanced regular expression search.
+A search engine for a digital library of books, featuring efficient indexing, keyword and regex search, and book recommendations.
 
 ## Features
 
-- **Keyword Search**: Find books containing specific words or phrases
-- **Advanced RegEx Search**: Use regular expressions for more complex search patterns
-- **Intelligent Ranking**: Results are ordered by relevance and centrality ranking
-- **Content Recommendations**: Get suggestions for similar books based on your search
-- **Interactive Web Interface**: User-friendly interface with responsive design
-- **Detailed Statistics**: View insights about the library and search patterns
+- **Efficient Indexing**: Each word is stored once with a list of book IDs for space efficiency
+- **Keyword Search**: Fast search for books containing specific words
+- **Regex Search**: Advanced search using regular expressions
+- **Book Recommendations**: Get recommendations based on book similarity
+- **Jaccard Similarity**: Books are related by their word similarity (Jaccard index)
+- **Centrality Ranking**: Books ranked by their importance in the similarity graph
 
-## Database Storage Optimization
-
-The system is optimized to reduce database size by:
-
-1. Storing book text files on disk rather than in the database
-2. Using file references in the DB model
-3. Loading content on-demand via the `get_text_content()` method
-
-### Migration from Content Storage to File References
-
-If upgrading from a previous version that stored full text content in the database:
-
-1. Run migrations to update the DB schema:
-   ```
-   python manage.py migrate
-   ```
-
-2. Run the SQL cleanup script to reclaim space:
-   ```
-   sqlite3 db.sqlite3 < migration_cleanup.sql
-   ```
-
-## Project Structure
-
-- **Models**:
-  - `Book`: Stores book metadata and file path references
-  - `BookIndex`: Indexes words in books for efficient searching
-  - `SearchLog`: Logs user searches for recommendations
-  - `BookClick`: Tracks which books users click on
-  
-- **Main Components**:
-  - Search engine with keyword and RegEx capabilities
-  - Centrality ranking algorithms (PageRank, Closeness, Betweenness)
-  - Book recommendation system based on Jaccard similarity
-  - Responsive web UI with Bootstrap
-  - RESTful API for all functionality
-
-## Technical Implementation
-
-- Built with Django and Django REST Framework
-- Uses algorithms from network theory for ranking
-- Implements Jaccard similarity for content recommendations
-- Employs efficient database indexing techniques
-- Provides both API endpoints and rendered templates
-- File-based content storage for reduced database size
-
-## Requirements
-
-- Python 3.8+
-- Django 4.2+
-- Django REST Framework
-- NumPy
-- SciPy
-- NetworkX
-- NLTK
-- Other dependencies in requirements.txt
-
-## Setup and Running
+## Setup and Installation
 
 1. Clone the repository
-2. Create a virtual environment: `python -m venv venv`
-3. Activate it: 
-   - Windows: `venv\Scripts\activate`
-   - Unix/MacOS: `source venv/bin/activate`
-4. Install dependencies: `pip install -r requirements.txt`
-5. Download required NLTK data: `python manage.py download_nltk_data`
-6. Apply migrations: `python manage.py migrate`
-7. Fetch books from Project Gutenberg: `python manage.py fetch_gutenberg_books`
-8. Run the server: `python manage.py runserver`
-9. Visit `http://localhost:8000/` in your browser
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Set up the database:
+   ```
+   ./update_schema.sh
+   ```
+4. Download NLTK data (required for text processing):
+   ```
+   python manage.py download_nltk_data
+   ```
+5. Index some books:
+   ```
+   python manage.py reindex_local_books
+   ```
 
+## Running the Application
 
-  pip install tqdm
+Use the optimized runner to start the server:
 
-  # Run the improved fetcher
-  python manage.py fetch_gutenberg_books_improved --count 1664 --max-workers 20
+```
+./optimize.sh
+```
 
-  # If you want to clean up orphaned files and short books
-  python manage.py fetch_gutenberg_books_improved --cleanup
+This script:
+1. Verifies the optimal_index table structure
+2. Optimizes the database for better performance
+3. Starts the Django development server
 
-## Troubleshooting
+The server will be available at http://127.0.0.1:8000/
 
-If you encounter NLTK-related errors:
-- Make sure to run `python manage.py download_nltk_data`
-- Or manually download required data:
-  ```python
-  import nltk
-  nltk.download('punkt')
-  nltk.download('stopwords')
-  ```
+## Management Commands
 
-## Final Project - PRIMARY CHOICE
+- `python manage.py reindex_local_books`: Re-index books from the local storage
+- `python manage.py download_gutenberg_books`: Download books from Project Gutenberg
+- `python manage.py verify_optimal_index`: Verify and repair the optimal_index table
+- `python manage.py optimize_database`: Optimize the database for better performance
+- `python manage.py export_jaccard_matrix`: Export the Jaccard similarity matrix
 
-This project fulfills the requirements of the DAAR Final Assignment - PRIMARY CHOICE.
+## Maintenance
 
-© 2024
+### Cleaning Up Unnecessary Files
+
+Run the cleanup script to remove unnecessary files from previous development iterations:
+
+```
+./cleanup.sh
+```
+
+### Updating the Database Schema
+
+If you make changes to the models, update the database schema:
+
+```
+./update_schema.sh
+```
+
+## Architecture
+
+This project uses:
+
+- **Django**: Web framework
+- **Django REST Framework**: API endpoints
+- **SQLite**: Database
+- **NLTK**: Natural language processing
+- **NetworkX**: Graph analysis for book similarity
+
+### Database Models
+
+- **Book**: Represents a book in the library
+- **OptimalIndex**: Efficient word indexing (one word → many books)
+- **BookSimilarity**: Graph edges representing similarity between books
+- **SearchLog**: Logs of user searches
+- **BookClick**: Tracks which books users click on after searching
+
+### Optimal Indexing
+
+The core of the system is the `optimal_index` table, which stores:
+- **word**: The indexed word (primary key)
+- **book_ids**: JSON array of book IDs containing this word
+- **book_counts**: JSON object mapping book IDs to occurrence counts
+- **total_occurrences**: Total occurrences across all books
+
+This structure provides significant space efficiency compared to traditional indexing.
+
+## API Endpoints
+
+- `/api/search/?q=<query>&regex=<bool>`: Search for books
+- `/api/books/`: List all books
+- `/api/books/<id>/`: Get book details
+- `/api/books/<id>/click/`: Record a click on a book
+- `/api/stats/`: Get search engine statistics
+
+## Web Interface
+
+- `/`: Home page with search interface
+- `/books/`: List of all books
+- `/book/<id>/`: Book detail page
+- `/stats/`: Statistics page
+- `/matrix/`: Jaccard similarity matrix visualization

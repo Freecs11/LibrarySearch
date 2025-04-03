@@ -1,0 +1,32 @@
+[
+  {
+    "keyword": "love",
+    "time": 0.031571388244628906,
+    "book_count": 467
+  },
+  {
+    "keyword": "tartarin",
+    "time": 0.014116525650024414,
+    "book_count": 6
+  },
+  {
+    "keyword": "death",
+    "time": 0.02973031997680664,
+    "book_count": 469
+  },
+  {
+    "keyword": "life",
+    "time": 0.028368711471557617,
+    "book_count": 600
+  },
+  {
+    "keyword": "king",
+    "time": 0.03530001640319824,
+    "book_count": 476
+  },
+  {
+    "keyword": "peace",
+    "time": 0.029191255569458008,
+    "book_count": 465
+  }
+]

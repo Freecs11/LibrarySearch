@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Jaccard Similarity Matrix{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Jaccard Similarity Matrix Visualization</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Matrix Controls</div>
+                <div class="card-body">
+                    <form method="get" action="{% url 'matrix_view' %}">
+                        <div class="form-group mb-3">
+                            <label for="sample_size">Sample Size (Max 200)</label>
+                            <input type="number" class="form-control" id="sample_size" name="sample_size" 
+                                   value="{{ sample_size }}" min="5" max="200">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="threshold">Similarity Threshold</label>
+                            <input type="number" class="form-control" id="threshold" name="threshold" 
+                                   value="{{ threshold }}" min="0" max="1" step="0.01">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Visualization</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Export Matrix</div>
+                <div class="card-body">
+                    <p>Export the Jaccard similarity matrix to view offline or in other tools.</p>
+                    <a href="{% url 'download_matrix' %}?format=csv&sample_size={{ sample_size }}" class="btn btn-success mb-2">Download CSV</a>
+                    <a href="{% url 'download_matrix' %}?format=json&sample_size={{ sample_size }}" class="btn btn-info mb-2">Download JSON</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-header">Matrix Visualization</div>
+        <div class="card-body text-center">
+            {% if matrix_url %}
+                <img src="{{ matrix_url }}" class="img-fluid" alt="Jaccard Similarity Matrix">
+            {% else %}
+                <div class="alert alert-warning">
+                    Matrix image not available. Try generating it first.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">About Jaccard Similarity</div>
+        <div class="card-body">
+            <p>The Jaccard similarity between two books is defined as the size of the intersection of their word sets divided by the size of the union:</p>
+            <p class="text-center">J(A,B) = |A ∩ B| / |A ∪ B|</p>
+            <p>This value ranges from 0 (completely different) to 1 (identical).</p>
+            <p>In this visualization, darker colors indicate higher similarity between books. The matrix is symmetric because similarity is bidirectional.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

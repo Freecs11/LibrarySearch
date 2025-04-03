@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "lo[vw]e",
+    "time": 8.814870357513428,
+    "book_count": 504
+  },
+  {
+    "pattern": "tart.*rin",
+    "time": 5.6661765575408936,
+    "book_count": 6
+  },
+  {
+    "pattern": "[dk]ing",
+    "time": 6.078148126602173,
+    "book_count": 542
+  },
+  {
+    "pattern": "h[aeiou]t",
+    "time": 6.585198640823364,
+    "book_count": 600
+  }
+]

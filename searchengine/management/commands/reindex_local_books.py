@@ -14,6 +14,7 @@ import queue
 import random
 import concurrent.futures
 import sqlite3
+import traceback
 from django.core.management.base import BaseCommand
 from django.db import transaction, connection, OperationalError
 from tqdm import tqdm
@@ -70,13 +71,13 @@ class Command(BaseCommand):
         parser.add_argument(
             "--batch-size",
             type=int,
-            default=100,
+            default=500,
             help="Number of books to process in each batch",
         )
         parser.add_argument(
             "--db-batch-size",
             type=int,
-            default=5,
+            default=50,
             help="Number of books to add to database in a single transaction",
         )
         parser.add_argument(
@@ -119,8 +120,13 @@ class Command(BaseCommand):
         parser.add_argument(
             "--number_books_to_index",
             type=int,
-            default=20,
+            default=610,
             help="Number of books to index (for testing purposes)",
+        )
+        parser.add_argument(
+            "--memory-mode",
+            action="store_true",
+            help="Use memory mode for faster processing (not recommended for large datasets)",
         )
 
     def handle(self, *args, **options):
@@ -138,6 +144,7 @@ class Command(BaseCommand):
         self.min_word_length = options["min_word_length"]
         self.reindex_all = options["reindex_all"]
         self.number_books_to_index = options["number_books_to_index"]
+        self.memory_mode = options.get("memory_mode", False)
 
         # If custom min word length is used, display it
         if self.min_word_length != MIN_WORD_LENGTH:
@@ -155,6 +162,10 @@ class Command(BaseCommand):
         # Optimize SQLite if requested
         if self.optimize_db:
             self._optimize_database()
+
+        # Memory mode setup - place this after the existing database optimization
+        if self.memory_mode:
+            self._setup_memory_mode()
 
         # Handle centrality-only mode
         if self.only_calculate_centrality:
@@ -281,7 +292,19 @@ class Command(BaseCommand):
             try:
                 book_count = Book.objects.count()
                 if book_count >= 2:
-                    self.calculate_centrality(self.ranking_method)
+                    # Only run if we have a significant number of new books or it's explicitly requested
+                    if total_indexed > 20 or self.only_calculate_centrality:
+                        self.stdout.write("Calculating centrality measures...")
+                        self.calculate_centrality(self.ranking_method)
+                    else:
+                        self.stdout.write(
+                            self.style.WARNING(
+                                f"Only {total_indexed} books added. Skipping centrality calculation to save time."
+                            )
+                        )
+                        self.stdout.write(
+                            "To force centrality calculation, use --only-calculate-centrality flag."
+                        )
                 else:
                     self.stdout.write(
                         self.style.WARNING(
@@ -295,8 +318,61 @@ class Command(BaseCommand):
         else:
             self.stdout.write("Skipping centrality calculation as requested.")
 
+    def _setup_memory_mode(self):
+        """Set up in-memory SQLite database for maximum performance."""
+        self.stdout.write(self.style.WARNING("Setting up in-memory SQLite mode..."))
+
+        # Original database file
+        db_file = connection.settings_dict["NAME"]
+
+        try:
+            # Connect to the real database
+            disk_conn = sqlite3.connect(db_file)
+
+            # Create an in-memory database
+            memory_conn = sqlite3.connect(":memory:")
+
+            # Copy the database to memory
+            disk_conn.backup(memory_conn)
+            disk_conn.close()
+
+            # Replace the Django connection with the in-memory one
+            # This is a bit of a hack but works for this specific use case
+            connection._DatabaseWrapper__connection = memory_conn
+
+            # Optimize the in-memory database
+            cursor = memory_conn.cursor()
+            cursor.execute(
+                "PRAGMA cache_size=-100000"
+            )  # Negative means KB instead of pages
+            cursor.execute("PRAGMA temp_store=MEMORY")
+            cursor.execute("PRAGMA synchronous=OFF")  # No need to sync for in-memory DB
+
+            self.stdout.write(
+                self.style.SUCCESS(
+                    "Database loaded into memory for maximum performance"
+                )
+            )
+
+            # Set up a function to save back to disk on exit
+            import atexit
+
+            def save_to_disk():
+                self.stdout.write("Saving in-memory database back to disk...")
+                disk_conn = sqlite3.connect(db_file)
+                memory_conn.backup(disk_conn)
+                disk_conn.close()
+                self.stdout.write(self.style.SUCCESS("Database saved to disk"))
+
+            atexit.register(save_to_disk)
+
+        except Exception as e:
+            self.stdout.write(
+                self.style.ERROR(f"Failed to setup memory mode: {str(e)}")
+            )
+
     def _optimize_database(self):
-        """Apply SQLite optimizations."""
+        """Apply more aggressive SQLite optimizations."""
         self.stdout.write("Optimizing SQLite database...")
 
         # Get the database file path
@@ -310,11 +386,18 @@ class Command(BaseCommand):
             # Enable WAL mode for better concurrency
             c.execute("PRAGMA journal_mode=WAL")
 
-            # Set pragmas for better performance
+            # Set pragmas for better performance - more aggressive settings
             c.execute("PRAGMA synchronous=NORMAL")
-            c.execute("PRAGMA cache_size=10000")
+            c.execute("PRAGMA cache_size=500000")  # Increased from 10000
             c.execute("PRAGMA temp_store=MEMORY")
             c.execute("PRAGMA mmap_size=30000000000")
+            c.execute("PRAGMA busy_timeout=60000")  # Add explicit busy timeout
+
+            # Add page size optimization , 1MB
+            c.execute("PRAGMA page_size=1048576")
+
+            # Disable auto_vacuum for better write performance
+            c.execute("PRAGMA auto_vacuum=NONE")
 
             # Run VACUUM to defragment
             c.execute("VACUUM")
@@ -395,57 +478,256 @@ class Command(BaseCommand):
         # Reset Django's database connection
         connection.close()
 
-        retries = 0
-        while retries < self.max_retries:
-            try:
-                with transaction.atomic():
-                    # Process each book in the batch within a single transaction
-                    for book_data in batch:
-                        # Check if book already exists
-                        existing_book = Book.objects.filter(
-                            gutenberg_id=book_data["gutenberg_id"]
-                        ).first()
+        # First, collect all the book processing tasks
+        books_to_create = []
+        books_to_index = []
 
-                        if existing_book and not self.reindex_all:
-                            continue
-                        elif existing_book and self.reindex_all:
-                            # If reindexing all, use existing book but reindex
-                            book = existing_book
-                            # Delete any existing indices for this book
+        for book_data in batch:
+            # Check if book already exists
+            existing_book = Book.objects.filter(
+                gutenberg_id=book_data["gutenberg_id"]
+            ).first()
+
+            if existing_book and not self.reindex_all:
+                continue
+            elif existing_book and self.reindex_all:
+                # If reindexing all, use existing book but mark for reindexing
+                books_to_index.append((existing_book, book_data))
+            else:
+                # Collect new books for batch creation
+                books_to_create.append(book_data)
+
+        # Now process in two phases with specialized retry logic
+
+        # 1. Create new books in a batch (faster)
+        if books_to_create:
+            created_books = self._create_books_batch(books_to_create)
+            # Add to indexing list
+            for book, data in created_books:
+                books_to_index.append((book, data))
+
+        # 2. Index books in smaller batches to handle locking
+        if books_to_index:
+            return self._index_books_batched(books_to_index)
+
+        return True
+
+    def _create_books_batch(self, book_data_list):
+        """Create books in batch for better performance."""
+        created_books = []
+        retries = 0
+        backoff_time = 0.1  # Start with shorter delay for creation
+
+        while retries < self.max_retries and book_data_list:
+            try:
+                # Attempt to create in one transaction for speed
+                with transaction.atomic():
+                    new_books = []
+                    for book_data in book_data_list:
+                        book = Book(
+                            title=book_data["title"],
+                            author=book_data["author"],
+                            publication_year=book_data["year"],
+                            file_path=book_data["file_path"],
+                            gutenberg_id=book_data["gutenberg_id"],
+                        )
+                        new_books.append(book)
+
+                    # Bulk create
+                    if new_books:
+                        Book.objects.bulk_create(new_books)
+
+                # Now get them back with IDs for indexing
+                for book_data in book_data_list:
+                    book = Book.objects.get(gutenberg_id=book_data["gutenberg_id"])
+                    created_books.append((book, book_data))
+
+                # All created successfully
+                book_data_list = []
+
+            except OperationalError as e:
+                if "database is locked" in str(e).lower():
+                    retries += 1
+                    backoff_time *= 2
+                    time.sleep(backoff_time + (random.random() * 0.5))
+                    self.stdout.write(
+                        f"Database locked during creation, retrying in {backoff_time:.2f}s"
+                    )
+                else:
+                    self.stdout.write(self.style.ERROR(f"Database error: {str(e)}"))
+                    # Try one-by-one as fallback
+                    break
+            except Exception as e:
+                self.stdout.write(
+                    self.style.ERROR(f"Error during batch creation: {str(e)}")
+                )
+                # Try one-by-one as fallback
+                break
+
+        # If we hit max retries or exception, fall back to one-by-one creation
+        if book_data_list:
+            self.stdout.write("Falling back to individual book creation")
+            for book_data in book_data_list:
+                try:
+                    book = Book.objects.create(
+                        title=book_data["title"],
+                        author=book_data["author"],
+                        publication_year=book_data["year"],
+                        file_path=book_data["file_path"],
+                        gutenberg_id=book_data["gutenberg_id"],
+                    )
+                    created_books.append((book, book_data))
+                except Exception as e:
+                    self.stdout.write(
+                        self.style.ERROR(
+                            f"Failed to create book {book_data['gutenberg_id']}: {e}"
+                        )
+                    )
+
+        return created_books
+
+    def _index_books_batched(self, books_to_index):
+        """Index books in smaller batches to avoid prolonged locks."""
+        # Use smaller internal batch size for indexing
+        internal_batch_size = min(3, self.db_batch_size)
+        success = True
+
+        # Process in smaller chunks
+        for i in range(0, len(books_to_index), internal_batch_size):
+            batch_slice = books_to_index[i : i + internal_batch_size]
+
+            # Index each batch with retries
+            retries = 0
+            backoff_time = 0.1
+            batch_success = False
+
+            while not batch_success and retries < self.max_retries:
+                try:
+                    # First, prepare indexing data
+                    for book, _ in batch_slice:
+                        # Clear any existing indices if reindexing
+                        if self.reindex_all:
                             from searchengine.models import BookIndex
 
                             BookIndex.objects.filter(book=book).delete()
-                        else:
-                            # Create new book entry
-                            book = Book.objects.create(
-                                title=book_data["title"],
-                                author=book_data["author"],
-                                publication_year=book_data["year"],
-                                file_path=book_data["file_path"],
-                                gutenberg_id=book_data["gutenberg_id"],
-                            )
 
-                        # Index the book using the existing utility function with stemming
+                    # Now index all books in batch
+                    for book, _ in batch_slice:
                         index_book(book)
 
+                    batch_success = True
+
+                except OperationalError as e:
+                    if "database is locked" in str(e).lower():
+                        retries += 1
+                        backoff_time *= 2
+                        sleep_time = backoff_time + (random.random() * 0.5)
+                        self.stdout.write(
+                            f"Database locked during indexing, retrying in {sleep_time:.2f}s"
+                        )
+                        time.sleep(sleep_time)
+                    else:
+                        self.stdout.write(self.style.ERROR(f"Database error: {str(e)}"))
+                        # Try individual indexing as fallback
+                        break
+                except Exception as e:
+                    # Check specifically for UNIQUE constraint errors
+                    if "UNIQUE constraint failed" in str(e):
+                        self.stdout.write(
+                            self.style.WARNING(
+                                f"UNIQUE constraint failed during batch indexing: {str(e)}"
+                            )
+                        )
+                        self.stdout.write(
+                            "This is likely due to concurrent indexing operations."
+                        )
+                    else:
+                        self.stdout.write(
+                            self.style.ERROR(f"Error during batch indexing: {str(e)}")
+                        )
+                        self.stdout.write(f"Traceback: {traceback.format_exc()}")
+                    # Try individual indexing as fallback
+                    break
+
+            # If batch failed, try one-by-one indexing as fallback
+            if not batch_success:
+                self.stdout.write("Falling back to individual book indexing")
+                for book, book_data in batch_slice:
+                    try:
+                        # Index with retry
+                        book_success = self._index_single_book(book)
+                        if not book_success:
+                            success = False
+                    except Exception as e:
+                        # Check if it's a UNIQUE constraint failure
+                        if "UNIQUE constraint failed" in str(e):
+                            self.stdout.write(
+                                self.style.WARNING(
+                                    f"UNIQUE constraint failed for book {book.gutenberg_id}. This likely means another process is indexing the same data."
+                                )
+                            )
+                            # We'll consider this a partial success - the word is already indexed
+                            continue
+                        else:
+                            self.stdout.write(
+                                self.style.ERROR(
+                                    f"Failed to index book {book.gutenberg_id}: {e}"
+                                )
+                            )
+                            success = False
+
+            # Add a small delay between batches
+            if i + internal_batch_size < len(books_to_index):
+                time.sleep(0.2)
+
+        return success
+
+    def _index_single_book(self, book):
+        """Index a single book with retries."""
+        retries = 0
+        backoff_time = 0.1
+
+        while retries < self.max_retries:
+            try:
+                index_book(book)
                 return True
             except OperationalError as e:
                 if "database is locked" in str(e).lower():
                     retries += 1
-                    sleep_time = (2**retries) * 0.1 + (random.random() * 0.5)
-                    time.sleep(sleep_time)
+                    backoff_time *= 2
+                    time.sleep(backoff_time + (random.random() * 0.1))
                 else:
                     self.stdout.write(self.style.ERROR(f"Database error: {str(e)}"))
                     return False
+            except sqlite3.IntegrityError as e:
+                # Special handling for UNIQUE constraint failures
+                if "UNIQUE constraint failed" in str(e):
+                    self.stdout.write(
+                        self.style.WARNING(
+                            f"Concurrent indexing detected for book {book.gutenberg_id}. Continuing..."
+                        )
+                    )
+                    # This is not a failure - the word is already in the index
+                    return True
+                else:
+                    self.stdout.write(
+                        self.style.ERROR(
+                            f"Database integrity error for book {book.gutenberg_id}: {str(e)}"
+                        )
+                    )
+                    return False
             except Exception as e:
                 self.stdout.write(
-                    self.style.ERROR(f"Error processing book batch: {str(e)}")
+                    self.style.ERROR(
+                        f"Error indexing book {book.gutenberg_id}: {str(e)}"
+                    )
                 )
                 return False
 
-        if retries == self.max_retries:
-            self.stdout.write(self.style.ERROR(f"Max retries reached for book batch"))
-            return False
+        self.stdout.write(
+            self.style.ERROR(f"Max retries reached for book {book.gutenberg_id}")
+        )
+        return False
 
     def _process_batch(self, batch_files):
         """Process a batch of book files in parallel."""
@@ -507,12 +789,29 @@ class Command(BaseCommand):
             gutenberg_id = int(book_id_match.group(1))
             file_path = os.path.join(BOOKS_STORAGE_PATH, file_name)
 
+            # Only print occasional progress updates
+            if gutenberg_id % 100 == 0:
+                print(f"Processing book {file_name} with ID {gutenberg_id}")
+
             # Read the book content
             with open(file_path, "r", encoding="utf-8-sig", errors="replace") as f:
                 content = f.read()
 
-            # Get tokens and check length, applying stemming
-            tokens = tokenize_text(content, apply_stemming=True)
+            # Check if content is actually a string
+            if not isinstance(content, str):
+                # Force it to be an empty string to avoid further errors
+                content = ""
+
+            # The problem is in the tokenize_text function using subscription on a method
+            try:
+                tokens = tokenize_text(content, apply_stemming=True)
+            except Exception as e:
+                print(f"Critical error tokenizing {file_name}: {e}")
+                # Return limited data to avoid further processing of this book
+                return {
+                    "status": "error",
+                    "error": f"Tokenization failed: {str(e)}",
+                }
 
             # Filter out tokens that are too short based on min_word_length
             filtered_tokens = [

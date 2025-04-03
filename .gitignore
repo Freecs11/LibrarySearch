@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 *.so
 .Python
+*/__pycache__/*
 
 # Environnement virtuel
 venv/
